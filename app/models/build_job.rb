@@ -8,6 +8,7 @@ class BuildJob < Struct.new(:build, :payload)
     end
     
     build_directory = "#{RAILS_ROOT}/builds/#{repository["name"]}"
+    FileUtils.mkdir_p(build_directory)
     build.update_attribute("status", "setting up repository")
     # Will have to have different directories for the different branches at one point.
     if !File.exist?(build_directory)
