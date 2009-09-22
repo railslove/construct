@@ -8,6 +8,16 @@ class ProjectsController < ApplicationController
     redirect_to project_builds_path(@project)
   end
   
+  def update
+    if @project.update_attributes(params[:project])
+      flash[:success] = "Project has been updated."
+      redirect_to project_path
+    else
+      flash[:error] = "Project could not be updated."
+      render :action => "edit"
+    end
+  end
+  
   def github
     Build.start(JSON.parse(params[:payload]))
     render :nothing => true

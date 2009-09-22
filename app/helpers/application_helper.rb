@@ -10,6 +10,8 @@ module ApplicationHelper
       ["projects", "projects"]
     elsif path =~ /^\/projects\/(.*?)\/builds\/(.*?)$/
       ["#{link_to("projects", projects_path)} / #{link_to(@project.name, @project)} / #{link_to("builds", project_builds_path(@project))} / #{@build.commit.short_sha} - ##{@build.number}", @title]
+    elsif path =~ /^\/projects\/(.*?)\/edit$/
+      ["#{link_to("projects", projects_path)} / #{link_to(@project.name, @project)}", "Editing Project"]
     end
     
     @title += " | construct"

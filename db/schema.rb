@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(:version => 20090922113901) do
     t.string   "sha"
     t.text     "modified"
     t.text     "added"
+    t.text     "removed"
     t.datetime "timestamp"
     t.integer  "author_id"
     t.string   "url"
     t.text     "message"
-    t.text     "removed"
   end
 
   create_table "delayed_jobs", :force => true do |t|

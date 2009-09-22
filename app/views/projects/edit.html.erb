@@ -1,0 +1,9 @@
+<h1>Editing Project</h1>
+
+<% form_for @project do |f| %>
+  <p>
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+  </p>
+  <%= f.submit %>
+<% end %>
