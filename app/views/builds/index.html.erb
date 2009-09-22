@@ -1,0 +1,5 @@
+<h1>Builds for <%= @project.name %></h1>
+
+<div id='latest'>
+  <%= link_to "Build #{@latest.commit.sha}", project_build_path(@project, @latest) %> <%= @latest.successful? ? "was successful" : "failed" %>
+</div>

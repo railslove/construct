@@ -1,0 +1,846 @@
+Unable to load payload, underlying cause no such file to load -- payload 
+
+ /Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:158:in `require'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:265:in `require_or_load'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:224:in `depend_on'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:136:in `require_dependency'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/fixtures.rb:853:in `try_to_load_dependency'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/fixtures.rb:868:in `require_fixture_classes'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/fixtures.rb:865:in `each'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/fixtures.rb:865:in `require_fixture_classes'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.3.4/lib/active_record/fixtures.rb:848:in `fixtures'
+./spec/models/build_spec.rb:4
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/example/example_group_methods.rb:176:in `module_eval'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/example/example_group_methods.rb:176:in `subclass'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/example/example_group_methods.rb:55:in `describe'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/example/example_group_factory.rb:31:in `create_example_group'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/dsl/main.rb:28:in `describe'
+./spec/models/build_spec.rb:3
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:147:in `load_without_new_constant_marking'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.3.4/lib/active_support/dependencies.rb:147:in `load'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/runner/example_group_runner.rb:15:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/runner/example_group_runner.rb:14:in `each'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/runner/example_group_runner.rb:14:in `load_files'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/runner/options.rb:107:in `run_examples'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/lib/spec/runner/command_line.rb:9:in `run'
+/Library/Ruby/Gems/1.8/gems/rspec-1.2.8/bin/spec:4
+  [4;36;1mBranch Create (0.5ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:55:49', '2009-09-22 00:55:49')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:56:40', '2009-09-22 00:56:40')[0m
+  [4;36;1mBranch Create (0.9ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:56:52', '2009-09-22 00:56:52')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:57:14', '2009-09-22 00:57:14')[0m
+  [4;36;1mBranch Create (0.5ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:57:35', '2009-09-22 00:57:35')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:57:59', '2009-09-22 00:57:59')[0m
+  [4;36;1mBranch Create (0.5ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:58:24', '2009-09-22 00:58:24')[0m
+  [4;35;1mCommit Load (0.2ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+  [4;36;1mBuild Create (0.4ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 00:58:24', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', NULL, '2009-09-22 00:58:24', NULL)[0m
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.7ms)[0m   [0;1mINSERT INTO "projects" ("name") VALUES('by_star')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 00:59:53', '2009-09-22 00:59:53')[0m
+  [4;35;1mCommit Load (0.2ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+  [4;36;1mBuild Create (0.4ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 00:59:53', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', NULL, '2009-09-22 00:59:53', NULL)[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.2ms)[0m   [0;1mINSERT INTO "projects" ("name") VALUES('by_star')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 01:00:40', '2009-09-22 01:00:40')[0m
+  [4;35;1mCommit Load (0.2ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+  [4;36;1mBuild Create (0.4ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 01:00:40', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', NULL, '2009-09-22 01:00:40', NULL)[0m
+  [4;35;1mProject Load (2.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.2ms)[0m   [0;1mINSERT INTO "projects" ("name") VALUES('by_star')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 01:07:23', '2009-09-22 01:07:23')[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+  [4;36;1mBranch Create (0.5ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 01:08:48', '2009-09-22 01:08:48')[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.2ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:11:07', '2009-09-22 05:11:07')[0m
+  [4;35;1mProject Create (0.6ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.3ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:11:47', '2009-09-22 05:11:47')[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mBranch Create (0.6ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:14:05', '2009-09-22 05:14:05')[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:14:57', '2009-09-22 05:14:57')[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.3ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', NULL, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (21.0ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:17:19', '2009-09-22 05:17:19')[0m
+  [4;35;1mProject Create (48.9ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mCommit Load (21.9ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.3ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', NULL, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 05:17:19', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 05:17:19', NULL)[0m
+  [4;36;1mPerson Create (0.4ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (0.5ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:48:33', '2009-09-22 05:48:33')[0m
+  [4;35;1mProject Create (0.5ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mCommit Load (0.2ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.3ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 05:48:33', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 05:48:33', NULL)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 05:48:50', '2009-09-22 05:48:50')[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.3ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 05:48:50', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 05:48:50', NULL)[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mPerson Create (1.0ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:19:56', '2009-09-22 06:19:56')[0m
+  [4;35;1mPerson Create (0.5ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:20:25', '2009-09-22 06:20:25')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "status") VALUES('2009-09-22 06:20:25', '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 06:20:25', NULL)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.7ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:21:54', '2009-09-22 06:21:54')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:22:23', '2009-09-22 06:22:23')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:22:51', '2009-09-22 06:22:51')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:23:14', '2009-09-22 06:23:14')[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:23:20', '2009-09-22 06:23:20')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', '/Users/ryanbigg/Sites/side_projects/constructa/specfixtures/build_instructions')[0m
+  [4;35;1mProject Load (0.6ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:23:45', '2009-09-22 06:23:45')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:24:13', '2009-09-22 06:24:13')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'mkdir tmp
+rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:27:13', '2009-09-22 06:27:13')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'mkdir tmp
+rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:28:25', '2009-09-22 06:28:25')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'mkdir tmp
+rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:28:57', '2009-09-22 06:28:57')[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:39:43', '2009-09-22 06:39:43')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'attempt_the_impossible' WHERE "id" = 1[0m
+  [4;36;1mBranch Create (1.7ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:40:28', '2009-09-22 06:40:28')[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Create (0.5ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.2ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'attempt_the_impossible' WHERE "id" = 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:40:41', '2009-09-22 06:40:41')[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'attempt_the_impossible' WHERE "id" = 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:42:03', '2009-09-22 06:42:03')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:42:03', NULL, NULL, '2009-09-22 06:42:03', NULL, 'setting up repository')[0m
+  [4;36;1mBuild Update (0.3ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:42:05', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:42:07', "status" = 'success', "output" = '(in /Users/ryanbigg/Sites/side_projects/constructa/builds/by_star)
+..................................................................................
+
+Finished in 0.454736 seconds
+
+82 examples, 0 failures
+' WHERE "id" = 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'attempt_the_impossible' WHERE "id" = 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Create (0.1ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:42:07', NULL, NULL, '2009-09-22 06:42:07', NULL, 'setting up repository')[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:42:08', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.5ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:42:08', "status" = 'failed', "output" = '' WHERE "id" = 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:43:12', '2009-09-22 06:43:12')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.5ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Create (0.1ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:43:12', NULL, NULL, '2009-09-22 06:43:12', NULL, 'setting up repository')[0m
+  [4;36;1mBuild Update (0.3ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:43:13', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:43:15', "status" = 'success', "output" = '' WHERE "id" = 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'attempt_the_impossible' WHERE "id" = 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Create (0.1ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:43:15', NULL, NULL, '2009-09-22 06:43:15', NULL, 'setting up repository')[0m
+  [4;35;1mBuild Update (0.3ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:43:16', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.6ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:43:16', "status" = 'failed', "output" = '' WHERE "id" = 1[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("created_at", "updated_at") VALUES('2009-09-22 06:44:06', '2009-09-22 06:44:06')[0m
+  [4;35;1mPerson Create (0.3ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Create (0.1ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:44:06', NULL, NULL, '2009-09-22 06:44:06', NULL, 'setting up repository')[0m
+  [4;36;1mBuild Update (0.4ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:44:07', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:44:09', "status" = 'success', "output" = '(in /Users/ryanbigg/Sites/side_projects/constructa/builds/by_star)
+..................................................................................
+
+Finished in 0.448174 seconds
+
+82 examples, 0 failures
+' WHERE "id" = 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'do_the_impossible' WHERE "id" = 1[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Create (0.1ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:44:09', NULL, NULL, '2009-09-22 06:44:09', NULL, 'setting up repository')[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:44:10', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.4ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:44:10', "status" = 'failed', "output" = '' WHERE "id" = 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" [0m
+
+
+Processing ProjectsController#receive (for 0.0.0.0 at 2009-09-22 16:49:51) [POST]
+  Parameters: {"payload"=>{"repository"=>{"name"=>"by_star", "private"=>false, "watchers"=>98, "fork"=>false, "url"=>"http://github.com/radar/by_star", "open_issues"=>0, "homepage"=>"http://runcoderun.com/radar/by_star", "description"=>"Lets you find ActiveRecord objects by year, month, fortnight, week and more!", "forks"=>2, "owner"=>{"name"=>"radar", "email"=>"radarlistener@gmail.com"}}, "after"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "commits"=>[{"added"=>[], "modified"=>["lib/by_star.rb", "spec/by_star_spec.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T16:52:49-07:00", "url"=>"http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "id"=>"6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "message"=>"ArgumentError will only be raised on versions < 1.8.7."}, {"added"=>[], "modified"=>["README.markdown", "lib/by_star.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T17:39:25-07:00", "url"=>"http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "id"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "message"=>"Added documentation for the current weekend and current work week, provided method names."}], "ref"=>"refs/heads/master", "before"=>"4b348f1466d1c73bf4cee17c9c377a4a207ea231"}}
+  [4;35;1mProject Load (0.1ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', NULL)[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:49:51', '--- !map:HashWithIndifferentAccess 
+repository: !map:HashWithIndifferentAccess 
+ name: by_star
+ watchers: 98
+ private: false
+ url: http://github.com/radar/by_star
+ fork: false
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ forks: 2
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ owner: !map:HashWithIndifferentAccess 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ref: refs/heads/master
+commits: 
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ added: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ added: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 06:49:51', NULL, NULL)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Update (0.1ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:49:51', "status" = 'setting up repository' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.4ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:49:53', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:49:53', "status" = 'failed', "output" = '' WHERE "id" = 1[0m
+Rendering projects/receive
+Completed in 1264ms (View: 1, DB: 3) | 200 OK [http://test.host/projects/receive?&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=6431ae852cb2574263bfa8f4dfaa85cff55db5eb&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=ArgumentError+will+only+be+raised+on+versions+%3C+1.8.7.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=spec%2Fby_star_spec.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T16%3A52%3A49-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F6431ae852cb2574263bfa8f4dfaa85cff55db5eb&&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=Added+documentation+for+the+current+weekend+and+current+work+week%2C+provided+method+names.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=README.markdown&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T17%3A39%3A25-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bafter%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bbefore%5D=4b348f1466d1c73bf4cee17c9c377a4a207ea231&payload%5Bref%5D=refs%2Fheads%2Fmaster&payload%5Brepository%5D%5Bdescription%5D=Lets+you+find+ActiveRecord+objects+by+year%2C+month%2C+fortnight%2C+week+and+more%21&payload%5Brepository%5D%5Bfork%5D=false&payload%5Brepository%5D%5Bforks%5D=2&payload%5Brepository%5D%5Bhomepage%5D=http%3A%2F%2Fruncoderun.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bname%5D=by_star&payload%5Brepository%5D%5Bopen_issues%5D=0&payload%5Brepository%5D%5Bowner%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Brepository%5D%5Bowner%5D%5Bname%5D=radar&payload%5Brepository%5D%5Bprivate%5D=false&payload%5Brepository%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bwatchers%5D=98]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" [0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" [0m
+
+
+Processing ProjectsController#receive (for 0.0.0.0 at 2009-09-22 16:50:20) [POST]
+  Parameters: {"payload"=>{"repository"=>{"name"=>"by_star", "private"=>false, "watchers"=>98, "fork"=>false, "url"=>"http://github.com/radar/by_star", "open_issues"=>0, "homepage"=>"http://runcoderun.com/radar/by_star", "description"=>"Lets you find ActiveRecord objects by year, month, fortnight, week and more!", "forks"=>2, "owner"=>{"name"=>"radar", "email"=>"radarlistener@gmail.com"}}, "after"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "commits"=>[{"added"=>[], "modified"=>["lib/by_star.rb", "spec/by_star_spec.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T16:52:49-07:00", "url"=>"http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "id"=>"6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "message"=>"ArgumentError will only be raised on versions < 1.8.7."}, {"added"=>[], "modified"=>["README.markdown", "lib/by_star.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T17:39:25-07:00", "url"=>"http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "id"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "message"=>"Added documentation for the current weekend and current work week, provided method names."}], "ref"=>"refs/heads/master", "before"=>"4b348f1466d1c73bf4cee17c9c377a4a207ea231"}}
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.3ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:50:20', '--- !map:HashWithIndifferentAccess 
+repository: !map:HashWithIndifferentAccess 
+ name: by_star
+ watchers: 98
+ private: false
+ url: http://github.com/radar/by_star
+ fork: false
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ forks: 2
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ owner: !map:HashWithIndifferentAccess 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ref: refs/heads/master
+commits: 
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ added: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ added: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 06:50:20', NULL, NULL)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Update (0.1ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:50:20', "status" = 'setting up repository' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.4ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:50:22', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.3ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:50:24', "status" = 'success', "output" = '(in /Users/ryanbigg/Sites/side_projects/constructa/builds/by_star)
+..................................................................................
+
+Finished in 0.448973 seconds
+
+82 examples, 0 failures
+' WHERE "id" = 1[0m
+Rendering projects/receive
+Completed in 3428ms (View: 2, DB: 3) | 200 OK [http://test.host/projects/receive?&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=6431ae852cb2574263bfa8f4dfaa85cff55db5eb&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=ArgumentError+will+only+be+raised+on+versions+%3C+1.8.7.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=spec%2Fby_star_spec.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T16%3A52%3A49-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F6431ae852cb2574263bfa8f4dfaa85cff55db5eb&&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=Added+documentation+for+the+current+weekend+and+current+work+week%2C+provided+method+names.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=README.markdown&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T17%3A39%3A25-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bafter%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bbefore%5D=4b348f1466d1c73bf4cee17c9c377a4a207ea231&payload%5Bref%5D=refs%2Fheads%2Fmaster&payload%5Brepository%5D%5Bdescription%5D=Lets+you+find+ActiveRecord+objects+by+year%2C+month%2C+fortnight%2C+week+and+more%21&payload%5Brepository%5D%5Bfork%5D=false&payload%5Brepository%5D%5Bforks%5D=2&payload%5Brepository%5D%5Bhomepage%5D=http%3A%2F%2Fruncoderun.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bname%5D=by_star&payload%5Brepository%5D%5Bopen_issues%5D=0&payload%5Brepository%5D%5Bowner%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Brepository%5D%5Bowner%5D%5Bname%5D=radar&payload%5Brepository%5D%5Bprivate%5D=false&payload%5Brepository%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bwatchers%5D=98]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" [0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "instructions") VALUES('by_star', 'rake spec')[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" [0m
+
+
+Processing ProjectsController#receive (for 0.0.0.0 at 2009-09-22 16:52:06) [POST]
+  Parameters: {"payload"=>{"repository"=>{"name"=>"by_star", "private"=>false, "watchers"=>98, "fork"=>false, "url"=>"http://github.com/radar/by_star", "open_issues"=>0, "homepage"=>"http://runcoderun.com/radar/by_star", "description"=>"Lets you find ActiveRecord objects by year, month, fortnight, week and more!", "forks"=>2, "owner"=>{"name"=>"radar", "email"=>"radarlistener@gmail.com"}}, "after"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "commits"=>[{"added"=>[], "modified"=>["lib/by_star.rb", "spec/by_star_spec.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T16:52:49-07:00", "url"=>"http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "id"=>"6431ae852cb2574263bfa8f4dfaa85cff55db5eb", "message"=>"ArgumentError will only be raised on versions < 1.8.7."}, {"added"=>[], "modified"=>["README.markdown", "lib/by_star.rb"], "author"=>{"name"=>"Ryan Bigg", "email"=>"radarlistener@gmail.com"}, "removed"=>[], "timestamp"=>"2009-08-28T17:39:25-07:00", "url"=>"http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "id"=>"8d0f748fa07b08d88afc69568f7d4f7207b9ee50", "message"=>"Added documentation for the current weekend and current work week, provided method names."}], "ref"=>"refs/heads/master", "before"=>"4b348f1466d1c73bf4cee17c9c377a4a207ea231"}}
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.2ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "timestamp", "removed", "project_id", "url", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', NULL, '2009-08-28 23:52:49', '--- []
+
+', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("created_at", "payload", "commit_id", "updated_at", "output", "status") VALUES('2009-09-22 06:52:06', '--- !map:HashWithIndifferentAccess 
+repository: !map:HashWithIndifferentAccess 
+ name: by_star
+ watchers: 98
+ private: false
+ url: http://github.com/radar/by_star
+ fork: false
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ forks: 2
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ owner: !map:HashWithIndifferentAccess 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ref: refs/heads/master
+commits: 
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ added: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- !map:HashWithIndifferentAccess 
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ added: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ removed: []
+
+ author: !map:HashWithIndifferentAccess 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-22 06:52:06', NULL, NULL)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Update (0.1ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:52:06', "status" = 'setting up repository' WHERE "id" = 1[0m
+  [4;35;1mBuild Update (0.3ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-22 06:52:08', "status" = 'running the build' WHERE "id" = 1[0m
+  [4;36;1mBuild Update (0.4ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-22 06:52:10', "status" = 'success', "output" = '(in /Users/ryanbigg/Sites/side_projects/constructa/builds/by_star)
+..................................................................................
+
+Finished in 0.448544 seconds
+
+82 examples, 0 failures
+' WHERE "id" = 1[0m
+Rendering projects/receive
+Completed in 3665ms (View: 2, DB: 3) | 200 OK [http://test.host/projects/receive?&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=6431ae852cb2574263bfa8f4dfaa85cff55db5eb&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=ArgumentError+will+only+be+raised+on+versions+%3C+1.8.7.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=spec%2Fby_star_spec.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T16%3A52%3A49-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F6431ae852cb2574263bfa8f4dfaa85cff55db5eb&&&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Bcommits%5D%5B%5D%5Bauthor%5D%5Bname%5D=Ryan+Bigg&payload%5Bcommits%5D%5B%5D%5Bid%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bcommits%5D%5B%5D%5Bmessage%5D=Added+documentation+for+the+current+weekend+and+current+work+week%2C+provided+method+names.&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=README.markdown&payload%5Bcommits%5D%5B%5D%5Bmodified%5D%5B%5D=lib%2Fby_star.rb&payload%5Bcommits%5D%5B%5D%5Btimestamp%5D=2009-08-28T17%3A39%3A25-07%3A00&payload%5Bcommits%5D%5B%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star%2Fcommit%2F8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bafter%5D=8d0f748fa07b08d88afc69568f7d4f7207b9ee50&payload%5Bbefore%5D=4b348f1466d1c73bf4cee17c9c377a4a207ea231&payload%5Bref%5D=refs%2Fheads%2Fmaster&payload%5Brepository%5D%5Bdescription%5D=Lets+you+find+ActiveRecord+objects+by+year%2C+month%2C+fortnight%2C+week+and+more%21&payload%5Brepository%5D%5Bfork%5D=false&payload%5Brepository%5D%5Bforks%5D=2&payload%5Brepository%5D%5Bhomepage%5D=http%3A%2F%2Fruncoderun.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bname%5D=by_star&payload%5Brepository%5D%5Bopen_issues%5D=0&payload%5Brepository%5D%5Bowner%5D%5Bemail%5D=radarlistener%40gmail.com&payload%5Brepository%5D%5Bowner%5D%5Bname%5D=radar&payload%5Brepository%5D%5Bprivate%5D=false&payload%5Brepository%5D%5Burl%5D=http%3A%2F%2Fgithub.com%2Fradar%2Fby_star&payload%5Brepository%5D%5Bwatchers%5D=98]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" [0m
