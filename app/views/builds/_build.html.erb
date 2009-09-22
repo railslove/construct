@@ -1,0 +1,38 @@
+<div id='last_build' class='<%= build.status %>'>
+  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> <%= build.report %></h1>
+  <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
+    <p class="submit">
+      <button type="submit" title="Rebuild this commit">Rebuild</button>
+    </p>
+  <% end %>
+  <blockquote>
+    <p><%= build.commit.message %></p>
+    <p class='meta'>
+      <span class='who'>by: <%= build.commit.author %></span> |
+      <span class="when" title="<%= build.commit.timestamp %>">
+        on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %>
+      </span> |
+      <span class="what">commit: <%= build.commit.sha %></span>
+    </p>
+  </blockquote>
+  
+  <h2>Build output</h2>
+
+  <pre class="output"><%= build.output %></pre>
+  
+  <% if !@previous_builds.empty? %>
+    <h2>Previous builds</h2>
+    <% for prev_build in @previous_builds %>
+      <ul id='previous_builds'>
+        <li class='<%= prev_build.status %>'>
+          <% link_to project_build_path(@project, prev_build) do %>
+            <strong class="build">Build #<%= prev_build.number %> - <%= prev_build.commit.short_sha %></strong>
+            <span class="attribution">by <%= prev_build.commit.author %>, on <%= prev_build.commit.timestamp.strftime("%B") %> <%= prev_build.commit.timestamp.strftime("%d").to_i.ordinalize %></span>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  <% else %>
+    There are no builds before this one.
+  <% end %>
+</div>

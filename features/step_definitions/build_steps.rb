@@ -1,4 +1,3 @@
 Then /^I should see "([^\"]*)" as the latest$/ do |sha|
-  Commit.all.map(&:sha)
-  Nokogiri::HTML(response.body).xpath("//div[@id='latest']").text.should include(sha)
+  Nokogiri::HTML(response.body).xpath("//div[@id='last_build']").text.should include(sha[0..8])
 end

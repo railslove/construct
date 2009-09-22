@@ -12,6 +12,17 @@ a {
   a:hover {
     color: #ffffff;
     background-color: #ed1556; }
+    
+.flash {
+  padding: 10px;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+#notice {
+  background: #F7FFA5;
+  border: 1px solid #C5CD86;
+}
 
 #header, #content, #footer {
   width: 80%;

@@ -1,5 +1,7 @@
-class BuildJob < Struct.new(:build, :payload)
+class BuildJob < Struct.new(:build_id, :payload)
   def perform
+    # Why must we do this?
+    build = Build.find(build_id)
     repository = payload["repository"]
     project = Project.find_by_name(repository["name"])
     if !project

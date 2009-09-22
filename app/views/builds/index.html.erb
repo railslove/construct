@@ -1,37 +1,3 @@
 <%= link_to "Edit Project", edit_project_path(@project) %>
 
-<div id='last_build' class='<%= @latest.status %>'>
-  <h1>Built <%= @commit.short_sha %> <%= @latest.report %></h1>
-  <% form_for @latest, :url => rebuild_project_build_path(@project, @latest) do |f| %>
-    <p class="submit">
-      <button type="submit" title="Rebuild this commit">Rebuild</button>
-    </p>
-  <% end %>
-  <blockquote>
-    <p><%= @commit.message %></p>
-    <p class='meta'>
-      <span class='who'>by: <%= @commit.author %></span> |
-      <span class="when" title="<%= @commit.timestamp %>">
-        on <%= @commit.timestamp.strftime("%B") %> <%= @commit.timestamp.strftime("%d").to_i.ordinalize %>
-      </span> |
-      <span class="what">commit: <%= @commit.sha %></span>
-    </p>
-  </blockquote>
-  
-  <h2>Build output</h2>
-
-  <pre class="output"><%= @latest.output %></pre>
-  
-  <% if !@previous_builds.empty? %>
-    <h2>Previous builds</h2>
-    <% for build in @previous_builds %>
-      <ul id='previous_builds'>
-        <li class='<%= build.status %>'>
-      
-        </li>
-      </ul>
-    <% end %>
-  <% else %>
-    There are no builds before this one.
-  <% end %>
-</div>
+<%= render :partial => @latest %>
