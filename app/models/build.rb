@@ -53,6 +53,7 @@ class Build < ActiveRecord::Base
   private
   
   def increment_number
+    logger.debug(p(self))
     self.number = commit.builds.count
   end
 end
