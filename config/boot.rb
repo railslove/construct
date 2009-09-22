@@ -84,10 +84,11 @@ module Rails
       def load_rubygems
         min_version = '1.3.2'
         require 'rubygems'
-        unless rubygems_version >= min_version
-          $stderr.puts %Q(Rails requires RubyGems >= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
-          exit 1
-        end
+        # Server is lying.
+        # unless rubygems_version >= min_version
+        #   $stderr.puts %Q(Rails requires RubyGems >= #{min_version} (you have #{rubygems_version}). Please `gem update --system` and try again.)
+        #   exit 1
+        # end
 
       rescue LoadError
         $stderr.puts %Q(Rails requires RubyGems >= #{min_version}. Please install RubyGems and try again: http://rubygems.rubyforge.org)
