@@ -3,6 +3,6 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :builds
   end
   
-  map.connect "receive", :controller => "projects", :action => "receive", :conditions => { :method => :post }
+  map.connect "github", :controller => "projects", :action => "github", :conditions => { :method => :post }
   map.root :projects
 end

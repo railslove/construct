@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
     redirect_to project_builds_path(@project)
   end
   
-  def receive
+  def github
     Build.start(JSON.parse(params[:payload]))
     render :nothing => true
   end
