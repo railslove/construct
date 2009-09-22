@@ -2,6 +2,11 @@
 
 <div id='last_build' class='<%= @latest.status %>'>
   <h1>Built <%= @commit.short_sha %> <%= @latest.report %></h1>
+  <% form_for @latest, :url => rebuild_project_build_path(@project, @latest) do |f| %>
+    <p class="submit">
+      <button type="submit" title="Rebuild this commit">Rebuild</button>
+    </p>
+  <% end %>
   <blockquote>
     <p><%= @commit.message %></p>
     <p class='meta'>

@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :projects do |project|
-    project.resources :builds
+    project.resources :builds, :member => { :rebuild => :put }
   end
   
   map.connect "github", :controller => "projects", :action => "github", :conditions => { :method => :post }

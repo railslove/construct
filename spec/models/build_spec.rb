@@ -5,21 +5,25 @@ describe Build do
     before do
       @github = payload(:github)
       @project = Project.make(:by_star)
-      @build = Build.new
+      @build = Build.start(@github)
     end
     
     subject { BuildJob.new(@build, @github).perform }
   
     it "should succeed" do
-      p @build.output
       should be_successful
     end
   
     it "should fail" do
       @project.instructions = "do_the_impossible"
       @project.save!
-      
-      should_not be_successful      
+      should_not be_successful
+    end
+    
+    it "should be able to rebuild" do
+      assert_difference "Build.count" do
+        @build.rebuild
+      end
     end
   end
   

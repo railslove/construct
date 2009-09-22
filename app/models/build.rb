@@ -1,6 +1,6 @@
 class Build < ActiveRecord::Base
   default_scope :order => "created_at DESC"
-  
+  serialize :payload, Hash
   belongs_to :commit
   class << self
     def start(payload)
@@ -12,7 +12,8 @@ class Build < ActiveRecord::Base
       project      = commit.project
       build        = create!(:payload => payload, :commit => commit)
       
-      BuildJob.new(build, payload).perform
+      Delayed::Job.enqueue(BuildJob.new(build, payload))
+      build
     end
   end
   
@@ -22,6 +23,10 @@ class Build < ActiveRecord::Base
   
   def to_s
     commit.short_sha
+  end
+  
+  def rebuild
+    Build.start(payload)
   end
   
   def report
