@@ -3,6 +3,8 @@ class BuildsController < ApplicationController
   
   def index
     @latest = @project.builds.first
+    @previous_builds = @project.builds.all(:conditions => ["created_at < ?", @latest.created_at])
+    @commit = @latest.commit
     @builds = @project.builds[1..-1]
   end
   

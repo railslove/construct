@@ -1,5 +1,8 @@
-<h1>Projects</h1>
-
-<% for project in @projects %>
-  <%= link_to project.name, project_builds_path(project) %>
-<% end %>
+<ul id='projects'>
+  <% for project in @projects %>
+    <li class='<%= cycle("even", "odd") %> <%= project.builds.first.status %>'>  
+      <%= link_to project.name, project_builds_path(project) %>
+      <div class="meta">Built <%= project.builds.first %> successfully</div>
+    </li>
+  <% end %>
+</ul>

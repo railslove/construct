@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html lang="en">
+  <head>
+    <% header_and_title %>
+  	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<title><%= @title %></title>
+  	<%= stylesheet_link_tag "reset", "buttons", "integrity" %>
+  </head>
+  <body>
+    <div id='header'>
+      <h1><%= @header %></h1>
+      <address class='watermark'>checked with <a title="http://mocra.com">construct</a></address>
+    </div>
+    
+    <div id='content'>
+      <%= yield %>
+    </div>
+  </body>
+</html>

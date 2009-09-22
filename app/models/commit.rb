@@ -8,4 +8,8 @@ class Commit < ActiveRecord::Base
   def author=(params)
     self.old_author = Person.new(params)
   end
+  
+  def short_sha
+    sha[0..8]
+  end
 end

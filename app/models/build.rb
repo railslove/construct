@@ -19,4 +19,12 @@ class Build < ActiveRecord::Base
   def successful?
     status == "success"
   end
+  
+  def to_s
+    commit.short_sha
+  end
+  
+  def report
+    successful? ? "successfully" : "failed"
+  end
 end
