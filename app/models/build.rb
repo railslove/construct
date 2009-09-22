@@ -3,7 +3,7 @@ class Build < ActiveRecord::Base
   serialize :payload, Hash
   belongs_to :commit
   
-  before_create :increment_number
+  # before_create :increment_number
   
   delegate :project, :to => :commit
   
