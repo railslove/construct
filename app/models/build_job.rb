@@ -7,11 +7,11 @@ class BuildJob < Struct.new(:build, :payload)
       exit!
     end
     
-    build_directory = "#{RAILS_ROOT}/builds/#{repository["name"]}"
+    build_directory = "/data/builds/#{repository["name"]}"
     FileUtils.mkdir_p(build_directory)
     build.update_attribute("status", "setting up repository")
     # Will have to have different directories for the different branches at one point.
-    if !File.exist?(build_directory)
+    if !File.exist?(File.join(build_directory, ".git"))
       clone_url = repository["url"].gsub(/^http/, 'git')
       `git clone #{clone_url} #{build_directory}`
     end

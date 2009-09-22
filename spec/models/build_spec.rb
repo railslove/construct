@@ -11,6 +11,7 @@ describe Build do
     subject { BuildJob.new(@build, @github).perform }
   
     it "should succeed" do
+      p @build.output
       should be_successful
     end
   
