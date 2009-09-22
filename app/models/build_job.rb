@@ -19,7 +19,7 @@ class BuildJob < Struct.new(:build_id, :payload)
     end
      
     Dir.chdir(build_directory) do
-      `git pull`
+      `git pull origin master`
       build.update_attribute("status", "running the build")
       build.output = `#{project.instructions}`
       build.update_attribute("status", $?.success? ? "success" : "failed")
