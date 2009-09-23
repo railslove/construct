@@ -8,16 +8,14 @@ class BuildJob < Struct.new(:build_id, :payload)
       puts "There is no project."
       exit!
     end
-    
-    build_directory = "/data/builds/#{repository["name"]}"
     build.update_attribute("status", "setting up repository")
     # Will have to have different directories for the different branches at one point.
-    if !File.exist?(File.join(build_directory, ".git"))
-      clone_url = "git@github.com:#{repository["owner"]["name"]}/#{repository["name"]}.git"
-      `git clone #{clone_url} #{build_directory}`
+    if !File.exist?(File.join(project.build_directory, ".git"))
+      clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
+      `git clone #{clone_url} #{project.build_directory}`
     end
      
-    Dir.chdir(build_directory) do
+    Dir.chdir(project.build_directory) do
       `git pull origin master`
       build.update_attribute("status", "running the build")
       build.output = `#{project.instructions}`

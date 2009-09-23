@@ -1,3 +1,3 @@
-Given /^there is a payload of$/ do |payload|
+Given /^there is a github payload of$/ do |payload|
   post 'github', :payload => payload
 end

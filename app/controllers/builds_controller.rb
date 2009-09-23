@@ -18,8 +18,8 @@ class BuildsController < ApplicationController
       flash[:notice] = "Build #{@build.commit.short_sha} rebuilding for #{@build.project.name}"
     else
       flash[:error] = "Build #{@build.commit.short_sha} could not be built: #{@new_build.errors.full_messages.to_sentence}"
-      @new_build = @build
       @new_build.destroy
+      @new_build = @build
     end
     redirect_to [@project, @new_build]
   end

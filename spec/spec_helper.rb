@@ -20,3 +20,7 @@ require File.dirname(__FILE__) + "/blueprints"
 def payload(key)
   YAML::load_file(File.dirname(__FILE__) + "/fixtures/payload.yml")[key.to_s]
 end
+
+def private_payload(key)
+  YAML::load_file(File.dirname(__FILE__) + "/fixtures/private_payload.yml")[key]
+end

@@ -6,9 +6,15 @@ class Project < ActiveRecord::Base
   before_create :default_instructions
   
   class << self
-    def find_by_payload(payload)
-      # May want to do more later
-      find_or_create_by_name(payload["repository"]["name"]) 
+    def find_or_create_by_payload_and_site(payload, site)
+      project = find_or_create_by_name(payload["repository"]["name"]) 
+      project.build_directory = "/data/builds/" + if site == "github.com"
+        payload["repository"]["name"]
+      elsif site == "codebasehq.com"
+        payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
+      end
+      project.save!
+      project
     end
   end
   
