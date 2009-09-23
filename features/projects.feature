@@ -68,7 +68,13 @@ Feature: Projects
     And I press "Rebuild"
     Then I should see "Build 6431ae852cb2574263bfa8f4dfaa85cff55db5eb rebuilding for by_star"
     
-    
-    
+  
+  Scenario: Rebuilding the same build in quick succession should fail
+    When I follow "by_star"
+    And I press "Rebuild"
+    Then I should see "Build 6431ae852cb2574263bfa8f4dfaa85cff55db5eb rebuilding for by_star"
+    When I press "Rebuid"
+    Then I should not see "Build 6431ae852 rebuilding for by_star"
+    Then I should see "Build 6431ae852 could not be built: This commit is already queued to build."
   
   

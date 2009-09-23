@@ -9,6 +9,9 @@ class Build < ActiveRecord::Base
   
   named_scope :before, lambda { |build| { :conditions => ["created_at < ?", build.created_at]}}
   
+  class AlreadyQueued < StandardError
+  end
+  
   class << self
     def start(payload)
       first_commit = payload["commits"].first
@@ -17,8 +20,15 @@ class Build < ActiveRecord::Base
       commit       = project.commits.find_by_sha(first_commit["sha"])
       commit     ||= project.commits.create!(first_commit)
       project      = commit.project
-      build        = create!(:payload => payload, :commit => commit, :status => "queued")
+      build        = create!(:payload => payload, :commit => commit, :status => "queued", :instructions => project.instructions)
       build_id     = build.id
+      # Trying to find if this build has already been queued.
+      # The way we detect this for now is to inspect all the handlers of all current jobs.
+      for job in Delayed::Job.all
+        if Build.find(YAML.load(job.handler.split("\n")[1..-1].join("\n"))["build_id"]).commit == commit
+          build.errors.add_to_base "This commit is already queued to build."
+        end
+      end
       Delayed::Job.enqueue(BuildJob.new(build_id, payload))
       build
     end

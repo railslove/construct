@@ -13,7 +13,7 @@ class BuildJob < Struct.new(:build_id, :payload)
     build.update_attribute("status", "setting up repository")
     # Will have to have different directories for the different branches at one point.
     if !File.exist?(File.join(build_directory, ".git"))
-      clone_url = "git@github.com:#{repository["owner"]["name"]}/#{repository["name"]}"
+      clone_url = "git@github.com:#{repository["owner"]["name"]}/#{repository["name"]}.git"
       `git clone #{clone_url} #{build_directory}`
     end
      
