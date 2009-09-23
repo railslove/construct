@@ -14,10 +14,10 @@ class Build < ActiveRecord::Base
   
   class << self
     def start(payload)
-      p self
       first_commit = payload["commits"].first
       first_commit["sha"] = first_commit["id"]
-      project      = Project.find_or_create_by_payload_and_site(payload, "codebasehq.com")
+      site = self == GithubBuild ? "github.com" : "codebasehq.com"
+      project      = Project.find_or_create_by_payload_and_site(payload, site)
       commit       = project.commits.find_by_sha(first_commit["sha"])
       commit     ||= project.commits.create!(first_commit)
       project      = commit.project
@@ -25,7 +25,7 @@ class Build < ActiveRecord::Base
                              :commit => commit, 
                              :status => "queued", 
                              :instructions => project.instructions, 
-                             :site => "codebasehq.com"
+                             :site =>  site
                              )
       build_id     = build.id
       # Trying to find if this build has already been queued.
@@ -63,8 +63,7 @@ class Build < ActiveRecord::Base
   end
   
   def rebuild
-    klass = github? ? Build::Github : Build::Codebase
-    Build::Github.start(payload)
+    klass = github? ? GithubBuild.start(payload) : CodebaseBuild.start(payload)
   end
   
   def report

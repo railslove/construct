@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090923065433) do
+ActiveRecord::Schema.define(:version => 20090923093522) do
 
   create_table "branches", :force => true do |t|
     t.datetime "created_at"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20090923065433) do
     t.string "name"
     t.text   "instructions"
     t.string "build_directory"
+    t.string "site"
   end
 
 end

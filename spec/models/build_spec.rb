@@ -6,9 +6,15 @@ describe Build do
     describe site do
       before do
         @payload = payload(site.downcase) || private_payload(site.downcase)
-        p @payload
         @build = "#{site}Build".constantize.start(@payload)
         @project = Project.find_by_name(@payload["repository"]["name"])
+      end
+      
+      def instructions
+        if @project.site == "codebasehq.com"
+          @project.instructions = "cp config/database.yml.example config/database.yml && rake db:create:all --trace && git submodule update --init && RAILS_ENV=test rake gems:install db:migrate db:test:prepare spec features --trace"
+          @project.save!
+        end
       end
     
       subject { BuildJob.new(@build, @payload).perform }
@@ -18,6 +24,7 @@ describe Build do
       end
   
       it "should succeed" do
+        instructions
         should be_successful
       end
   
@@ -28,6 +35,7 @@ describe Build do
       end
     
       it "should be able to rebuild" do
+        instructions
         assert_difference "Build.count" do
           @build.rebuild
         end
