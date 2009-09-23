@@ -1,3 +1,0 @@
-class CodebaseBuild < Build
-
-end

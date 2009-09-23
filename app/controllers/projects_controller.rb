@@ -19,7 +19,12 @@ class ProjectsController < ApplicationController
   end
   
   def github
-    Build.start(JSON.parse(params[:payload]))
+    GithubBuild.start(JSON.parse(params[:payload]))
+    render :nothing => true
+  end
+  
+  def codebase
+    CodebaseBuild.start(JSON.parse(params[:payload]))
     render :nothing => true
   end
   

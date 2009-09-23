@@ -1,3 +1,0 @@
-class GithubBuild < Build
-
-end

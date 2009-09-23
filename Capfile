@@ -9,7 +9,7 @@ set :repository,  "git://github.com/radar/construct.git"
 set :scm, :git
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
-set :user, "deploy"
+set :user, "root"
 set :branch, "master"
 
 
@@ -39,10 +39,6 @@ before 'deploy:cold', 'deploy:ping_ssh_github'
 after 'deploy:symlink', 'deploy:create_symlinks'
 after 'deploy:symlink', 'deploy:install_gems'
 after 'deploy:symlink', 'deploy:migrate'
-after "deploy:symlink", "deploy:update_crontab"
-after "deploy:symlink", "deploy:god"
-after "deploy:symlink", "deploy:live_updater"
-after "deploy:symlink", "deploy:jobs_worker"
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
