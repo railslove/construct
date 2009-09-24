@@ -1,7 +1,8 @@
 Feature: Projects
 
   Background:
-    Given there is a github payload of
+    Given I am logged in
+    And there is a github payload of
       """
         {
           "repository": 
@@ -59,6 +60,7 @@ Feature: Projects
       """
     And there are no queued jobs
     Given I am on the homepage
+    Then there should be 1 project
 
   Scenario: Viewing Projects
     When I follow "by_star"

@@ -18,7 +18,12 @@ class BuildJob < Struct.new(:build_id, :payload)
     Dir.chdir(project.build_directory) do
       `git pull origin master`
       build.update_attribute("status", "running the build")
-      build.output = `#{project.instructions}`
+      build.output = ""
+      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|        
+        puts build.output << stdout.read.strip
+        puts build.output << stderr.read.strip
+      end
+      
       build.update_attribute("status", $?.success? ? "success" : "failed")
       # Just to ensure...
       build.save!

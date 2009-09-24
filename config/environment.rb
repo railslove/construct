@@ -8,5 +8,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
   config.gem 'tobi-delayed_job', :lib => "delayed_job"
   config.gem 'json'
+  config.gem 'popen4'
   config.time_zone = 'UTC'
 end
+
+AUTH = YAML::load_file("#{RAILS_ROOT}/config/auth.yml")[RAILS_ENV]

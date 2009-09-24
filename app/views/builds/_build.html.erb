@@ -1,12 +1,12 @@
 <div id='last_build' class='<%= build.status %>'>
-  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> <%= build.report %></h1>
+  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h1>
   <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
     <p class="submit">
       <button type="submit" title="Rebuild this commit">Rebuild</button>
     </p>
   <% end %>
   <blockquote>
-    <p><%= build.commit.message %></p>
+    <p><%= simple_format(build.commit.message) %></p>
     <p class='meta'>
       <span class='who'>by: <%= build.commit.author %></span> |
       <span class="when" title="<%= build.commit.timestamp %>">

@@ -25,6 +25,7 @@ describe Build do
   
       it "should succeed" do
         instructions
+        p @build.output
         should be_successful
       end
   
