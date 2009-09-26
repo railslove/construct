@@ -1,4 +1,6 @@
-builds/*
+tmp/builds/*
 log/*
 db/*.sqlite3
 spec/fixtures/private*
+webrat*
+

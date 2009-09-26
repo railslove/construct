@@ -9,12 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090923093522) do
+ActiveRecord::Schema.define(:version => 20090925092806) do
 
   create_table "branches", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "project_id"
+    t.string   "name"
   end
+
+  add_index "branches", ["project_id", "name"], :name => "index_branches_on_project_id_and_name"
+  add_index "branches", ["project_id"], :name => "index_branches_on_project_id"
 
   create_table "builds", :force => true do |t|
     t.text     "payload"
@@ -22,10 +27,11 @@ ActiveRecord::Schema.define(:version => 20090923093522) do
     t.integer  "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "output"
+    t.text     "stdout"
     t.integer  "number"
     t.text     "instructions"
     t.string   "site"
+    t.text     "stderr"
   end
 
   create_table "commits", :force => true do |t|
@@ -38,7 +44,10 @@ ActiveRecord::Schema.define(:version => 20090923093522) do
     t.integer  "author_id"
     t.string   "url"
     t.text     "message"
+    t.integer  "branch_id"
   end
+
+  add_index "commits", ["branch_id"], :name => "index_commits_on_branch_id"
 
   create_table "delayed_jobs", :force => true do |t|
     t.integer  "priority",   :default => 0

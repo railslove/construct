@@ -6,39 +6,37 @@ class Build < ActiveRecord::Base
   before_create :increment_number
   
   delegate :project, :to => :commit
+  delegate :branch, :to => :commit
   
   named_scope :before, lambda { |build| { :conditions => ["created_at < ?", build.created_at]}}
+  named_scope :after,  lambda { |build| { :conditions => ["created_at > ?", build.created_at]}}
   
   class AlreadyQueued < StandardError
   end
   
   class << self
-    def start(payload)
-      first_commit = payload["commits"].first
-      first_commit["sha"] = first_commit["id"]
-      site = self == GithubBuild ? "github.com" : "codebasehq.com"
-      project      = Project.find_or_create_by_payload_and_site(payload, site)
-      commit       = project.commits.find_by_sha(first_commit["sha"])
-      commit     ||= project.commits.create!(first_commit)
-      project      = commit.project
-      build        = Build.create!(:payload => payload,
-                             :commit => commit, 
+    def setup(payload)
+      project, commit = Project.from_payload(self, payload)
+      build = Build.create!(:payload => payload,
+                            :commit => commit, 
                              :status => "queued", 
                              :instructions => project.instructions, 
-                             :site =>  site
-                             )
-      build_id     = build.id
-      # Trying to find if this build has already been queued.
-      # The way we detect this for now is to inspect all the handlers of all current jobs.
-      for job in Delayed::Job.all
-        if Build.find(YAML.load(job.handler.split("\n")[1..-1].join("\n"))["build_id"]).commit == commit
-          build.errors.add_to_base "This commit is already queued to build."
-        end
-      end
-      Delayed::Job.enqueue(BuildJob.new(build_id, payload))
-      build
-      
+                             :site =>  site)
     end
+  end
+  
+  def start
+    # Trying to find if this build has already been queued.
+    # The way we detect this for now is to inspect all the handlers of all current jobs.
+    # This shouldn't be too many as jobs are cleared when they're done.
+    for job in Delayed::Job.all
+      if Build.find(YAML.load(job.handler.split("\n")[1..-1].join("\n"))["build_id"]).commit == commit
+        errors.add_to_base "This commit is already queued to build."
+        return false
+      end
+    end
+    Delayed::Job.enqueue(BuildJob.new(id, payload))
+    self
   end
   
   def github?
@@ -63,7 +61,8 @@ class Build < ActiveRecord::Base
   end
   
   def rebuild
-    klass = github? ? GithubBuild.start(payload) : CodebaseBuild.start(payload)
+    klass = github? ? GithubBuild : CodebaseBuild
+    klass.setup(payload).start
   end
   
   def report

@@ -1,6 +1,7 @@
 class Commit < ActiveRecord::Base
   belongs_to :author, :class_name => "Person"
   belongs_to :project
+  belongs_to :branch
   has_many :builds
   
   alias_method :old_author=, :author=

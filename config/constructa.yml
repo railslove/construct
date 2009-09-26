@@ -1,0 +1,8 @@
+development: &STANDARD
+  build_directory: /data/builds
+  
+test:
+  build_directory: <%= RAILS_ROOT %>/tmp/builds
+  
+cucumber:
+  <<: *STANDARD

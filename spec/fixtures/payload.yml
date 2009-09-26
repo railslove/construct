@@ -44,3 +44,36 @@ github:
     id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
     message: Added documentation for the current weekend and current work week, provided method names.
   before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+  
+github_branch:
+  repository: 
+    name: by_star
+    watchers: 98
+    private: false
+    url: http://github.com/radar/by_star
+    fork: false
+    open_issues: 0
+    homepage: http://runcoderun.com/radar/by_star
+    forks: 2
+    description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+    owner: 
+      name: radar
+      email: radarlistener@gmail.com
+  after: e17751a0f9477c46ccded79788aca9c7f89b7e48
+  ref: refs/heads/thomas
+  commits: 
+  - modified: []
+
+    added: []
+
+    timestamp: "2009-09-25T02:20:32-07:00"
+    removed: []
+
+    author: 
+      name: Ryan Bigg
+      email: radarlistener@gmail.com
+    url: http://github.com/radar/by_star/commit/e17751a0f9477c46ccded79788aca9c7f89b7e48
+    id: e17751a0f9477c46ccded79788aca9c7f89b7e48
+    message: Add push_test as a way of testing branches for gitpilot.
+  before: 0c43bbe8c53102717c6c23e6cb32acb6b7171f2b
+

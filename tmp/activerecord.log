@@ -1,0 +1,1217 @@
+# Logfile created on Fri Sep 25 20:23:08 +1000 2009 by /
+  [4;36;1mSQL (0.2ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCREATE TABLE "posts_tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "post_id" integer, "tag_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" datetime, "end_time" datetime, "name" varchar(255), "public" boolean DEFAULT 't') [0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-01-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-02-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-02-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 20:23:09', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 20:23:09', 'post 8')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 7')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 8')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 20:23:09', 'post 9')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 7')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 8')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 9')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 20:23:09', 'post 10')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 6')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 8')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 9')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 10')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 20:23:09', 'post 11')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-25 10:23:09', '2009-09-25 20:23:09', 'Today''s post')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-24 10:23:09', '2009-09-25 20:23:09', 'Yesterday''s post')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-26 10:23:09', '2009-09-25 20:23:09', 'Tomorrow''s post')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-31 23:59:59', '2009-09-25 20:23:09', 'That''s it!')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-16 00:00:00', '2009-09-25 20:23:09', 'Weekend of May')[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "text" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "posts_tags" ("post_id" integer, "tag_id" integer) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE TABLE "events" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "start_time" datetime, "end_time" datetime, "name" varchar(255), "public" boolean DEFAULT 't') [0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-01-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-02-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-02-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-03-01 00:00:00', '2009-09-25 21:31:27', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 21:31:27', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-04-01 00:00:00', '2009-09-25 21:31:27', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 21:31:27', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 21:31:27', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-01 00:00:00', '2009-09-25 21:31:27', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-06-01 00:00:00', '2009-09-25 21:31:27', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-07-01 00:00:00', '2009-09-25 21:31:27', 'post 6')[0m
+  [4;35;1mPost Create (0.2ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:27', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:27', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 6')[0m
+  [4;36;1mPost Create (0.2ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-08-01 00:00:00', '2009-09-25 21:31:28', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 6')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-01 00:00:00', '2009-09-25 21:31:28', 'post 8')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 6')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 7')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 8')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-10-01 00:00:00', '2009-09-25 21:31:28', 'post 9')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 0')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 1')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 2')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 3')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 4')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 5')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 6')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 7')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 8')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 9')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-11-01 00:00:00', '2009-09-25 21:31:28', 'post 10')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 0')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 1')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 2')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 3')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 4')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 5')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 6')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 7')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 8')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 9')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 10')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-01 00:00:00', '2009-09-25 21:31:28', 'post 11')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-25 11:31:28', '2009-09-25 21:31:28', 'Today''s post')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-24 11:31:28', '2009-09-25 21:31:28', 'Yesterday''s post')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-26 11:31:28', '2009-09-25 21:31:28', 'Tomorrow''s post')[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-12-31 23:59:59', '2009-09-25 21:31:28', 'That''s it!')[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-16 00:00:00', '2009-09-25 21:31:28', 'Weekend of May')[0m
+  [4;36;1mTag Create (0.1ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('weekend', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (1, 83)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-25 11:31:28', '2009-09-25 21:31:28', 'Today')[0m
+  [4;35;1mTag Create (0.1ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('today', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (2, 84)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-24 11:31:28', '2009-09-25 21:31:28', 'Yesterday')[0m
+  [4;36;1mTag Create (0.1ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('yesterday', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (3, 85)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-09-26 11:31:28', '2009-09-25 21:31:28', 'Tomorrow''s Another Day')[0m
+  [4;35;1mTag Create (0.1ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('tomorrow', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (4, 86)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2008-01-01 00:00:00', '2009-09-25 21:31:28', 'Last year')[0m
+  [4;36;1mTag Create (0.1ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('ruby', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (5, 87)[0m
+  [4;36;1mPost Create (0.1ms)[0m   [0;1mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-15 00:00:00', '2009-09-25 21:31:28', 'The ''Current'' Fortnight')[0m
+  [4;35;1mTag Create (0.1ms)[0m   [0mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('may', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (6, 88)[0m
+  [4;35;1mPost Create (0.1ms)[0m   [0mINSERT INTO "posts" ("created_at", "updated_at", "text") VALUES('2009-05-15 00:00:00', '2009-09-25 21:31:28', 'The ''Current'' Week')[0m
+  [4;36;1mTag Create (0.1ms)[0m   [0;1mINSERT INTO "tags" ("name", "created_at", "updated_at") VALUES('may2', '2009-09-25 21:31:28', '2009-09-25 21:31:28')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO "posts_tags" ("tag_id", "post_id") VALUES (7, 89)[0m
+  [4;36;1mEvent Create (0.2ms)[0m   [0;1mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Ryan''s birthday!', NULL, 't', '2009-12-04 00:00:00')[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Dad''s birthday!', NULL, 't', '2009-07-05 00:00:00')[0m
+  [4;36;1mEvent Create (0.1ms)[0m   [0;1mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Mum''s birthday!', NULL, 't', '2009-11-17 00:00:00')[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Today', NULL, 't', '2009-09-25 11:31:28')[0m
+  [4;36;1mEvent Create (0.1ms)[0m   [0;1mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Yesterday', NULL, 't', '2009-09-24 11:31:28')[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('Tomorrow', NULL, 't', '2009-09-26 11:31:28')[0m
+  [4;36;1mEvent Create (0.1ms)[0m   [0;1mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('1st of August', NULL, 't', '2009-08-01 00:00:00')[0m
+  [4;35;1mEvent Create (0.1ms)[0m   [0mINSERT INTO "events" ("name", "end_time", "public", "start_time") VALUES('FBI meeting', NULL, 'f', '2009-03-02 00:00:00')[0m
+  [4;36;1mBranch Create (0.4ms)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES(NULL, '2009-09-25 11:31:30', '2009-09-25 11:31:30', NULL)[0m
+  [4;35;1mPerson Create (0.4ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES(NULL, NULL)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('SportsBet: Rails Back-End', NULL, NULL, 'rake')[0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "build_directory" = 'spec/builds/sportsbet-backend' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = 'd8c966af0dca38945200b1f79bafc4b80d512e63') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.3ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- []
+
+', '--- 
+- notifier
+', 'd8c966af0dca38945200b1f79bafc4b80d512e63', '--- []
+
+', '2009-09-23 06:25:37', 1, 'http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63', NULL, 1, 'Testing codebase push notifications.')[0m
+  [4;36;1mBranch Load (0.3ms)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;35;1mBranch Create (0.3ms)[0m   [0mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:31:30', '2009-09-25 11:31:30', 1)[0m
+  [4;36;1mProject Load (0.6ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:31:30', NULL, '--- 
+repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+after: d8c966af0dca38945200b1f79bafc4b80d512e63
+commits: 
+- added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ref: refs/heads/master
+before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', 1, '2009-09-25 11:31:30', 'codebasehq.com', 'queued', 'rake')[0m
+  [4;35;1mDelayed::Job Load (0.1ms)[0m   [0mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Create (0.3ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:31:30', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+ after: d8c966af0dca38945200b1f79bafc4b80d512e63
+ commits: 
+ - added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ ref: refs/heads/master
+ before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', '2009-09-25 11:31:30', 0, '2009-09-25 11:31:30', 0, NULL, NULL)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;36;1mBuild Load (0.3ms)[0m   [0;1mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;36;1mBuild Update (0.9ms)[0m   [0;1mUPDATE "builds" SET "updated_at" = '2009-09-25 11:32:02', "payload" = '--- 
+repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+after: d8c966af0dca38945200b1f79bafc4b80d512e63
+ref: refs/heads/master
+commits: 
+- modified: []
+
+ added: 
+ - notifier
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ removed: []
+
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', "stdout" = 'Initialized empty Git repository in /Users/ryanbigg/Sites/side_projects/constructa/spec/builds/sportsbet-backend/.git/
+', "status" = 'set up repository', "stderr" = 'Checking out files: 40% (368/919) Checking out files: 41% (377/919) Checking out files: 42% (386/919) Checking out files: 43% (396/919) Checking out files: 44% (405/919) Checking out files: 45% (414/919) Checking out files: 46% (423/919) Checking out files: 47% (432/919) Checking out files: 48% (442/919) Checking out files: 49% (451/919) Checking out files: 50% (460/919) Checking out files: 51% (469/919) Checking out files: 52% (478/919) Checking out files: 53% (488/919) Checking out files: 54% (497/919) Checking out files: 55% (506/919) Checking out files: 56% (515/919) Checking out files: 57% (524/919) Checking out files: 58% (534/919) Checking out files: 59% (543/919) Checking out files: 60% (552/919) Checking out files: 61% (561/919) Checking out files: 62% (570/919) Checking out files: 63% (579/919) Checking out files: 64% (589/919) Checking out files: 65% (598/919) Checking out files: 66% (607/919) Checking out files: 67% (616/919) Checking out files: 68% (625/919) Checking out files: 69% (635/919) Checking out files: 70% (644/919) Checking out files: 71% (653/919) Checking out files: 72% (662/919) Checking out files: 73% (671/919) Checking out files: 74% (681/919) Checking out files: 75% (690/919) Checking out files: 76% (699/919) Checking out files: 77% (708/919) Checking out files: 78% (717/919) Checking out files: 79% (727/919) Checking out files: 80% (736/919) Checking out files: 81% (745/919) Checking out files: 82% (754/919) Checking out files: 83% (763/919) Checking out files: 84% (772/919) Checking out files: 85% (782/919) Checking out files: 86% (791/919) Checking out files: 87% (800/919) Checking out files: 88% (809/919) Checking out files: 89% (818/919) Checking out files: 90% (828/919) Checking out files: 91% (837/919) Checking out files: 92% (846/919) Checking out files: 93% (855/919) Checking out files: 94% (864/919) Checking out files: 95% (874/919) Checking out files: 96% (883/919) Checking out files: 97% (892/919) Checking out files: 98% (901/919) Checking out files: 99% (910/919) Checking out files: 100% (919/919) Checking out files: 100% (919/919), done.
+' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.4ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;35;1mProject Create (0.4ms)[0m   [0mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('SportsBet: Rails Back-End', NULL, NULL, 'rake')[0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "build_directory" = 'spec/builds/sportsbet-backend' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = 'd8c966af0dca38945200b1f79bafc4b80d512e63') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- []
+
+', '--- 
+- notifier
+', 'd8c966af0dca38945200b1f79bafc4b80d512e63', '--- []
+
+', '2009-09-23 06:25:37', 1, 'http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63', NULL, 1, 'Testing codebase push notifications.')[0m
+  [4;36;1mBranch Load (0.1ms)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;35;1mBranch Create (0.3ms)[0m   [0mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:02', '2009-09-25 11:32:02', 1)[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:02', NULL, '--- 
+repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+after: d8c966af0dca38945200b1f79bafc4b80d512e63
+commits: 
+- added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ref: refs/heads/master
+before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', 1, '2009-09-25 11:32:02', 'codebasehq.com', 'queued', 'rake')[0m
+  [4;35;1mDelayed::Job Load (0.1ms)[0m   [0mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Create (0.2ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:32:02', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+ after: d8c966af0dca38945200b1f79bafc4b80d512e63
+ commits: 
+ - added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ ref: refs/heads/master
+ before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', '2009-09-25 11:32:02', 0, '2009-09-25 11:32:02', 0, NULL, NULL)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "instructions" = 'do_the_impossible' WHERE "id" = 1[0m
+  [4;35;1mBuild Load (0.3ms)[0m   [0mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;35;1mCommit Load (0.3ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('SportsBet: Rails Back-End', NULL, NULL, 'rake')[0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "build_directory" = 'spec/builds/sportsbet-backend' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = 'd8c966af0dca38945200b1f79bafc4b80d512e63') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- []
+
+', '--- 
+- notifier
+', 'd8c966af0dca38945200b1f79bafc4b80d512e63', '--- []
+
+', '2009-09-23 06:25:37', 1, 'http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63', NULL, 1, 'Testing codebase push notifications.')[0m
+  [4;36;1mBranch Load (0.1ms)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;35;1mBranch Create (0.2ms)[0m   [0mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:02', '2009-09-25 11:32:02', 1)[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:02', NULL, '--- 
+repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+after: d8c966af0dca38945200b1f79bafc4b80d512e63
+commits: 
+- added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ref: refs/heads/master
+before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', 1, '2009-09-25 11:32:02', 'codebasehq.com', 'queued', 'rake')[0m
+  [4;35;1mDelayed::Job Load (0.1ms)[0m   [0mSELECT * FROM "delayed_jobs" [0m
+  [4;36;1mDelayed::Job Create (0.2ms)[0m   [0;1mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:32:02', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: "SportsBet: Rails Back-End"
+ clone_url: git@codebasehq.com:mocra/sportsbet/backend.git
+ private: 1
+ project: SportsBet
+ homepage: http://mocra.codebasehq.com/sportsbet/backend
+ owner: 
+ name: Mocra
+ email: accounts@mocra.com
+ after: d8c966af0dca38945200b1f79bafc4b80d512e63
+ commits: 
+ - added: 
+ - notifier
+ modified: []
+
+ sha: d8c966af0dca38945200b1f79bafc4b80d512e63
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: Wed, 23 Sep 2009 06:25:37 +0000
+ url: http://mocra.codebasehq.com/sportsbet/backend/commit/d8c966af0dca38945200b1f79bafc4b80d512e63
+ id: d8c966af0dca38945200b1f79bafc4b80d512e63
+ message: Testing codebase push notifications.
+ ref: refs/heads/master
+ before: 03dc915a6f8127e51af0d51e095da75e1c7553f3
+', '2009-09-25 11:32:02', 0, '2009-09-25 11:32:02', 0, NULL, NULL)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'SportsBet: Rails Back-End') LIMIT 1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;35;1mProject Update (0.1ms)[0m   [0mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;36;1mCommit Load (0.2ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.2ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mBranch Load (0.1ms)[0m   [0mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;36;1mBranch Create (0.2ms)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:02', '2009-09-25 11:32:02', 1)[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:02', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:02', 'github.com', 'queued', 'rake')[0m
+  [4;36;1mDelayed::Job Load (0.1ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Create (0.3ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:32:02', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+ after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ commits: 
+ - added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+ - added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ ref: refs/heads/master
+ before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', '2009-09-25 11:32:02', 0, '2009-09-25 11:32:02', 0, NULL, NULL)[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Load (0.4ms)[0m   [0mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Update (0.8ms)[0m   [0mUPDATE "builds" SET "updated_at" = '2009-09-25 11:32:26', "payload" = '--- 
+repository: 
+ name: by_star
+ watchers: 98
+ private: false
+ url: http://github.com/radar/by_star
+ fork: false
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ forks: 2
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ref: refs/heads/master
+commits: 
+- modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ added: []
+
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ timestamp: "2009-08-28T16:52:49-07:00"
+ removed: []
+
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- modified: 
+ - README.markdown
+ - lib/by_star.rb
+ added: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ removed: []
+
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', "stdout" = 'Initialized empty Git repository in /Users/ryanbigg/Sites/side_projects/constructa/spec/builds/by_star/.git/
+', "status" = 'set up repository', "stderr" = '' WHERE "id" = 1[0m
+  [4;36;1mCommit Load (0.6ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.4ms)[0m   [0;1mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;35;1mProject Update (0.2ms)[0m   [0mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;36;1mCommit Load (0.2ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.2ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mBranch Load (0.1ms)[0m   [0mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;36;1mBranch Create (0.2ms)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:26', '2009-09-25 11:32:26', 1)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;35;1mBuild Create (0.3ms)[0m   [0mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:26', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:26', 'github.com', 'queued', 'rake')[0m
+  [4;36;1mDelayed::Job Load (0.1ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Create (0.3ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:32:26', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+ after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ commits: 
+ - added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+ - added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ ref: refs/heads/master
+ before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', '2009-09-25 11:32:26', 0, '2009-09-25 11:32:26', 0, NULL, NULL)[0m
+  [4;36;1mProject Load (0.3ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mProject Update (0.1ms)[0m   [0mUPDATE "projects" SET "instructions" = 'do_the_impossible' WHERE "id" = 1[0m
+  [4;36;1mBuild Load (0.3ms)[0m   [0;1mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mCommit Load (0.3ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;35;1mProject Update (0.1ms)[0m   [0mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.3ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mBranch Load (0.1ms)[0m   [0mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;36;1mBranch Create (0.2ms)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:26', '2009-09-25 11:32:26', 1)[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;35;1mBuild Create (0.7ms)[0m   [0mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:26', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:26', 'github.com', 'queued', 'rake')[0m
+  [4;36;1mDelayed::Job Load (0.1ms)[0m   [0;1mSELECT * FROM "delayed_jobs" [0m
+  [4;35;1mDelayed::Job Create (0.3ms)[0m   [0mINSERT INTO "delayed_jobs" ("failed_at", "locked_by", "created_at", "handler", "updated_at", "priority", "run_at", "attempts", "locked_at", "last_error") VALUES(NULL, NULL, '2009-09-25 11:32:26', '--- !ruby/struct:BuildJob 
+build_id: 1
+payload: 
+ repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+ after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ commits: 
+ - added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+ - added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ ref: refs/heads/master
+ before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', '2009-09-25 11:32:26', 0, '2009-09-25 11:32:26', 0, NULL, NULL)[0m
+  [4;36;1mProject Load (0.4ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;36;1mProject Update (0.1ms)[0m   [0;1mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mBranch Load (0.1ms)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;35;1mBranch Create (0.2ms)[0m   [0mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:26', '2009-09-25 11:32:26', 1)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:26', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:26', 'github.com', 'queued', 'rake')[0m
+  [4;35;1mProject Load (0.3ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mBuild Load (0.3ms)[0m   [0;1mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mCommit Load (0.3ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mProject Create (0.3ms)[0m   [0;1mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;35;1mProject Update (0.2ms)[0m   [0mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;36;1mCommit Load (0.1ms)[0m   [0;1mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;35;1mPerson Create (0.2ms)[0m   [0mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;36;1mCommit Create (0.2ms)[0m   [0;1mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;35;1mBranch Load (0.1ms)[0m   [0mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;36;1mBranch Create (0.2ms)[0m   [0;1mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:26', '2009-09-25 11:32:26', 1)[0m
+  [4;35;1mProject Load (0.4ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;35;1mBuild Create (0.2ms)[0m   [0mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:26', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:26', 'github.com', 'queued', 'rake')[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mBuild Load (0.3ms)[0m   [0mSELECT * FROM "builds" WHERE ("builds"."id" = 1) ORDER BY created_at DESC[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mCommit Load (0.3ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."id" = 1) [0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;35;1mProject Create (0.3ms)[0m   [0mINSERT INTO "projects" ("name", "site", "build_directory", "instructions") VALUES('by_star', NULL, NULL, 'rake')[0m
+  [4;36;1mProject Update (0.2ms)[0m   [0;1mUPDATE "projects" SET "build_directory" = 'spec/builds/by_star', "site" = 'github.com' WHERE "id" = 1[0m
+  [4;35;1mCommit Load (0.1ms)[0m   [0mSELECT * FROM "commits" WHERE ("commits"."sha" = '6431ae852cb2574263bfa8f4dfaa85cff55db5eb') AND ("commits".project_id = 1) LIMIT 1[0m
+WARNING: Can't mass-assign these protected attributes: id
+  [4;36;1mPerson Create (0.2ms)[0m   [0;1mINSERT INTO "people" ("name", "email") VALUES('Ryan Bigg', 'radarlistener@gmail.com')[0m
+  [4;35;1mCommit Create (0.2ms)[0m   [0mINSERT INTO "commits" ("modified", "added", "sha", "removed", "timestamp", "project_id", "url", "branch_id", "author_id", "message") VALUES('--- 
+- lib/by_star.rb
+- spec/by_star_spec.rb
+', '--- []
+
+', '6431ae852cb2574263bfa8f4dfaa85cff55db5eb', '--- []
+
+', '2009-08-28 23:52:49', 1, 'http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb', NULL, 1, 'ArgumentError will only be raised on versions < 1.8.7.')[0m
+  [4;36;1mBranch Load (0.1ms)[0m   [0;1mSELECT * FROM "branches" WHERE ("branches"."name" = 'master') AND ("branches".project_id = 1) LIMIT 1[0m
+  [4;35;1mBranch Create (0.2ms)[0m   [0mINSERT INTO "branches" ("name", "created_at", "updated_at", "project_id") VALUES('master', '2009-09-25 11:32:26', '2009-09-25 11:32:26', 1)[0m
+  [4;36;1mProject Load (0.2ms)[0m   [0;1mSELECT * FROM "projects" WHERE ("projects"."id" = 1) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM "builds" WHERE ("builds".commit_id = 1) [0m
+  [4;36;1mBuild Create (0.2ms)[0m   [0;1mINSERT INTO "builds" ("stdout", "number", "created_at", "stderr", "payload", "commit_id", "updated_at", "site", "status", "instructions") VALUES(NULL, 0, '2009-09-25 11:32:26', NULL, '--- 
+repository: 
+ name: by_star
+ private: false
+ watchers: 98
+ fork: false
+ url: http://github.com/radar/by_star
+ open_issues: 0
+ homepage: http://runcoderun.com/radar/by_star
+ description: Lets you find ActiveRecord objects by year, month, fortnight, week and more!
+ forks: 2
+ owner: 
+ name: radar
+ email: radarlistener@gmail.com
+after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+commits: 
+- added: []
+
+ modified: 
+ - lib/by_star.rb
+ - spec/by_star_spec.rb
+ sha: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T16:52:49-07:00"
+ url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
+ message: ArgumentError will only be raised on versions < 1.8.7.
+- added: []
+
+ modified: 
+ - README.markdown
+ - lib/by_star.rb
+ author: 
+ name: Ryan Bigg
+ email: radarlistener@gmail.com
+ removed: []
+
+ timestamp: "2009-08-28T17:39:25-07:00"
+ url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+ message: Added documentation for the current weekend and current work week, provided method names.
+ref: refs/heads/master
+before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
+', 1, '2009-09-25 11:32:26', 'github.com', 'queued', 'rake')[0m
+  [4;35;1mProject Load (0.2ms)[0m   [0mSELECT * FROM "projects" WHERE ("projects"."name" = 'by_star') LIMIT 1[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-11 03:00:00' AND '2009-05-15 15:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load Including Associations (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-12-31 23:59:59') AND (tags.name = 'ruby')) ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load Including Associations (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-01-31 23:59:59') AND (tags.name = 'ruby')) ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load Including Associations (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-05-11 00:00:00' AND '2009-05-25 00:00:00') AND (tags.name = 'may2')) ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load Including Associations (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-05-14 00:00:00' AND '2009-05-21 00:00:00') AND (tags.name = 'may2')) ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load Including Associations (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-05-15 15:00:00' AND '2009-05-16 23:59:59') AND (tags.name = 'weekend')) ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load Including Associations (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-09-25 00:00:00' AND '2009-09-25 23:59:59') AND (tags.name = 'today')) ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load Including Associations (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-09-24 00:00:00' AND '2009-09-24 23:59:59') AND (tags.name = 'yesterday')) ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load Including Associations (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" BETWEEN '2009-09-26 00:00:00' AND '2009-09-26 23:59:59') AND (tags.name = 'tomorrow')) ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load Including Associations (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" < '2009-09-25 11:32:26') AND (tags.name = 'yesterday')) ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load Including Associations (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT "posts"."id" AS t0_r0, "posts"."text" AS t0_r1, "posts"."created_at" AS t0_r2, "posts"."updated_at" AS t0_r3, "tags"."id" AS t1_r0, "tags"."name" AS t1_r1, "tags"."created_at" AS t1_r2, "tags"."updated_at" AS t1_r3 FROM "posts" LEFT OUTER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id LEFT OUTER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE (("posts"."created_at" > '2009-09-25 11:32:26') AND (tags.name = 'tomorrow')) ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT "posts".* FROM "posts" INNER JOIN "posts_tags" ON "posts_tags".post_id = "posts".id INNER JOIN "tags" ON "tags".id = "posts_tags".tag_id WHERE ("posts"."created_at" BETWEEN '2009-09-01 00:00:00' AND '2009-09-30 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE (("events"."public" = 'f' AND "events"."start_time" BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59')) [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."text" = 'Today''s post') ORDER BY "posts".created_at ASC LIMIT 1[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-15 00:00:00' AND '2009-06-26 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-04-15 00:00:00' AND '2009-06-26 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-12 02:00:00' AND '2009-05-19 02:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-10 00:00:00' AND '2009-05-20 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-15 00:00:00' AND '2009-05-20 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-01 00:00:00' AND '2009-05-15 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-01 00:00:00' AND '2009-06-15 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" > '2009-05-15 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" > '2009-05-13 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" > '2009-05-19 02:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" < '2009-07-05 00:00:00') [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" < '2009-05-15 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" < '2009-05-13 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" < '2009-05-13 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" < '2009-05-19 02:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" < '2009-12-04 00:00:00') [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-26 00:00:00' AND '2009-09-26 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-26 00:00:00' AND '2009-09-26 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-05-16 00:00:00' AND '2009-05-16 23:59:59') [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-24 00:00:00' AND '2009-09-24 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-24 00:00:00' AND '2009-09-24 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-05-14 00:00:00' AND '2009-05-14 23:59:59') [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-25 00:00:00' AND '2009-09-25 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-09-25 14:00:00' AND '2009-09-26 13:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-05-15 00:00:00' AND '2009-05-15 23:59:59') [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-15 00:00:00' AND '2009-05-15 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-15 00:00:00' AND '2009-05-15 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-09-25 00:00:00' AND '2009-09-25 23:59:59') [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-06-29 03:00:00' AND '2009-07-03 15:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-07-03 15:00:00' AND '2009-07-06 03:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-07-31 15:00:00' AND '2009-08-01 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-07-31 15:00:00' AND '2009-08-01 23:59:59') [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-14 00:00:00' AND '2009-05-21 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-01-08 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-01-08 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-07 00:00:00' AND '2009-05-14 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-07 00:00:00' AND '2009-05-14 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-14 00:00:00' AND '2009-05-21 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-05-14 00:00:00' AND '2009-05-21 00:00:00') [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-01-08 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-12-31 00:00:00' AND '2010-01-07 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-11 00:00:00' AND '2009-05-25 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2008-12-29 00:00:00' AND '2009-01-12 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-04-27 00:00:00' AND '2009-05-11 00:00:00') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-05-11 00:00:00' AND '2009-05-25 00:00:00') [0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-05-01 00:00:00' AND '2009-05-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-01-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-02-01 00:00:00' AND '2009-02-28 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-03-01 00:00:00' AND '2009-03-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-01-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-01-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-12-01 00:00:00' AND '2009-12-31 23:59:59') [0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-01-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mPost Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '2008-01-01 00:00:00' AND '2008-12-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;35;1mPost Load (0.0ms)[0m   [0mSQLite3::SQLException: no such table: posts: SELECT * FROM "posts" WHERE ("posts"."created_at" BETWEEN '1456-01-01 00:00:00' AND '1456-12-31 23:59:59') ORDER BY "posts".created_at ASC[0m
+  [4;36;1mEvent Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: events: SELECT * FROM "events" WHERE ("events"."start_time" BETWEEN '2009-01-01 00:00:00' AND '2009-12-31 23:59:59') [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m

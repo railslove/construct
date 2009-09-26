@@ -15,6 +15,10 @@ Spec::Runner.configure do |config|
   config.fixture_path = RAILS_ROOT + '/spec/fixtures/'
 end
 
+FileUtils.rm_r("#{RAILS_ROOT}/tmp/builds/") rescue nil
+FileUtils.mkdir_p("#{RAILS_ROOT}/tmp/builds")
+
+
 require File.dirname(__FILE__) + "/blueprints"
 
 def payload(key)

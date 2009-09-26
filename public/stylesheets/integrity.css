@@ -238,31 +238,31 @@ a {
         color: #337022; }
       #content #projects li.failed .meta {
         color: #ff1100; }
-  #content #previous_builds li a {
+  #content .builds li a {
     display: block;
     padding: .25em;
     margin-bottom: .25em;
     border-width: 1px;
     border-style: solid; }
-    #content #previous_builds li a strong {
+    #content .builds li a strong {
       font-size: 1.3em; }
-    #content #previous_builds li a .attribution {
+    #content .builds li a .attribution {
       font-size: .9em; }
-  #content #projects li.success a,   #content #previous_builds li.success a {
+  #content #projects li.success a,   #content .builds li.success a {
     background-color: #bbf8aa;
     border-color: #99d688;
     color: #337022; }
-    #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+    #content #projects li.success a .attribution,     #content .builds li.success a .attribution {
       color: #77b466; }
-    #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+    #content #projects li.success a:hover,     #content .builds li.success a:hover {
       background-color: #ddffcc; }
-  #content #projects li.failed a,   #content #previous_builds li.failed a {
+  #content #projects li.failed a,   #content .builds li.failed a {
     background-color: #ffbbaa;
     border-color: #dd9988;
     color: #ff1100; }
-    #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+    #content #projects li.failed a .attribution,     #content .builds li.failed a .attribution {
       color: #bb7766; }
-    #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+    #content #projects li.failed a:hover,     #content .builds li.failed a:hover {
       background-color: #ffddcc; }
   #content #build, #content #last_build {
     position: relative; }

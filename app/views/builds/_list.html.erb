@@ -1,0 +1,16 @@
+<% if !builds.empty? %>
+  <h2><%= type.humanize %> builds</h2>
+
+  <% for build in builds %>
+    <ul id='<%= type %>_builds' class='builds'>
+      <li class='<%= build.status %>'>
+        <% link_to project_build_path(@project, build) do %>
+          <strong class="build">Build #<%= build.number %> - <%= build.commit.short_sha %></strong>
+          <span class="attribution">by <%= build.commit.author %>, on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %> <%= build.commit.timestamp("%H:%M%z")%></span>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  There are no builds <%= type == "future" ? "after" : "before" %> this one.
+<% end %>

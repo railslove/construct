@@ -21,21 +21,10 @@
   
   <h2>Build output</h2>
   
-  <pre class="output"><%= build.output %></pre>
-  
-  <% if !@previous_builds.empty? %>
-    <h2>Previous builds</h2>
-    <% for prev_build in @previous_builds %>
-      <ul id='previous_builds'>
-        <li class='<%= prev_build.status %>'>
-          <% link_to project_build_path(@project, prev_build) do %>
-            <strong class="build">Build #<%= prev_build.number %> - <%= prev_build.commit.short_sha %></strong>
-            <span class="attribution">by <%= prev_build.commit.author %>, on <%= prev_build.commit.timestamp.strftime("%B") %> <%= prev_build.commit.timestamp.strftime("%d").to_i.ordinalize %></span>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  <% else %>
-    There are no builds before this one.
-  <% end %>
+  <pre class="output"><%= build.stdout %>
+<%= build.stderr %>
+  </pre>
+  <%= render :partial => "list", :locals => { :type => "future", :builds => @future_builds } %>
+  <br>
+  <%= render :partial => "list", :locals => { :type => "previous", :builds => @previous_builds } %>
 </div>

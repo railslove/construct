@@ -3,13 +3,13 @@ class BuildsController < ApplicationController
   before_filter :build, :only => [:rebuild, :show]
   
   def index
-    @latest = @project.builds.first
-    @previous_builds = @project.builds.before(@latest)
-    @commit = @latest.commit
+    @build = @project.builds.first
+    other_builds
+    @commit = @build.commit
   end
   
   def show
-    @previous_builds = @project.builds.before(@build)
+    other_builds
   end
   
   def rebuild
@@ -32,5 +32,10 @@ class BuildsController < ApplicationController
   
   def build
     @build = Build.find(params[:id])
+  end
+  
+  def other_builds
+    @previous_builds = @project.builds.before(@build)
+    @future_builds = @project.builds.after(@build)
   end
 end

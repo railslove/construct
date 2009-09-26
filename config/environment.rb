@@ -13,3 +13,4 @@ Rails::Initializer.run do |config|
 end
 
 AUTH = YAML::load_file("#{RAILS_ROOT}/config/auth.yml")[RAILS_ENV]
+CONSTRUCTA = YAML::load_file("#{RAILS_ROOT}/config/constructa.yml")[RAILS_ENV]
