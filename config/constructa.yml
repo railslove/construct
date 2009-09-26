@@ -1,8 +1,10 @@
 development: &STANDARD
-  build_directory: /data/builds
+  build_directory: <%= RAILS_ROOT %>/tmp/builds
+  user: user
+  password: password
   
 test: &TEST
-  build_directory: <%= RAILS_ROOT %>/tmp/builds
+  build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
   
 cucumber:
   <<: *TEST
