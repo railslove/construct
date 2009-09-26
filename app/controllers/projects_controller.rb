@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :project, :only => [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:github, :codebase]
+  skip_before_filter :authenticate, :only => [:github, :codebase, :index]
   def index
     @projects = Project.all(:include => [{ :builds => :commit }, :commits])
     respond_to do |format|
@@ -43,14 +43,12 @@ class ProjectsController < ApplicationController
     projects_xml = Nokogiri::XML::Builder.new do |xml|
       xml.Projects {
         for project in @projects
-          xml.Project {
-            xml.name project.name
-            xml.category project.builds.last.branch.name
-            xml.lastBuildStatus project.builds.last.status
-            xml.lastBuildLabel project.builds.last.commit.short_sha
-            xml.lastbuildTime  project.builds.last.created_at
-            xml.webUrl project_url(project)
-          }
+          xml.Project(:name            => project.name,
+                      :category        => project.builds.last.branch.name,
+                      :lastBuildStatus => project.builds.last.status,
+                      :lastBuildLabel  => project.builds.last.commit.short_sha,
+                      :lastBuildTime   => project.builds.last.created_at,
+                      :webUrl          => project_url(project))
         end
       }
     end.to_xml

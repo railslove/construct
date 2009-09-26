@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   
   class << self
     def find_or_create_by_payload_and_site(payload, site)
-      project = find_or_create_by_name(payload["repository"]["name"]) 
+      project = find_or_create_by_name(payload["repository"]["name"])
       project.build_directory = ERB.new(CONSTRUCTA["build_directory"]).result(binding) + "/" + if site == "github.com"
       project.site = site
         payload["repository"]["name"]
