@@ -11,14 +11,15 @@ describe Build do
     subject { BuildJob.new(@build, @payload).perform }
 
     it "should succeed" do
-      @build.reload
+      p subject.status
       should be_successful
     end
 
     it "should fail" do
-      @project.instructions = "do_the_impossible"
-      @project.save!
-      should_not be_successful
+      @project.instructions = @build.instructions = "do_the_impossible"
+      [@project, @build].each(&:save!)
+      BuildJob.new(@build, @payload).perform
+      @build.should_not be_successful
     end
   
     it "should be able to rebuild" do
@@ -47,9 +48,10 @@ describe Build do
     end
 
     it "should fail" do
-      @project.instructions = "do_the_impossible"
-      @project.save!
-      should_not be_successful
+      @project.instructions = @build.instructions = "do_the_impossible"
+      [@project, @build].each(&:save!)
+      BuildJob.new(@build, @payload).perform 
+      @build.should_not be_successful
     end
   
     it "should be able to rebuild" do

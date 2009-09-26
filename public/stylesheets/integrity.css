@@ -17,11 +17,22 @@ a {
   padding: 10px;
   font-size: 14pt;
   font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
 }
 
 #notice {
   background: #F7FFA5;
-  border: 1px solid #C5CD86;
+  border-color: #C5CD86;
+}
+
+#success {
+  background: #BBF8AA;
+  border-color: #99D688;
+}
+
+#failure {
+  
 }
 
 #header, #content, #footer {
@@ -205,38 +216,38 @@ a {
     height: 30em;
     border: 1px solid #c0c0c0;
     line-height: 1.6; }
-  #content #projects {
+  #content .listing {
     margin: 1em 0 2em;
     border-top: 1px solid #c0c0c0; }
-    #content #projects li {
+    #content .listing li {
       position: relative;
       border-bottom: 1px solid #c0c0c0; }
-      #content #projects li.odd {
+      #content .listing li.odd {
         background: #e6e6e6; }
-      #content #projects li.building {
+      #content .listing li.building {
         background: transparent url(/spinner.gif) no-repeat scroll right; }
-      #content #projects li a {
+      #content .listing li a {
         font-size: 2em;
         padding: .25em;
         line-height: 1.2;
         font-weight: bold;
         display: block; }
-        #content #projects li a.success {
+        #content .listing li a.success {
           color: #337022; }
-        #content #projects li a.failed {
+        #content .listing li a.failed {
           color: #ff1100; }
-      #content #projects li .meta {
+      #content .listing li .meta {
         position: absolute;
         right: .6em;
         top: 1.5em;
         font-size: 0.8em;
         color: #999999;
         text-align: right; }
-      #content #projects li.building .meta {
+      #content .listing li.building .meta {
         right: 1.6em; }
-      #content #projects li.success .meta {
+      #content .listing li.success .meta {
         color: #337022; }
-      #content #projects li.failed .meta {
+      #content .listing li.failed .meta {
         color: #ff1100; }
   #content .builds li a {
     display: block;
@@ -248,21 +259,21 @@ a {
       font-size: 1.3em; }
     #content .builds li a .attribution {
       font-size: .9em; }
-  #content #projects li.success a,   #content .builds li.success a {
+  #content .listing li.success a,   #content .builds li.success a {
     background-color: #bbf8aa;
     border-color: #99d688;
     color: #337022; }
-    #content #projects li.success a .attribution,     #content .builds li.success a .attribution {
+    #content .listing li.success a .attribution,     #content .builds li.success a .attribution {
       color: #77b466; }
-    #content #projects li.success a:hover,     #content .builds li.success a:hover {
+    #content .listing li.success a:hover,     #content .builds li.success a:hover {
       background-color: #ddffcc; }
-  #content #projects li.failed a,   #content .builds li.failed a {
+  #content .listing li.failed a,   #content .builds li.failed a {
     background-color: #ffbbaa;
     border-color: #dd9988;
     color: #ff1100; }
-    #content #projects li.failed a .attribution,     #content .builds li.failed a .attribution {
+    #content .listing li.failed a .attribution,     #content .builds li.failed a .attribution {
       color: #bb7766; }
-    #content #projects li.failed a:hover,     #content .builds li.failed a:hover {
+    #content .listing li.failed a:hover,     #content .builds li.failed a:hover {
       background-color: #ffddcc; }
   #content #build, #content #last_build {
     position: relative; }

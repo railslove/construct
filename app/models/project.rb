@@ -1,10 +1,11 @@
 class Project < ActiveRecord::Base
   belongs_to :author
-  has_many :branches
-  has_many :commits
+  has_many :branches, :dependent => :destroy
+  has_many :commits, :dependent => :destroy
   has_many :builds, :through => :commits
   
   before_create :defaults
+  before_save :set_permalink
   
   class << self
     def find_or_create_by_payload_and_site(payload, site)
@@ -41,8 +42,11 @@ class Project < ActiveRecord::Base
   private
   
   def defaults
-    self.permalink = name.parameterize
     self.instructions = "rake" if instructions.blank?
+  end
+  
+  def set_permalink
+    self.permalink = name.parameterize
   end
   
 end

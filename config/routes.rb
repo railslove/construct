@@ -1,5 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.resources :projects do |project|
+    project.resources :branches do |branch|
+      branch.resources :builds, :member => { :rebuild => :put }
+    end
+    
     project.resources :builds, :member => { :rebuild => :put }
   end
   

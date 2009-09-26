@@ -59,21 +59,22 @@ github_branch:
     owner: 
       name: radar
       email: radarlistener@gmail.com
-  after: e17751a0f9477c46ccded79788aca9c7f89b7e48
+  after: 369c2ff572807bf9b6f60c4c3a119d6bb3b93b07
   ref: refs/heads/thomas
   commits: 
   - modified: []
 
-    added: []
-
-    timestamp: "2009-09-25T02:20:32-07:00"
+    added: 
+    - tmp/.gitignore
+    timestamp: "2009-09-25T22:32:27-07:00"
     removed: []
 
     author: 
       name: Ryan Bigg
       email: radarlistener@gmail.com
-    url: http://github.com/radar/by_star/commit/e17751a0f9477c46ccded79788aca9c7f89b7e48
-    id: e17751a0f9477c46ccded79788aca9c7f89b7e48
-    message: Add push_test as a way of testing branches for gitpilot.
-  before: 0c43bbe8c53102717c6c23e6cb32acb6b7171f2b
+    url: http://github.com/radar/by_star/commit/369c2ff572807bf9b6f60c4c3a119d6bb3b93b07
+    id: 369c2ff572807bf9b6f60c4c3a119d6bb3b93b07
+    message: Add tmp directory so tests should run right off the bat.
+  before: e17751a0f9477c46ccded79788aca9c7f89b7e48
+  
 

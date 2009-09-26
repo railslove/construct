@@ -1,5 +1,12 @@
 Given /^there is a github project$/ do
+  # "master" branch
   post 'github', :payload => YAML::load_file("#{RAILS_ROOT}/spec/fixtures/payload.yml")["github"].to_json
+  # Test for success as we may receive 401.
+  fail("The recieve URL /github is not skipping the authenticate before filter.") if response.code.to_i == 401
+  response.should be_success
+  
+  # "thomas" branch
+  post 'github', :payload => YAML::load_file("#{RAILS_ROOT}/spec/fixtures/payload.yml")["github_branch"].to_json
   # Test for success as we may receive 401.
   fail("The recieve URL /github is not skipping the authenticate before filter.") if response.code.to_i == 401
   response.should be_success

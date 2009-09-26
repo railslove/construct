@@ -6,7 +6,7 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    redirect_to project_builds_path(@project)
+    redirect_to @project.branches.many? ? project_branches_path(@project) : project_builds_path(@project)
   end
   
   def update

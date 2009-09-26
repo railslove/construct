@@ -1,5 +1,6 @@
 class BuildsController < ApplicationController
   before_filter :project
+  before_filter :branch
   before_filter :build, :only => [:rebuild, :show]
   
   def index
@@ -27,6 +28,10 @@ class BuildsController < ApplicationController
   
   def project
     @project = Project.find_by_permalink(params[:project_id])
+  end
+  
+  def branch
+    @branch = @project.branches.find_by_name(params[:branch_id])
   end
   
   def build
