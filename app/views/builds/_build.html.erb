@@ -1,5 +1,5 @@
 <div id='last_build' class='<%= build.status %>'>
-  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.status %></h1>
+  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h1>
   <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
     <p class="submit">
       <button type="submit" title="Rebuild this commit">Rebuild this commit</button>
