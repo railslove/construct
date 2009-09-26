@@ -2,7 +2,8 @@
   <% for project in @projects %>
     <li class='<%= cycle("even", "odd") %> <%= project.builds.first.status %>'>  
       <%= link_to project.name, project_path(project) %>
-      <div class="meta">Build <%= project.builds.first %> <%= project.builds.first.report %></div>
+      <% latest_build = project.builds.first(:order => "created_at DESC") %>
+      <div class="meta">Build <%= latest_build %> <%= latest_build.report %></div>
     </li>
   <% end %>
 </ul>
