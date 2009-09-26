@@ -2,7 +2,7 @@
 
 <ul id='branches' class='listing'>
   <% for branch in @branches %>
-    <% latest_build = branch.builds.first(:order => "created_at DESC") %>s
+    <% latest_build = branch.builds.first(:order => "created_at DESC") %>
     <li class='<%= cycle("even", "odd") %> <%= latest_build.status %>'>  
       <%= link_to branch.name, project_branch_builds_path(@project, branch) %>
       <div class="meta">Build <%= latest_build %> <%= latest_build.report %></div>
