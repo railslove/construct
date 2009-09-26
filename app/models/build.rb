@@ -68,7 +68,7 @@ class Build < ActiveRecord::Base
   
   def report
     if successful?
-      "successfully"
+      "successful"
     elsif status == "setting up repository" || status == "running the build" || status == "queued"
       status
     else
