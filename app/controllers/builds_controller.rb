@@ -4,7 +4,7 @@ class BuildsController < ApplicationController
   before_filter :build, :only => [:rebuild, :show]
   
   def index
-    @build = @project.builds.first
+    @build = @branch ? @branch.builds.first : @project.builds.first
     other_builds
     @commit = @build.commit
   end
