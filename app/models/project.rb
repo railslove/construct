@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   has_many :commits
   has_many :builds, :through => :commits
   
-  before_create :default_instructions
+  before_create :defaults
   
   class << self
     def find_or_create_by_payload_and_site(payload, site)
@@ -40,7 +40,8 @@ class Project < ActiveRecord::Base
   
   private
   
-  def default_instructions
+  def defaults
+    self.permalink = name.parameterize
     self.instructions = "rake" if instructions.blank?
   end
   

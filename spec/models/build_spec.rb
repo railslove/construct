@@ -22,6 +22,7 @@ describe Build do
     end
   
     it "should be able to rebuild" do
+      Delayed::Job.delete_all
       assert_difference "Build.count" do
         @build.rebuild
       end
@@ -52,6 +53,7 @@ describe Build do
     end
   
     it "should be able to rebuild" do
+      Delayed::Job.delete_all
       assert_difference "Build.count" do
         @build.rebuild
       end

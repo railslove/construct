@@ -31,7 +31,7 @@ class Build < ActiveRecord::Base
     # This shouldn't be too many as jobs are cleared when they're done.
     for job in Delayed::Job.all
       if Build.find(YAML.load(job.handler.split("\n")[1..-1].join("\n"))["build_id"]).commit == commit
-        errors.add_to_base "This commit is already queued to build."
+        destroy
         return false
       end
     end
@@ -63,6 +63,7 @@ class Build < ActiveRecord::Base
   def rebuild
     klass = github? ? GithubBuild : CodebaseBuild
     klass.setup(payload).start
+      
   end
   
   def report

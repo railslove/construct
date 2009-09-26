@@ -14,11 +14,10 @@ class BuildsController < ApplicationController
   
   def rebuild
     @new_build = @build.rebuild
-    if @new_build.errors.empty?
+    if @new_build
       flash[:notice] = "Build #{@build.commit.short_sha} rebuilding for #{@build.project.name}"
     else
-      flash[:error] = "Build #{@build.commit.short_sha} could not be built: #{@new_build.errors.full_messages.to_sentence}"
-      @new_build.destroy
+      flash[:error] = "There is already a build in progress for #{@build.commit.short_sha}"
       @new_build = @build
     end
     redirect_to [@project, @new_build]
@@ -27,7 +26,7 @@ class BuildsController < ApplicationController
   private
   
   def project
-    @project = Project.find(params[:project_id])
+    @project = Project.find_by_permalink(params[:project_id])
   end
   
   def build

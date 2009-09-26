@@ -20,19 +20,19 @@ class ProjectsController < ApplicationController
   end
   
   def github
-    GithubBuild.start(JSON.parse(params[:payload]))
+    GithubBuild.setup(JSON.parse(params[:payload])).start
     render :nothing => true
   end
   
   def codebase
-    CodebaseBuild.start(JSON.parse(params[:payload]))
+    CodebaseBuild.setup(JSON.parse(params[:payload])).start
     render :nothing => true
   end
   
   private
   
   def project
-    @project = Project.find(params[:id])
+    @project = Project.find_by_permalink(params[:id])
   end
   
 end

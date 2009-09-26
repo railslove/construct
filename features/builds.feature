@@ -1,0 +1,23 @@
+Feature: Builds
+
+  Background:
+    Given I am logged in
+    And there is a github project
+    And there is a codebase project
+    And there are no queued jobs
+    Given I am on the homepage
+    Then there should be 2 projects
+    
+Scenario: Rebuilding Builds
+  When I follow "by_star"
+  And I press "Rebuild"
+  Then I should see "Build 6431ae852 rebuilding for by_star"
+  
+
+Scenario: Rebuilding the same build in quick succession should fail
+  When I follow "by_star"
+  And I press "Rebuild"
+  Then I should see "Build 6431ae852 rebuilding for by_star"
+  When I press "Rebuild"
+  Then I should not see "Build 6431ae852 rebuilding for by_star"
+  Then I should see "There is already a build in progress for 6431ae852"
