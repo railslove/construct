@@ -4,6 +4,8 @@ class Project < ActiveRecord::Base
   has_many :commits, :dependent => :destroy
   has_many :builds, :through => :commits
   
+  validates_presence_of :name
+  
   before_create :defaults
   before_save :set_permalink
   

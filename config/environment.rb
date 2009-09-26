@@ -9,6 +9,7 @@ Rails::Initializer.run do |config|
   config.gem 'tobi-delayed_job', :lib => "delayed_job"
   config.gem 'json'
   config.gem 'popen4'
+  config.gem 'nokogiri', :version => ">= 1.3.2"
   config.time_zone = 'UTC'
 end
 
