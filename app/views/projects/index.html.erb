@@ -3,7 +3,12 @@
     <% latest_build = project.builds.first(:order => "created_at DESC") %>
     <li class='<%= cycle("even", "odd") %> <%= latest_build.status %>'>  
       <%= link_to project.name, project_path(project) %>
-      <div class="meta">Build <%= latest_build %> <%= latest_build.report %></div>
+      <div class="meta">
+        <% if project.branches.many? -%>
+          Branch <%= latest_build.branch %> -
+        <% end -%>
+          Build <%= latest_build %> <%= latest_build.report %>
+        </div>
     </li>
   <% end %>
 </ul>
