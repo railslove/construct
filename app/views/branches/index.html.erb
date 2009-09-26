@@ -4,7 +4,7 @@
   <% for branch in @branches %>
     <li class='<%= cycle("even", "odd") %> <%= branch.builds.first.status %>'>  
       <%= link_to branch.name, project_branch_builds_path(@project, branch) %>
-      <div class="meta">Built <%= branch.builds.first %> <%= branch.builds.first.report %></div>
+      <div class="meta">Build <%= branch.builds.first %> <%= branch.builds.first.report %></div>
     </li>
   <% end %>
 </ul>

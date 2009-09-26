@@ -6,7 +6,7 @@
       <li class='<%= build.status %>'>
         <% link_to project_build_path(@project, build) do %>
           <strong class="build">Build #<%= build.number %> - <%= build.commit.short_sha %></strong>
-          <span class="attribution">by <%= build.commit.author %>, on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %> <%= build.commit.timestamp("%H:%M%z")%></span>
+          <span class="attribution">by <%= build.commit.author %>, on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %> <%= build.commit.timestamp.strftime("%H:%M")%></span>
         <% end %>
       </li>
     </ul>
