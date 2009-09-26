@@ -4,15 +4,10 @@ class BuildJob < Struct.new(:build_id, :payload)
     self.build = Build.find(build_id)
     repository = payload["repository"]
     self.project = Project.find_by_name(repository["name"])
-    if !project
-      puts "There is no project."
-      exit!
-    end
     
     branch = build.branch
     self.build_directory = File.join(project.build_directory, branch.name)
     FileUtils.mkdir_p(build_directory)
-    p File.exist?(build_directory)
     # Even though with chdir inside the methods, it's better to be safe than sorry.
     Dir.chdir(build_directory) do
       self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
@@ -47,7 +42,6 @@ class BuildJob < Struct.new(:build_id, :payload)
   
   # Helper method for running steps that will follow the same ol' pending, succeed/failed chain of events.
   def run_step(command, pending="pending", success="success", failure="failed")
-    p File.exist?(build_directory)
     POpen4::popen4(command) do |stdout, stderr, stdin, pid|
       @build.stderr = stderr.read
       @build.stdout = stdout.read
@@ -88,7 +82,6 @@ class BuildJob < Struct.new(:build_id, :payload)
   end
   
   def clone_repo
-     p File.exist?(build_directory)
      run_step("git clone #{clone_url} #{build_directory}", "setting up repository", "set up repository", "failed to set up repository")
    end
 end

@@ -11,7 +11,6 @@ describe Build do
     subject { BuildJob.new(@build, @payload).perform }
 
     it "should succeed" do
-      p subject.status
       should be_successful
     end
 

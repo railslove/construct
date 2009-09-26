@@ -30,7 +30,7 @@ describe BuildJob do
       end
   
       it "should just ignore the branch if it already exists" do
-        @build.status.should eql("branch master already exists, proceeding")
+        @build.status.should eql("checked out remote branch master")
       end
   
     end

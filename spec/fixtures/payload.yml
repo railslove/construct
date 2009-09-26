@@ -12,38 +12,24 @@ github:
     owner: 
       name: radar
       email: radarlistener@gmail.com
-  after: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
+  after: e52ccb1ce7d9134cf69425d578f792673aeee78c
   ref: refs/heads/master
   commits: 
-  - modified: 
-    - lib/by_star.rb
-    - spec/by_star_spec.rb
-    added: []
+  - modified: []
 
-    timestamp: "2009-08-28T16:52:49-07:00"
+    added: 
+    - tmp/.gitignore
+    timestamp: "2009-09-25T16:18:34-07:00"
     removed: []
 
     author: 
       name: Ryan Bigg
       email: radarlistener@gmail.com
-    url: http://github.com/radar/by_star/commit/6431ae852cb2574263bfa8f4dfaa85cff55db5eb
-    id: 6431ae852cb2574263bfa8f4dfaa85cff55db5eb
-    message: ArgumentError will only be raised on versions < 1.8.7.
-  - modified: 
-    - README.markdown
-    - lib/by_star.rb
-    added: []
+    url: http://github.com/radar/by_star/commit/e52ccb1ce7d9134cf69425d578f792673aeee78c
+    id: e52ccb1ce7d9134cf69425d578f792673aeee78c
+    message: Add tmp directory so tests should run right off the bat.
+  before: 621c9cf01d0f42aa038eee6a8edbf839625dc660
 
-    timestamp: "2009-08-28T17:39:25-07:00"
-    removed: []
-
-    author: 
-      name: Ryan Bigg
-      email: radarlistener@gmail.com
-    url: http://github.com/radar/by_star/commit/8d0f748fa07b08d88afc69568f7d4f7207b9ee50
-    id: 8d0f748fa07b08d88afc69568f7d4f7207b9ee50
-    message: Added documentation for the current weekend and current work week, provided method names.
-  before: 4b348f1466d1c73bf4cee17c9c377a4a207ea231
   
 github_branch:
   repository: 
