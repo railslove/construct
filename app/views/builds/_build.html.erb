@@ -20,8 +20,10 @@
   <pre class="output"><%= build.instructions %></pre>
   
   <h2>Build output</h2>
-  
   <pre class="output"><%= build.stdout %>
+    
+  <h2>Final status: <%= build.status %></h2>
+
 <%= build.stderr %>
   </pre>
   <%= render :partial => "list", :locals => { :type => "future", :builds => @future_builds } %>
