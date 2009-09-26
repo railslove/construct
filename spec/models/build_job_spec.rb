@@ -9,10 +9,9 @@ describe BuildJob do
   
   describe BuildJob, "setup" do
     it "should clone the repo if it doesn't exist" do
-      File.exist?(@project.build_directory).should be_false
       @build_job = BuildJob.new(@build.id, @payload)
       @build_job.setup
-      File.exist?(@project.build_directory).should be_true
+      File.exist?(@build_job.build_directory).should be_true
     end
   end
 

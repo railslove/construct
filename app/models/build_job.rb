@@ -1,5 +1,5 @@
 class BuildJob < Struct.new(:build_id, :payload)
-  attr_accessor :build, :project, :clone_url
+  attr_accessor :build, :project, :clone_url, :build_directory
   def setup
     self.build = Build.find(build_id)
     repository = payload["repository"]
@@ -8,25 +8,29 @@ class BuildJob < Struct.new(:build_id, :payload)
       puts "There is no project."
       exit!
     end
-    self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
-    # Will have to have different directories for the different branches at one point.
-    if !File.exist?(File.join(project.build_directory, ".git"))
-      clone_repo
-    end
+    
     branch = build.branch
-     
-    Dir.chdir(project.build_directory) do
+    self.build_directory = File.join(project.build_directory, branch.name)
+    FileUtils.mkdir_p(build_directory)
+    # Even though with chdir inside the methods, it's better to be safe than sorry.
+    Dir.chdir(build_directory) do
+      self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
+      # Will have to have different directories for the different branches at one point.
+      if !File.exist?(File.join(build_directory, ".git"))
+        clone_repo
+      end
+    
       checkout_branch
     end
   end
   
   def perform
     setup
-    Dir.chdir(project.build_directory) do
+    Dir.chdir(build_directory) do
       @build.update_attribute("status", "running the build")
       @build.stdout = ""
       @build.stderr = ""
-      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|        
+      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
         @build.stdout << stdout.read.strip
         @build.stderr << stderr.read.strip
       end
@@ -40,22 +44,23 @@ class BuildJob < Struct.new(:build_id, :payload)
   
   # Helper method for running steps that will follow the same ol' pending, succeed/failed chain of events.
   def run_step(command, pending="pending", success="success", failure="failed")
-    POpen4::popen4(command) do |stdout, stderr, stdin, pid|
-      @build.stderr = stderr.read
-      @build.stdout = stdout.read
+    Dir.chdir(build_directory) do
+      POpen4::popen4(command) do |stdout, stderr, stdin, pid|
+        @build.stderr = stderr.read
+        @build.stdout = stdout.read
+      end
+      if $?.success? 
+        @build.update_attribute(:status, success)
+      else 
+        @build.update_attribute(:status, failure)
+      end
+      $?.success?
     end
-    
-    if $?.success? 
-      @build.update_attribute(:status, success)
-    else 
-      @build.update_attribute(:status, failure)
-    end
-    $?.success?
   end
   
   def checkout_branch
     branch = build.branch.name
-    Dir.chdir(project.build_directory) do
+    Dir.chdir(build_directory) do
       output = ""
       POpen4::popen4("git checkout origin/#{branch} -b #{branch}") do |stdout, stderr, stdin, pid|        
         output << stdout.read.strip
@@ -75,6 +80,6 @@ class BuildJob < Struct.new(:build_id, :payload)
   end
   
   def clone_repo
-     run_step("git clone #{clone_url} #{project.build_directory}", "setting up repository", "set up repository", "failed to set up repository")
+     run_step("git clone #{clone_url} #{build_directory}", "setting up repository", "set up repository", "failed to set up repository")
    end
 end
