@@ -69,6 +69,10 @@ namespace :deploy do
   task :create_symlinks, :roles => :app do
     run "rm -f #{current_path}/config/database.yml"
     run "ln -s #{shared_path}/config/database.yml #{current_path}/config/database.yml"
+    run "rm -f #{current_path}/config/auth.yml"
+    run "ln -s #{shared_path}/config/auth.yml #{current_path}/config/auth.yml"
+    run "rm -f #{current_path}/config/constructa.yml"
+    run "ln -s #{shared_path}/config/constructa.yml #{current_path}/config/constructa.yml"
   end
   
   desc "Run the jobs worker"
