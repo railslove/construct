@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :project, :only => [:show, :edit, :update, :destroy]
   skip_before_filter :authenticate
   def index
-    @projects = Project.all
+    @projects = Project.all(:include => [{ :builds => :commit }, :commits])
     respond_to do |format|
       format.html
       format.xml { render_xml }

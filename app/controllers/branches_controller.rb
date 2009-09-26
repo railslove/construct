@@ -2,7 +2,7 @@ class BranchesController < ApplicationController
   before_filter :project
   
   def index
-    @branches = @project.branches
+    @branches = @project.branches.all(:include => { :builds => :commit })
   end
   
   private
