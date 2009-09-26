@@ -1,0 +1,9 @@
+development: &STANDARD
+  user: user
+  password: password
+  
+test:
+  <<: *STANDARD
+  
+cucumber:
+  <<: *STANDARD
