@@ -1,32 +1,30 @@
-<div id='last_build' class='<%= build.status %>'>
-  <h1>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h1>
-  <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
-    <p class="submit">
-      <button type="submit" title="Rebuild this commit">Rebuild this commit</button>
-    </p>
-  <% end %>
-  <blockquote>
-    <p><%= simple_format(build.commit.message) %></p>
-    <p class='meta'>
-      <span class='who'>by: <%= build.commit.author %></span> |
-      <span class="when" title="<%= build.commit.timestamp %>">
+<div id='last_build' class='build <%= build.status %>'>
+  <div id='build_header'>
+    <h2>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h2>
+    <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
+      <p class="submit">
+        <button type="submit" title="Rebuild this commit">Rebuild this commit</button>
+      </p>
+    <% end %>
+    <blockquote>
+      <p><%= simple_format(build.commit.message) %></p><br>
+      <small>by <%= build.commit.author %>
         on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %>
-      </span> |
-      <span class="what">commit: <%= build.commit.sha %></span>
-    </p>
-  </blockquote>
+      </small>
+    </blockquote>
+  </div>
   
-  <h2>Build instructions</h2>
-  <pre class="output"><%= build.instructions %></pre>
+  <h3>Build instructions</h3>
+  <pre class="output" id='build_instructions'><%= build.instructions %></pre>
   
-  <h2>Build output</h2>
-  <pre class="output"><%= build.stdout %></pre>
+  <h3>Build output</h3>
+  <pre class="output" id='build_output'><%= build.stdout %></pre>
   
-  <h2>Build errors</h2>
-  <pre class="output"><%= build.stderr %></pre>
+  <h3>Build errors</h3>
+  <pre class="output" id='build_errors'><%= build.stderr %></pre>
   
     
-  <h2>Final status: <%= build.status %></h2>
+  <h3>Final status: <%= build.status %></h3>
 
   </pre>
   <%= render :partial => "list", :locals => { :type => "future", :builds => @future_builds } %>
