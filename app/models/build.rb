@@ -28,6 +28,12 @@ class Build < ActiveRecord::Base
                              :instructions => project.instructions, 
                              :site =>  site)
     end
+    
+    # Helper method:
+    # Rather than calling setup(payload).start we can just call start(payload)
+    def start(payload)
+      setup(payload).start
+    end
   end
   
   def start
@@ -65,9 +71,10 @@ class Build < ActiveRecord::Base
     "#{id}-#{commit.short_sha}"
   end
   
+  # Trigger a rebuild.
   def rebuild
     klass = github? ? GithubBuild : CodebaseBuild
-    klass.setup(payload).start
+    klass.start(payload)
       
   end
   
