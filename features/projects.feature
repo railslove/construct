@@ -11,7 +11,7 @@ Feature: Projects
   Scenario: Viewing Github Project
     When I follow "by_star"
     When I follow "master"
-    Then I should see "6431ae852" as the latest
+    Then I should see "e52ccb1ce" as the latest
 
   Scenario: Viewing Codebase Project
     When I follow "Doc Jockey: Web App"

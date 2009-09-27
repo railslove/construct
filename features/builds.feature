@@ -12,14 +12,14 @@ Scenario: Rebuilding Builds
   When I follow "by_star"
   And I follow "master"
   And I press "Rebuild this commit"
-  Then I should see "Build 6431ae852 rebuilding for by_star"
+  Then I should see "Build e52ccb1ce rebuilding for by_star"
   
 
 Scenario: Rebuilding the same build in quick succession should fail
   When I follow "by_star"
   And I follow "master"
   And I press "Rebuild this commit"
-  Then I should see "Build 6431ae852 rebuilding for by_star"
+  Then I should see "Build e52ccb1ce rebuilding for by_star"
   When I press "Rebuild this commit"
-  Then I should not see "Build 369c2ff57 rebuilding for by_star"
-  Then I should see "There is already a build in progress for 6431ae852"
+  Then I should not see "Build e52ccb1ce rebuilding for by_star"
+  Then I should see "There is already a build in progress for e52ccb1ce"

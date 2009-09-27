@@ -9,9 +9,9 @@ Feature: Branches
 
   Scenario: Selecting a branch
     When I follow "by_star"
-    Then I should see "Branches"
+    Then I should see "branches"
     When I follow "master"
-    Then I should see "6431ae852" as the latest
+    Then I should see "e52ccb1ce" as the latest
     When I follow "branches"
     When I follow "thomas"
-    Then I should see "6431ae852" as the latest
+    Then I should see "369c2ff57" as the latest

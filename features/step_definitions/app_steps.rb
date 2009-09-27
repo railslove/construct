@@ -3,7 +3,7 @@ Given /^there are no queued jobs$/ do
 end
 
 Given /^I am logged in$/ do
-  basic_auth(AUTH["user"], AUTH["password"])
+  basic_auth(CONSTRUCTA["user"], CONSTRUCTA["password"])
 end
 
 When /^I dump the page$/ do
