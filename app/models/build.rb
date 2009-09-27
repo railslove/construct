@@ -15,7 +15,12 @@ class Build < ActiveRecord::Base
   end
   
   class << self
+    
+    # Prepare a build to be built.
     def setup(payload)
+      if self == Build
+        raise "Setup must be called on a subclass of Build (GithubBuild or CodebaseBuild)"
+      end
       project, commit = Project.from_payload(self, payload)
       build = Build.create!(:payload => payload,
                             :commit => commit, 
