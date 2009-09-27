@@ -20,3 +20,7 @@ Set up constructa on your server like a normal Rails application and set up eith
 
 Builds are ran by running the `rake jobs:work` command, which uses delayed_job to run the jobs in the background, which means the app itself won't hang unlike other *cough*Integrity*cough* alternatives out there.
 
+## Contributions
+
+Some of the html is ripped from Integrity since I used that to style how the app "flowed" when first crafting it.
+
