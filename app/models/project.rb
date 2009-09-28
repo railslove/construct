@@ -40,6 +40,10 @@ class Project < ActiveRecord::Base
     name.parameterize
   end
   
+  def status
+    branches.any? { |branch| branch.builds.first(:order => "created_at DESC").failed? } ? "failed" : "success"
+  end
+  
   
   private
   
