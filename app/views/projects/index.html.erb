@@ -1,15 +1,17 @@
-<div id='projects'>
+<div id='projects' class='builds'>
+  <ul>
   <% for project in @projects %>
-    <% latest_build = project.builds.first(:order => "created_at DESC") %>
-    <% div_for project, :class => latest_build.status do %>
+    <li class='<%= project.status %> item'>
       <h2><%= link_to project.name, project_path(project) %></h2>
-        <small>
-          <% if project.branches.many? -%>
-            <%= latest_build.branch %> -
-          <% end -%>
-          Build <%= latest_build %> <%= latest_build.report %>
-        </small>
-      </li>
-    <% end %>
+        <ul class='meta'>
+          <% for branch in project.branches %>
+            <% latest_build = branch.builds.first(:order => "created_at DESC") %>
+            <li><%= link_to(latest_build.branch, project_branch_builds_path(project, branch)) %>
+            - Build <%= latest_build %> <%= latest_build.report %></li>
+          <% end %>
+        </ul>
+        <br class='clear'>
+    </li>
   <% end %>
+  </ul>
 </div>

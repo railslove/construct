@@ -1,4 +1,4 @@
-<div id='last_build' class='build <%= build.status %>'>
+<div id='last_build' class='build <%= build.status.underscore %>'>
   <div id='build_header'>
     <h2>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h2>
     <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>

@@ -1,4 +1,4 @@
-<div id='branches'>
+<div id='branches' class='builds'>
   <% for branch in @branches %>
     <% latest_build = branch.builds.first(:order => "created_at DESC") %>
     <% div_for branch, :class => latest_build.status do %>
