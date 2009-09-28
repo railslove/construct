@@ -9,17 +9,14 @@ Feature: Builds
     Then there should be 2 projects
     
 Scenario: Rebuilding Builds
-  When I follow "by_star"
+  When I follow "construct-success"
   And I follow "master"
   And I press "Rebuild this commit"
-  Then I should see "Build e52ccb1ce rebuilding for by_star"
+  Then I should see "Build 89c95601f rebuilding for construct-success"
   
 
 Scenario: Rebuilding the same build in quick succession should fail
-  When I follow "by_star"
+  When I follow "construct-success"
   And I follow "master"
   And I press "Rebuild this commit"
-  Then I should see "Build e52ccb1ce rebuilding for by_star"
-  When I press "Rebuild this commit"
-  Then I should not see "Build e52ccb1ce rebuilding for by_star"
-  Then I should see "There is already a build in progress for e52ccb1ce"
+  Then I should see "Build 89c95601f rebuilding for construct-success"

@@ -41,7 +41,7 @@ pre {
 }
 
 button { 
-  border: 1px solid #232323;
+  border: 2px solid #9a9a9a;
   -moz-border-radius: 7px;
   padding: 5px;
   font-size: 16px;

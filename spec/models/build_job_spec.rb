@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe BuildJob do
   before do
-    @payload = payload("github")
+    @payload = payload("construct-success")
     @build = GithubBuild.setup(@payload)
     @project = Project.find_by_name(@payload["repository"]["name"])
   end
@@ -26,22 +26,22 @@ describe BuildJob do
   
     describe BuildJob, "with standard payload" do
       before do
-        setup_build(payload("github"))
+        setup_build(payload("construct-success"))
       end
   
       it "should just ignore the branch if it already exists" do
-        @build.status.should eql("checked out remote branch master")
+        @build.status.should eql("checked out successfully")
       end
   
     end
 
     describe BuildJob, "with alternate branch payload from Github" do
       before do
-        setup_build(payload("github_branch"))
+        setup_build(payload("construct-success-branch"))
       end
   
       it "should be able to check out the branch" do
-        @build.status.should eql("checked out remote branch thomas")
+        @build.status.should eql("checked out successfully")
       end
   
     end

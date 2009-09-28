@@ -1,25 +1,29 @@
 Given /^there is a github project$/ do
   # "master" branch
-  post 'github', :payload => YAML::load_file("#{RAILS_ROOT}/spec/fixtures/payload.yml")["github"].to_json
-  # Test for success as we may receive 401.
-  fail("The recieve URL /github is not skipping the authenticate before filter.") if response.code.to_i == 401
-  response.should be_success
+  post 'github', :payload => payload("construct-success")
+  ensure_authed
   
-  # "thomas" branch
-  post 'github', :payload => YAML::load_file("#{RAILS_ROOT}/spec/fixtures/payload.yml")["github_branch"].to_json
-  # Test for success as we may receive 401.
-  fail("The recieve URL /github is not skipping the authenticate before filter.") if response.code.to_i == 401
-  response.should be_success
+  # "win" branch
+  post 'github', :payload => payload("construct-success-branch")
+  ensure_authed
 end
 
 Given /^there is a codebase project$/ do
-  post 'codebase', :payload => YAML::load_file("#{RAILS_ROOT}/spec/fixtures/private_payload.yml")["codebase"].to_json
-  # Test for success as we may receive 401.
-  fail("The recieve URL /codebase is not skipping the authenticate before filter.") if response.code.to_i == 401
-  response.should be_success
+  post 'codebase', :payload => payload("docjockey")
+  ensure_authed
 end
 
 
 Then /^there should be (\d+) projects?$/ do |num|
   Project.count.should be(num.to_i)
+end
+
+# Test for success as we may receive 401.
+def ensure_authed
+  fail("The recieve URL /codebase is not skipping the authenticate before filter.") if response.code.to_i == 401
+  response.should be_success
+end
+
+def payload(key)
+  File.read("#{RAILS_ROOT}/spec/fixtures/#{key}")
 end

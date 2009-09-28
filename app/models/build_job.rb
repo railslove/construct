@@ -28,14 +28,21 @@ class BuildJob < Struct.new(:build_id, :payload)
       @build.update_attribute("status", "running the build")
       @build.stdout = ""
       @build.stderr = ""
+      
       POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
         @build.stdout << stdout.read.strip
         @build.stderr << stderr.read.strip
       end
       
       @build.update_attribute("status", $?.success? ? "success" : "failed")
-      # Just to ensure...
+      # Just to ensure that everything is updated.
       @build.save!
+      # To ensure we're not running builds for the one project at the same time
+      # We will start running a build after one has finished.
+      # There is code also in build.rb (Build#start) that stops this.
+      if build = project.builds.after(@build).first
+        build.start
+      end
     end
     @build
   end
@@ -70,18 +77,18 @@ class BuildJob < Struct.new(:build_id, :payload)
     end
     
     if $?.success?
-      @build.update_attribute(:status, "checked out remote branch #{branch}")
+      @build.update_attribute(:status, "checked out successfully")
     else
       if output =~ /already exists$/
-        @build.update_attribute(:status, "branch #{branch} already exists, proceeding")
+        @build.update_attribute(:status, "branch already exists")
       else
-        @build.update_attribute(:status, "something went wrong whilst checking out the branch #{branch}: #{output}")
+        @build.update_attribute(:status, "branch checkout failed")
       end
     end
     $?.success?
   end
   
   def clone_repo
-     run_step("git clone #{clone_url} #{build_directory}", "setting up repository", "set up repository", "failed to set up repository")
+     run_step("git clone #{clone_url} #{build_directory}", "setting up repository", "set up repository", "repository setup failed")
    end
 end

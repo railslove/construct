@@ -22,9 +22,16 @@ FileUtils.mkdir_p("#{RAILS_ROOT}/tmp/builds")
 require File.dirname(__FILE__) + "/blueprints"
 
 def payload(key)
-  YAML::load_file(File.dirname(__FILE__) + "/fixtures/payload.yml")[key.to_s]
+  JSON.parse(File.read("#{RAILS_ROOT}/spec/fixtures/#{key}"))
 end
 
-def private_payload(key)
-  YAML::load_file(File.dirname(__FILE__) + "/fixtures/private_payload.yml")[key]
+# Print the location of puts/p calls so you can find them later
+def puts str
+  super caller.first
+  super str
+end
+
+def p obj
+  puts caller.first
+  super obj
 end

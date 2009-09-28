@@ -8,8 +8,18 @@ class Build < ActiveRecord::Base
   delegate :project, :to => :commit
   delegate :branch, :to => :commit
   
+  named_scope :in_progress_excluding, lambda { |build| { :conditions => ["(status != 'success' OR status != 'failed') AND builds.id != ?", build.id] } }
+  
   named_scope :before, lambda { |build| { :conditions => ["created_at < ?", build.created_at]}}
   named_scope :after,  lambda { |build| { :conditions => ["created_at > ?", build.created_at]}}
+  
+  # For storing notifications such as if a build for this project is already in progress.
+  attr_accessor :notifications
+  
+  # We want it to be an array by default
+  def notifications 
+    @notifications ||= []
+  end
   
   class AlreadyQueued < StandardError
   end
@@ -36,7 +46,12 @@ class Build < ActiveRecord::Base
     end
   end
   
+  def update_status(status)
+    update_attribute(:status, status)
+  end
+  
   def start
+    return self if status == 'failed' || status == 'success'
     # Trying to find if this build has already been queued.
     # The way we detect this for now is to inspect all the handlers of all current jobs.
     # This shouldn't be too many as jobs are cleared when they're done.
@@ -46,7 +61,15 @@ class Build < ActiveRecord::Base
         return false
       end
     end
-    Delayed::Job.enqueue(BuildJob.new(id, payload))
+    in_progress_builds = project.builds.in_progress_excluding(self)
+    if in_progress_builds.empty?
+      Delayed::Job.enqueue(BuildJob.new(id, payload))
+    else
+      builds = project.builds.all(:select => "builds.id")
+      queue_number = builds.index(in_progress_builds.first) - builds.index(self)
+      self.notifications << "Another build for this project is currently in progress. This build is ##{queue_number} in the build queue for this project."
+      update_status("waiting")
+    end
     self
   end
   
@@ -61,6 +84,10 @@ class Build < ActiveRecord::Base
   
   def successful?
     status == "success"
+  end
+  
+  def pending?
+    %w(queued waiting).include?(status)
   end
   
   def failed?
@@ -85,7 +112,7 @@ class Build < ActiveRecord::Base
   def report
     if successful?
       "successful"
-    elsif status == "setting up repository" || status == "running the build" || status == "queued"
+    elsif ["setting up repository", "running the build", "queued", "waiting"].include?(status)
       status
     else
       "failed"
