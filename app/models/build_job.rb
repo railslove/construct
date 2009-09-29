@@ -10,7 +10,9 @@ class BuildJob < Struct.new(:build_id, :payload)
     FileUtils.mkdir_p(build_directory)
     # Even though with chdir inside the methods, it's better to be safe than sorry.
     
-    self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
+    self.clone_url = repository["clone_url"] # For codebase repositories
+    self.clone_url ||= "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git" if repository["private"] # private repositories on github
+    self.clone_url ||= "git://#{build.site}##{repository["owner"]["name"]}/#{repository["name"]}.git" # All the rest
     # Will have to have different directories for the different branches at one point.
     if !File.exist?(File.join(build_directory, ".git"))
       # If the clone initially failed it will create a blank directory, remove that directory.
