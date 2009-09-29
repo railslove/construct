@@ -9,15 +9,18 @@ class BuildJob < Struct.new(:build_id, :payload)
     self.build_directory = File.join(project.build_directory, branch.name)
     FileUtils.mkdir_p(build_directory)
     # Even though with chdir inside the methods, it's better to be safe than sorry.
+    
+    self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
+    # Will have to have different directories for the different branches at one point.
+    if !File.exist?(File.join(build_directory, ".git"))
+      # If the clone initially failed it will create a blank directory, remove that directory.
+      FileUtils.rm_rf(build_directory)
+      clone_repo
+    else
+      `git pull origin master`
+    end
+    
     Dir.chdir(build_directory) do
-      self.clone_url = repository["clone_url"] || "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git"
-      # Will have to have different directories for the different branches at one point.
-      if !File.exist?(File.join(build_directory, ".git"))
-        clone_repo
-      else
-        `git pull origin master`
-      end
-      
       checkout_commit
     end
   end
