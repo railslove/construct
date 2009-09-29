@@ -36,7 +36,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       @build.update_attribute("status", "running the build")
       @build.stdout = ""
       @build.stderr = ""
-      
+      puts `pwd`
       POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
         @build.stdout << stdout.read.strip
         @build.stderr << stderr.read.strip

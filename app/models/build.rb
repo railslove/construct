@@ -61,15 +61,15 @@ class Build < ActiveRecord::Base
         return false
       end
     end
-    in_progress_builds = project.builds.in_progress_excluding(self)
-    if in_progress_builds.empty?
+    # in_progress_builds = project.builds.in_progress_excluding(self)
+    # if in_progress_builds.empty?
       Delayed::Job.enqueue(BuildJob.new(id, payload))
-    else
-      builds = project.builds.all(:select => "builds.id")
-      queue_number = builds.index(in_progress_builds.first) - builds.index(self)
-      self.notifications << "Another build for this project is currently in progress. This build is ##{queue_number} in the build queue for this project."
-      update_status("waiting")
-    end
+    # else
+    #   builds = project.builds.all(:select => "builds.id")
+    #   queue_number = builds.index(in_progress_builds.first) - builds.index(self)
+    #   self.notifications << "Another build for this project is currently in progress. This build is ##{queue_number} in the build queue for this project."
+    #   update_status("waiting")
+    # end
     self
   end
   
