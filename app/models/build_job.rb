@@ -40,7 +40,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       # To ensure we're not running builds for the one project at the same time
       # We will start running a build after one has finished.
       # There is code also in build.rb (Build#start) that stops this.
-      if build = project.builds.after(@build).first
+      if build = project.builds.after(@build).last
         build.start
       end
     end
