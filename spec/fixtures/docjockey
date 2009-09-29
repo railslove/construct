@@ -1,21 +1,21 @@
 {
-  "after": "0914d3308aeb8270d46ac852e2f06a8e2fd29c24", 
-  "before": "4cb983d0fb5f4a916740c4febf448ae9a98c49a7", 
+  "after": "7906cfa6863b8da14bb9e117cc3dc82c2e9d54f5", 
+  "before": "a22cf642c7d5deff549e84f4968e3b6b6cf45957", 
   "commits": [
     {
-      "added": [
+      "added": [], 
+      "author": {
+        "email": "me@bjeanes.com", 
+        "name": "Bodaniel Jeanes"
+      }, 
+      "id": "7906cfa6863b8da14bb9e117cc3dc82c2e9d54f5", 
+      "message": "Removed empty notifier file", 
+      "modified": [], 
+      "removed": [
         "notifier"
       ], 
-      "author": {
-        "email": "dev+drnic+radar@mocra.com", 
-        "name": "Dr Nic Williams and Ryan Bigg"
-      }, 
-      "id": "0914d3308aeb8270d46ac852e2f06a8e2fd29c24", 
-      "message": "push notification testing", 
-      "modified": [], 
-      "removed": [], 
-      "timestamp": "Fri, 25 Sep 2009 23:41:11 +0000", 
-      "url": "http://mocra.codebasehq.com/docjockey/webapp/commit/0914d3308aeb8270d46ac852e2f06a8e2fd29c24"
+      "timestamp": "Tue, 29 Sep 2009 01:15:00 +0000", 
+      "url": "http://mocra.codebasehq.com/docjockey/webapp/commit/7906cfa6863b8da14bb9e117cc3dc82c2e9d54f5"
     }
   ], 
   "ref": "refs/heads/master", 

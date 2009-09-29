@@ -18,10 +18,10 @@
   <pre class="output" id='build_instructions'><%= build.instructions %></pre>
   
   <h3>Build output</h3>
-  <pre class="output" id='build_output'><%= build.stdout %></pre>
+  <pre class="output" id='build_output'><%= h build.stdout %></pre>
   
   <h3>Build errors</h3>
-  <pre class="output" id='build_errors'><%= build.stderr %></pre>
+  <pre class="output" id='build_errors'><%= h build.stderr %></pre>
   
     
   <h3>Final status: <%= build.status %></h3>

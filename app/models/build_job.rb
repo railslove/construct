@@ -40,6 +40,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
         @build.stdout << stdout.read.strip
         @build.stderr << stderr.read.strip
+        @build.save!
       end
       
       @build.update_attribute("status", $?.success? ? "success" : "failed")
