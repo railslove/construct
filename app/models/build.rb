@@ -8,7 +8,7 @@ class Build < ActiveRecord::Base
   delegate :project, :to => :commit
   delegate :branch, :to => :commit
   
-  named_scope :in_progress_excluding, lambda { |build| { :conditions => ["(status != 'success' OR status != 'failed') AND builds.id != ?", build.id] } }
+  named_scope :in_progress_excluding, lambda { |build| { :conditions => ["status != 'success' AND status != 'failed' AND builds.id != ?", build.id] } }
   
   named_scope :before, lambda { |build| { :conditions => ["created_at < ?", build.created_at]}}
   named_scope :after,  lambda { |build| { :conditions => ["created_at > ?", build.created_at]}}
