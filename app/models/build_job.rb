@@ -14,17 +14,20 @@ class BuildJob < Struct.new(:build_id, :payload)
     self.clone_url ||= "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git" if repository["private"] # private repositories on github
     self.clone_url ||= "git://#{build.site}##{repository["owner"]["name"]}/#{repository["name"]}.git" # All the rest
     # Will have to have different directories for the different branches at one point.
-    if !File.exist?(File.join(build_directory, ".git"))
+    
+    if !File.exist?(build_directory) 
+      clone_repo
+    elsif !File.exist?(File.join(build_directory, ".git"))
       # If the clone initially failed it will create a blank directory, remove that directory.
       FileUtils.rm_rf(build_directory)
       clone_repo
     else
-      `git pull origin master`
+      Dir.chdir(build_directory) do
+        `git pull origin master`
+        checkout_commit
+      end
     end
-    
-    Dir.chdir(build_directory) do
-      checkout_commit
-    end
+  
   end
   
   def perform
