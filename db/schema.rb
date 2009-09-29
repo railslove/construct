@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090926003853) do
+ActiveRecord::Schema.define(:version => 20090929023358) do
 
   create_table "branches", :force => true do |t|
     t.datetime "created_at"
@@ -27,11 +27,11 @@ ActiveRecord::Schema.define(:version => 20090926003853) do
     t.integer  "commit_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "stdout"
+    t.binary   "stdout"
     t.integer  "number"
     t.text     "instructions"
     t.string   "site"
-    t.text     "stderr"
+    t.binary   "stderr"
   end
 
   create_table "commits", :force => true do |t|
