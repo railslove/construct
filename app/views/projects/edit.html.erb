@@ -3,7 +3,7 @@
 <% form_for @project do |f| %>
   <p>
     <%= f.label :instructions %>
-    <%= f.text_area :instructions %>
+    <%= f.text_area :instructions, :cols => 120 %>
   </p>
   <%= f.submit %>
 <% end %>

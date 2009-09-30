@@ -12,4 +12,8 @@ describe ApplicationHelper do
     @title.should eql("blah")
   end
   
+  
+  it "should correctly colour the text" do
+    color_text(File.read("#{RAILS_ROOT}/spec/fixtures"))
+  end
 end

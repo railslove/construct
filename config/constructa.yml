@@ -1,5 +1,5 @@
 development: &STANDARD
-  build_directory: <%= RAILS_ROOT %>/tmp/builds
+  build_directory: /data/builds
   user: user
   password: password
   

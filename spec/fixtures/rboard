@@ -1,0 +1,83 @@
+ 	
+
+{
+  "after": "c38c4affc49d0a6c83350ef713bc75c8f17167c0", 
+  "before": "bbf149b10957597b3e31eac2e9acef58ef28145e", 
+  "commits": [
+    {
+      "added": [], 
+      "author": {
+        "email": "radarlistener@gmail.com", 
+        "name": "Ryan Bigg"
+      }, 
+      "id": "3d76939f850292008387a01bcf851c038110a3ef", 
+      "message": "Remove rboard file.", 
+      "modified": [], 
+      "removed": [
+        "rboard"
+      ], 
+      "timestamp": "2009-09-08T01:09:01-07:00", 
+      "url": "http:\/\/github.com\/radar\/rboard\/commit\/3d76939f850292008387a01bcf851c038110a3ef"
+    }, 
+    {
+      "added": [
+        "PHPBB_CONVERSION_TODO", 
+        "app\/models\/phpbb\/config.rb", 
+        "app\/models\/phpbb\/connection.rb", 
+        "app\/models\/phpbb\/forum.rb", 
+        "app\/models\/phpbb\/post.rb", 
+        "app\/models\/phpbb\/topic.rb", 
+        "app\/models\/phpbb\/user.rb", 
+        "db\/migrate\/20090916070834_old_ids.rb", 
+        "db\/migrate\/20090916231649_add_phpbb_crypted_password_to_users.rb", 
+        "export\/forums.yml", 
+        "export\/posts.yml", 
+        "export\/ranks.yml", 
+        "export\/topics.yml", 
+        "export\/users.yml", 
+        "features\/admin_categories.feature", 
+        "features\/phpbb_logging_in.feature", 
+        "lib\/rboard\/converter.rb", 
+        "lib\/tasks\/converter.rake", 
+        "rboard", 
+        "spec\/converter_spec.rb"
+      ], 
+      "author": {
+        "email": "radarlistener@gmail.com", 
+        "name": "Ryan Bigg"
+      }, 
+      "id": "c38c4affc49d0a6c83350ef713bc75c8f17167c0", 
+      "message": "PHPBB Conversion work in progress... cucumber features are all failing, concerned.", 
+      "modified": [
+        "app\/models\/forum.rb", 
+        "db\/schema.rb", 
+        "features\/admin_forums.feature", 
+        "features\/step_definitions\/users_steps.rb", 
+        "features\/support\/blueprints\/forums.rb", 
+        "features\/support\/blueprints\/users.rb", 
+        "spec\/fixtures\/users.yml", 
+        "spec\/models\/user_spec.rb"
+      ], 
+      "removed": [], 
+      "timestamp": "2009-09-18T00:33:41-07:00", 
+      "url": "http:\/\/github.com\/radar\/rboard\/commit\/c38c4affc49d0a6c83350ef713bc75c8f17167c0"
+    }
+  ], 
+  "ref": "refs\/heads\/master", 
+  "repository": {
+    "description": "A fully featured forum system compatible with Rails 2.3", 
+    "fork": false, 
+    "forks": 28, 
+    "homepage": "http:\/\/forum.frozenplague.net", 
+    "name": "rboard", 
+    "open_issues": 2, 
+    "owner": {
+      "email": "radarlistener@gmail.com", 
+      "name": "radar"
+    }, 
+    "pledgie": 1801, 
+    "private": false, 
+    "url": "http:\/\/github.com\/radar\/rboard", 
+    "watchers": 229
+  }
+}
