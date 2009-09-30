@@ -19,6 +19,10 @@
   
   <h3>Build output</h3>
   <pre class="output" id='build_output'><%= h(color_format(build.run_output)) %></pre>
+  <script>
+  var objDiv = document.getElementById("build_output");
+  objDiv.scrollTop = objDiv.scrollHeight;
+  </script>
   
   <h3>Build errors</h3>
   <pre class="output" id='build_errors'><%= h(color_format(build.run_errors)) %></pre>
