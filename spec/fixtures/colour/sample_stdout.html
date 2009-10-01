@@ -1,0 +1,51 @@
+<link rel='stylesheet' href='style.css'><pre>Feature: Document Template - HTML - Create a template - WYSYWIG
+  In order to create PDF documents with aesthetics
+  As a user
+  I want to design my document templates in rich text
+
+  Acceptance:
+  * Header should be WYSIWIG
+  * Body should be WYSIWIG
+  * Footer should be WYSIWIG
+
+  # TODO
+  # How to test this without Culerity?
+
+<span class='color36'>@http://www.pivotaltracker.com/story/show/1241131</span> <span class='color36'>@templates</span>
+Feature: Create document template
+  In order to create PDF documents with data
+  As a user
+  I want to create new document templates
+
+  Acceptance:
+  * Go into Document Templates and click \&quot;New Document Template\&quot;
+  * Fill in required fields: Name, Description, Body HTML/design
+  * Fill in fields: Header HTML/design, Footer HTML/design
+  * Initially Body field is just plain text (paste in HTML)
+
+  Scenario: Create new document template<span class='color90'>                                                            # features/document_templates_create_document_template.feature:13</span>
+    <span class='color32'>Given I am logged in as a user<span class='color90'>                                                                  # features/step_definitions/app_steps.rb:1</span></span>
+    <span class='color32'>When I go to <span class='color32'><span class='color1'>the homepage</span></span><span class='color32'><span class='color90'>                                                                       # features/step_definitions/webrat_steps.rb:10</span></span>
+    <span class='color32'>And I follow \&quot;<span class='color32'><span class='color1'>Document Templates</span></span><span class='color32'>\&quot;<span class='color90'>                                                               # features/step_definitions/webrat_steps.rb:18</span></span>
+    <span class='color32'>And I follow \&quot;<span class='color32'><span class='color1'>New Document Template</span></span><span class='color32'>\&quot;<span class='color90'>                                                            # features/step_definitions/webrat_steps.rb:18</span></span>
+    <span class='color32'>And I fill in \&quot;<span class='color32'><span class='color1'>Name</span></span><span class='color32'>\&quot; with \&quot;<span class='color32'><span class='color1'>Basic Letter Template</span></span><span class='color32'>\&quot;<span class='color90'>                                               # features/step_definitions/webrat_steps.rb:26</span></span>
+    <span class='color32'>And I fill in \&quot;<span class='color32'><span class='color1'>Description</span></span><span class='color32'>\&quot; with \&quot;<span class='color32'><span class='color1'>Basic Letter Template sent to people who want stuff</span></span><span class='color32'>\&quot;<span class='color90'>          # features/step_definitions/webrat_steps.rb:26</span></span>
+    <span class='color32'>And I fill in \&quot;<span class='color32'><span class='color1'>Header</span></span><span class='color32'>\&quot; with \&quot;<span class='color32'><span class='color1'>&lt;h1&gt;[[current_header]]&lt;/h1&gt;</span></span><span class='color32'>\&quot;<span class='color90'>                                       # features/step_definitions/webrat_steps.rb:26</span></span>
+    <span class='color32'>And I fill in \&quot;<span class='color32'><span class='color1'>Body</span></span><span class='color32'>\&quot; with \&quot;<span class='color32'><span class='color1'>&lt;p&gt;Dear {{first name}}, this is the main content of the letter.&lt;/p&gt;</span></span><span class='color32'>\&quot;<span class='color90'> # features/step_definitions/webrat_steps.rb:26</span></span>
+    <span class='color32'>And I fill in \&quot;<span class='color32'><span class='color1'>Footer</span></span><span class='color32'>\&quot; with \&quot;<span class='color32'><span class='color1'>&lt;h2&gt;Footer [[current_page]] of [[total_pages]]&lt;/h2&gt;</span></span><span class='color32'>\&quot;<span class='color90'>               # features/step_definitions/webrat_steps.rb:26</span></span>
+    <span class='color32'>And I press \&quot;<span class='color32'><span class='color1'>Create</span></span><span class='color32'>\&quot;<span class='color90'>                                                                            # features/step_definitions/webrat_steps.rb:14</span></span>
+    <span class='color32'>And I should see \&quot;<span class='color32'><span class='color1'>Successfully created!</span></span><span class='color32'>\&quot; in flash <span class='color32'><span class='color1'>notice</span></span><span class='color32'><span class='color90'>                                        # features/step_definitions/app_steps.rb:5</span></span>
+
+  Scenario: Error when missing required fields<span class='color90'>                  # features/document_templates_create_document_template.feature:26</span>
+    <span class='color32'>Given I am logged in as a user<span class='color90'>                              # features/step_definitions/app_steps.rb:1</span></span>
+    <span class='color32'>When I go to <span class='color32'><span class='color1'>the homepage</span></span><span class='color32'><span class='color90'>                                   # features/step_definitions/webrat_steps.rb:10</span></span>
+    <span class='color32'>And I follow \&quot;<span class='color32'><span class='color1'>Document Templates</span></span><span class='color32'>\&quot;<span class='color90'>                           # features/step_definitions/webrat_steps.rb:18</span></span>
+    <span class='color32'>And I follow \&quot;<span class='color32'><span class='color1'>New Document Template</span></span><span class='color32'>\&quot;<span class='color90'>                        # features/step_definitions/webrat_steps.rb:18</span></span>
+    <span class='color32'>And I press \&quot;<span class='color32'><span class='color1'>Create</span></span><span class='color32'>\&quot;<span class='color90'>                                        # features/step_definitions/webrat_steps.rb:14</span></span>
+    <span class='color32'>And I should see \&quot;<span class='color32'><span class='color1'>Not successfully created.</span></span><span class='color32'>\&quot; in flash <span class='color32'><span class='color1'>error</span></span><span class='color32'><span class='color90'> # features/step_definitions/app_steps.rb:5</span></span>
+
+13 scenarios (<span class='color32'>13 passed</span>)
+166 steps (<span class='color32'>166 passed</span>)
+0m11.052s
+@http://www.pivotaltracker.com/story/show/1289317 @templates
+</pre>

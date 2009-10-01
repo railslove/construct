@@ -14,6 +14,13 @@ describe ApplicationHelper do
   
   
   it "should correctly colour the text" do
-    color_text(File.read("#{RAILS_ROOT}/spec/fixtures"))
+    path = "#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout.html"
+    File.open(path, "w+") do |f|
+      f.write "<link rel='stylesheet' href='style.css'>"
+      f.write "<pre>"
+      f.write color_format(File.read("#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout"))
+      f.write "</pre>"
+    end
+    `open #{path}`
   end
 end
