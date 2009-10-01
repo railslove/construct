@@ -38,6 +38,7 @@ pre {
   padding: 5px;
   max-height: 25em;
   overflow: auto;
+  font: 10pt Menlo;
 }
 
 button { 
