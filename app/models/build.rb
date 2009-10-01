@@ -94,6 +94,10 @@ class Build < ActiveRecord::Base
     status == "failed"
   end
   
+  def finished?
+    failed? || successful?
+  end
+  
   def to_s
     commit.short_sha
   end

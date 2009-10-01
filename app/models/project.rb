@@ -9,6 +9,8 @@ class Project < ActiveRecord::Base
   before_create :defaults
   before_save :set_permalink
   
+  default_scope :order => "name"
+  
   class << self
     def find_or_create_by_payload_and_site(payload, site)
       project = find_or_create_by_name(payload["repository"]["name"])
