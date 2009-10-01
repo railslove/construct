@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
                       :category        => latest_build.branch.name,
                       :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
                       :lastBuildLabel  => latest_build.commit.short_sha,
-                      :lastBuildTime   => latest_build.created_at,
+                      :lastBuildTime   => latest_build.created_at.xmlschema,
                       :activity        => latest_build.finished? ? "Sleeping" : "Building",
                       :webUrl          => project_url(project))
         end
