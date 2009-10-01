@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
           first_build = project.builds.first
           xml.Project(:name            => project.name,
                       :category        => first_build.branch.name,
-                      :lastBuildStatus => first_build.status.titleize,
+                      :lastBuildStatus => first_build.failed? ? "Failure" : "Success",
                       :lastBuildLabel  => first_build.commit.short_sha,
                       :lastBuildTime   => first_build.created_at,
                       :activity        => first_build.finished? ? "Sleeping" : "Building",
