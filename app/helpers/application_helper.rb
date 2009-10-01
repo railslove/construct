@@ -26,6 +26,12 @@ module ApplicationHelper
   end
   
   def color_format(text)
-    h(text).gsub(/\\e\[0m/, '</span>').gsub(/\\e\[(\d{1,2})m/) { "<span class='color#{$1}'>" }.gsub('\"', '"')
+    text = h(text)
+    text.gsub!(/\\"/, '\"')
+    text.gsub!('\e[0m', "</span>")
+    text.gsub!(/\\e\[(\d+)m\\e\[1m/) { "<span class='color#{$1} color1'>" }
+    text.gsub!(/\\e\[(\d+)m/) { "<span class='color#{$1}'>" }
+    text.gsub!('\e[90m', "<span class='color90'>")
+    text
   end
 end

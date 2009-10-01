@@ -1,13 +1,13 @@
-body {
-  background: #232323;
-  color: white;
-  font-size: 14pt;
-}
 .color1 {
   font-weight: bold;
 }
+
+.color30 {
+  color: #B52B29;
+}
+
 .color32 {
-  color: #00ff00;
+  color: #AAB541;
 }
 
 .color36 {
