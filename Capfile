@@ -42,11 +42,11 @@ after 'deploy:symlink', 'deploy:migrate'
 
 namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
-    top.deprec.app.restart
+    run "touch #{current_path}/tmp/restart.txt"
   end
 
   task :start, :roles => :app, :except => { :no_release => true } do
-    top.deprec.app.restart
+    run "touch #{current_path}/tmp/restart.txt"
   end
 
   desc "Uploads database.yml file to shared path"
