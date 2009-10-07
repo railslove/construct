@@ -47,6 +47,7 @@ class Build < ActiveRecord::Base
   end
   
   def update_status(status)
+    puts "Build ##{id}: #{status}"
     update_attribute(:status, status)
   end
   

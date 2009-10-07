@@ -36,7 +36,7 @@ class BuildJob < Struct.new(:build_id, :payload)
   def perform
     setup
     Dir.chdir(build_directory) do
-      @build.update_attribute("status", "running the build")
+      @build.update_status("running the build")
       POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
         until stdout.eof? && stderr.eof?
           @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
@@ -44,7 +44,7 @@ class BuildJob < Struct.new(:build_id, :payload)
           @build.save!
         end
       end
-      @build.update_attribute("status", $?.success? ? "success" : "failed")
+      @build.update_status($?.success? ? "success" : "failed")
       # Just to ensure that everything is updated.
       @build.save!
       # To ensure we're not running builds for the one project at the same time
@@ -67,9 +67,9 @@ class BuildJob < Struct.new(:build_id, :payload)
       end
     end
     if $?.success? 
-      @build.update_attribute(:status, success)
+      @build.update_status(success)
     else 
-      @build.update_attribute(:status, failure)
+      @build.update_status(failure)
     end
     $?.success?
   end
@@ -96,12 +96,12 @@ class BuildJob < Struct.new(:build_id, :payload)
     end
     
     if $?.success?
-      @build.update_attribute(:status, "checked out successfully")
+      @build.update_status("checked out successfully")
     else
       if output =~ /already exists$/
-        @build.update_attribute(:status, "branch already exists")
+        @build.update_status("branch already exists")
       else
-        @build.update_attribute(:status, "branch checkout failed")
+        @build.update_status("branch checkout failed")
       end
     end
     $?.success?

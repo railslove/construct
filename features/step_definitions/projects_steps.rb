@@ -1,5 +1,10 @@
 Given /^there is a github project$/ do
-  # "master" branch
+  
+  # "master" branch latest commit
+  post 'github', :payload => payload("construct-success-latest")
+  ensure_authed
+  
+  # "master" branch, earlier commit
   post 'github', :payload => payload("construct-success")
   ensure_authed
   
