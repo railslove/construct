@@ -43,9 +43,12 @@ class Project < ActiveRecord::Base
   end
   
   def status
-    branches.any? { |branch| branch.builds.first(:order => "created_at DESC").failed? } ? "failed" : "success"
+    if (statuses = branches.map { |branch| branch.builds.first(:order => "created_at DESC").status }.uniq).size == 1
+      statuses.first
+    else
+      'varying'
+    end.gsub(/\s+/, '-')
   end
-  
   
   private
   
