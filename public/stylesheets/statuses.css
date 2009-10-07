@@ -1,5 +1,3 @@
-/* @override http://construct.local/stylesheets/statuses */
-
 .builds li.item, 
 #last_build div#build_header,
 #branches.builds .branch,
@@ -13,16 +11,23 @@ ul#previous_builds.builds li {
 
 }
 
+ul#previous_builds.builds li {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
 .builds li.item a,
 #last_build.failed div#build_header a,
-#branches.builds .branch a {
+#branches.builds .branch a,
+ul#previous_builds.builds li a {
    color: #fe4818;
 }
 
 /* FAILED BUILDS */
 .builds li.item.failed,
 #last_build.failed div#build_header,
-#branches.builds .branch.failed {
+#branches.builds .branch.failed,
+ul#previous_builds.builds li.failed {
   background: #B52B29;
   border-color: #770000;
   color: #870c05;
@@ -30,14 +35,16 @@ ul#previous_builds.builds li {
 
 .builds li.item.failed a,
 #last_build.failed div#build_header,
-#branches.builds .branch.failed a {
+#branches.builds .branch.failed a,
+ul#previous_builds.builds li.failed a {
   color: #460500;
 }
 
 /* SUCCESSFUL BUILDS */
 .builds li.item.success,
 #last_build.success div#build_header,
-#branches.builds .branch.success {
+#branches.builds .branch.success,
+ul#previous_builds.builds li.success {
   background: #AAB541;
   border-color: #004801;
   color: #2E7D00;
@@ -45,14 +52,16 @@ ul#previous_builds.builds li {
 
 .builds li.item.success a,
 #last_build.success div#build_header a,
-#branches.builds .branch.success a {
+#branches.builds .branch.success a,
+ul#previous_builds.builds li.success a {
   color: #004801;
 }
 
 /* PENDING/BUILDING BUILDS */
 .builds li.item.building,
 #last_build.building div#build_header,
-#branches.builds .branch.building {
+#branches.builds .branch.building,
+ul#previous_builds.builds li.building {
   border-color: #6b5610;
   background: #fef260;
   color: black;
@@ -60,6 +69,7 @@ ul#previous_builds.builds li {
 
 .builds li.item.building a,
 #last_build.building div#build_header,
-#branches.builds .branch.building a {
+#branches.builds .branch.building a,
+ul#previous_builds.builds li.building a {
   color: #6b5610;
 }
