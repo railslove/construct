@@ -1,3 +1,5 @@
+/* @override http://gitpilot.com/stylesheets/gitpilot.css?1254891703 */
+
 html {
   background: #191919;
   font: 14pt Helvetica;
@@ -79,49 +81,7 @@ br.clear {
   padding-left: 40px;
 }
 
-.project.success a, .branch.success a {
-  color: black;
-}
 
-.builds .item, .builds .failed, .builds .success {
-  border-width: 3px;
-  border-style: solid;
-  -moz-border-radius: 7px;
-  padding: 5px;
-}
-
-.builds .failed, .build.failed #build_header {
-  background: #B52B29;
-  border-color: #770000 #770000;
-  color: #5F0101;
-}
-
-.builds .failed a {
-  color: #460500;
-}
-
-.builds .success, .build.success #build_header {
-  background: #AAB541;
-  border-color: #004801;
-  color: #2E7D00;
-}
-
-.builds .success a {
-  color: #0B5100;
-}
-
-.build #build_header {
-  border-width: 3px;
-  border-style: solid;
-  padding: 10px;
-  -moz-border-radius: 10px;
-}
-
-.build.pending #build_header {
-  border-color: #ff9900;
-  background: #FFDA00;
-  color: black;
-}
 .build h2 {
   float: left;
 }

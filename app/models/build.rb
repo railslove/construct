@@ -124,6 +124,17 @@ class Build < ActiveRecord::Base
     end
   end
   
+  def simple_status
+    case status
+    when /fail/, "branch already exists"
+      "failed"
+    when /success$/
+      "success"
+    else
+      "building"
+    end
+  end
+  
   private
   
   def increment_number

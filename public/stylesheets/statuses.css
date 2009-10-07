@@ -1,0 +1,65 @@
+/* @override http://construct.local/stylesheets/statuses */
+
+.builds li.item, 
+#last_build div#build_header,
+#branches.builds .branch,
+ul#previous_builds.builds li {
+  background-color: #efa163;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 3px solid #f14f18;
+  padding: 5px;
+  color: #722f15;
+
+}
+
+.builds li.item a,
+#last_build.failed div#build_header a,
+#branches.builds .branch a {
+   color: #fe4818;
+}
+
+/* FAILED BUILDS */
+.builds li.item.failed,
+#last_build.failed div#build_header,
+#branches.builds .branch.failed {
+  background: #B52B29;
+  border-color: #770000;
+  color: #870c05;
+}
+
+.builds li.item.failed a,
+#last_build.failed div#build_header,
+#branches.builds .branch.failed a {
+  color: #460500;
+}
+
+/* SUCCESSFUL BUILDS */
+.builds li.item.success,
+#last_build.success div#build_header,
+#branches.builds .branch.success {
+  background: #AAB541;
+  border-color: #004801;
+  color: #2E7D00;
+}
+
+.builds li.item.success a,
+#last_build.success div#build_header a,
+#branches.builds .branch.success a {
+  color: #004801;
+}
+
+/* PENDING/BUILDING BUILDS */
+.builds li.item.building,
+#last_build.building div#build_header,
+#branches.builds .branch.building {
+  border-color: #6b5610;
+  background: #fef260;
+  color: black;
+}
+
+.builds li.item.building a,
+#last_build.building div#build_header,
+#branches.builds .branch.building a {
+  color: #6b5610;
+}

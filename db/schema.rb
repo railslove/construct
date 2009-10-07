@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(:version => 20090930045235) do
     t.string "name"
     t.text   "instructions"
     t.string "build_directory"
-    t.string "permalink"
     t.string "site"
+    t.string "permalink"
   end
 
   add_index "projects", ["permalink"], :name => "index_projects_on_permalink"

@@ -1,9 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#   
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Major.create(:name => 'Daley', :city => cities.first)
+%w{
+  construct-success
+  construct-success-2
+  docjockey
+  rboard
+  construct-success-branch
+}.
 
-Build.start(YAML::load_file("spec/fixtures/payload.yml")["github"])
+
+each do |project|
+  GithubBuild.start(JSON.parse(File.read(File.join(RAILS_ROOT,"spec/fixtures/#{project}"))))
+end
