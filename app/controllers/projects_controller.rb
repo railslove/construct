@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :project, :only => [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate, :only => [:github, :codebase, :index]
+  skip_before_filter :authenticate, :only => [:github, :codebase]
   def index
     @projects = Project.all(:include => [{ :builds => :commit }, :commits])
     respond_to do |format|

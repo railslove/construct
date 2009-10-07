@@ -13,7 +13,7 @@ Feature: Branches
     When I follow "construct-success"
     Then I should see "branches"
     When I follow "master"
-    Then I should see "89c95601f" as the latest
+    Then I should see "69ca694a2" as the latest
     Then I should see the latest is successful
     When I follow "branches"
     When I follow "win"

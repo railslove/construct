@@ -86,7 +86,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       end
     end
     
-    command = build.commit ? "git checkout -f #{build.commit.sha}" : "git checkout -f origin/#{build.branch} -b #{build.branc}"
+    command = build.commit ? "git checkout -f #{build.commit.sha}" : "git checkout -f -b #{build.branch} origin/#{build.branch}"
     POpen4::popen4(command) do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
         @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
