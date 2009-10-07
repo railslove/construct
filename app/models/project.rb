@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
     end
     
     def from_payload(build_type, payload)
-      first_commit = payload["commits"].first
+      first_commit = payload["commits"].last
       first_commit["sha"] = first_commit["id"]
       site = build_type == GithubBuild ? "github.com" : "codebasehq.com"
       project       = Project.find_or_create_by_payload_and_site(payload, site)
