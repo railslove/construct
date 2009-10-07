@@ -43,11 +43,11 @@ class Project < ActiveRecord::Base
   end
   
   def status
-    if (statuses = branches.map { |branch| branch.builds.first(:order => "created_at DESC").status }.uniq).size == 1
-      statuses.first
+    if (statuses = branches.map { |branch| branch.builds.first(:order => "created_at DESC").simple_status }.uniq).size == 1
+      statuses.first.underscore
     else
       'varying'
-    end.gsub(/\s+/, '-')
+    end
   end
   
   private
