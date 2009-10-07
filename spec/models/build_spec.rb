@@ -30,7 +30,7 @@ describe Build do
     end
     
     it "should be waiting, not building if there is a build already for this project" do
-      @other_build.status.should eql("waiting")
+      @other_build.status.should eql("queued")
     end
   end
   
@@ -42,7 +42,6 @@ describe Build do
       @project.instructions = @build.instructions = "cp config/database.yml.example config/database.yml && rake db:create:all --trace && git submodule update --init && RAILS_ENV=test rake gems:install db:migrate db:test:prepare spec features --trace"
       @project.save!
       @build.save!
-      
     end
   
     subject { BuildJob.new(@build, @payload).perform }
