@@ -9,9 +9,11 @@ class ApplicationController < ActionController::Base
   
   before_filter :authenticate
   def authenticate
-    # authenticate_or_request_with_http_basic do |user, password|
-    #   CONSTRUCTA["user"] == user && CONSTRUCTA["password"] == password
-    # end
+    if CONSTRUCTA["user"] && CONSTRUCTA["password"]
+      authenticate_or_request_with_http_basic do |user, password|
+        CONSTRUCTA["user"] == user && CONSTRUCTA["password"] == password
+      end
+    end
   end
   
   rescue_from ActiveRecord::RecordNotFound do

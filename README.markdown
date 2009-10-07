@@ -18,6 +18,10 @@ You'll also need to be running the `rake jobs:work` jobs runner. I run mine in a
 
 Finally, you can push to your repositories and with any luck they'll build successfully on construct and you'll see beautiful green instead of fear-inspiring red. Good luck!
 
+### HTTP Basic Auth
+
+To enable Basic auth open _config/constructa.yml_ and uncomment the `user` and `password` keys.
+
 ## Contributions
 
 Integrity (and by extension, foca) - Inspiring this whole project.

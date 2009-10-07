@@ -1,7 +1,8 @@
 development: &STANDARD
   build_directory: /data/builds
-  user: user
-  password: password
+  # You can uncomment these to enable HTTP Basic Auth.
+  # user: user
+  # password: password
   
 test: &TEST
   build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
