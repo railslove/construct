@@ -17,6 +17,7 @@ describe ApplicationHelper do
     path = "#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout.html"
     File.open(path, "w+") do |f|
       f.write "<link rel='stylesheet' href='style.css'>"
+      f.write "This test in #{__FILE__}:#{__LINE__} is passing if the text below is coloured and looks good :P"
       f.write "<pre>"
       f.write color_format(File.read("#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout"))
       f.write "</pre>"
