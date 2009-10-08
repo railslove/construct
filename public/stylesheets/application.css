@@ -59,6 +59,11 @@ br.clear {
   text-align: right;
 }
 
+#footer {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
 #content {  
   clear: both;
   width: 80%;
