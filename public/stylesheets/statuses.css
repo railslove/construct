@@ -29,7 +29,7 @@ ul#previous_builds.builds li a {
 #branches.builds .branch.failed,
 ul#previous_builds.builds li.failed {
   background: #B52B29;
-  border-color: #770000;
+  border-color: #870c05;
   color: #870c05;
 }
 
@@ -45,9 +45,9 @@ ul#previous_builds.builds li.failed a {
 #last_build.success div#build_header,
 #branches.builds .branch.success,
 ul#previous_builds.builds li.success {
-  background: #AAB541;
+  background: #6fb341;
   border-color: #004801;
-  color: #2E7D00;
+  color: #256713;
 }
 
 .builds li.item.success a,
