@@ -8,6 +8,7 @@
           <strong class="build">Build #<%= build.number %> - <%= build.commit.short_sha %></strong>
           <span class="attribution">by <%= build.commit.author %>, on <%= build.commit.timestamp.strftime("%B") %> <%= build.commit.timestamp.strftime("%d").to_i.ordinalize %> <%= build.commit.timestamp.strftime("%H:%M")%></span>
         <% end %>
+        <div class='right'><%= build.status %></div>
       </li>
     </ul>
   <% end %>

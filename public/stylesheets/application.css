@@ -54,7 +54,7 @@ br.clear {
   clear: both;
 }
 
-#header {
+#header, .right {
   float: right;
   text-align: right;
 }
@@ -64,6 +64,7 @@ br.clear {
   bottom: 10px;
   right: 10px;
 }
+
 #content {  
   clear: both;
   width: 80%;
