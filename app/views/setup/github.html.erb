@@ -1,0 +1,13 @@
+<h2>Github, eh?</h2>
+<div id='setup'>
+  <ul>
+    <li>Go to your project page</li>
+    <li>Click "Edit"</li>
+    <li>Click "Service Hooks"</li>
+    <li>Add http://<%= request.env['HTTP_HOST'] %>/github</li>
+    <li>Press "Update"</li>
+    <li>Press "Test Hook" or push to your repository</li>
+    <li>Wait around 30 seconds</li>
+    <li>Go back to <%= link_to "the home page", root_path %></li>
+  </ul>
+</div>

@@ -1,4 +1,5 @@
 class Build < ActiveRecord::Base
+  LOGGER = Logger.new("#{RAILS_ROOT}/log/builds.log")
   default_scope :order => "created_at DESC"
   serialize :payload, Hash
   belongs_to :commit
@@ -7,6 +8,8 @@ class Build < ActiveRecord::Base
   
   delegate :project, :to => :commit
   delegate :branch, :to => :commit
+  
+  named_scope :queued, :conditions => { :status => "queued" }
   
   named_scope :in_progress_excluding, lambda { |build| { :conditions => ["status != 'success' AND status != 'failed' AND builds.id != ?", build.id] } }
   
@@ -47,7 +50,7 @@ class Build < ActiveRecord::Base
   end
   
   def update_status(status)
-    puts "Build ##{id}: #{status}"
+    LOGGER.info "Build ##{id}: #{status}"
     update_attribute(:status, status)
   end
   
@@ -111,7 +114,6 @@ class Build < ActiveRecord::Base
   def rebuild
     klass = github? ? GithubBuild : CodebaseBuild
     klass.start(payload)
-      
   end
   
   def report
