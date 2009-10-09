@@ -8,13 +8,15 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
   
   before_filter :authenticate
-  def authenticate
-    if CONSTRUCTA["user"] && CONSTRUCTA["password"]
-      authenticate_or_request_with_http_basic do |user, password|
-        CONSTRUCTA["user"] == user && CONSTRUCTA["password"] == password
+  
+  private
+    def authenticate
+      if CONSTRUCTA["user"] && CONSTRUCTA["password"]
+        authenticate_or_request_with_http_basic do |user, password|
+          CONSTRUCTA["user"] == user && CONSTRUCTA["password"] == password
+        end
       end
     end
-  end
   
   # rescue_from ActiveRecord::RecordNotFound do
   #   render :status => 404
