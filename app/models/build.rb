@@ -56,15 +56,6 @@ class Build < ActiveRecord::Base
   
   def start
     return self if status == 'failed' || status == 'success'
-    # Trying to find if this build has already been queued.
-    # The way we detect this for now is to inspect all the handlers of all current jobs.
-    # This shouldn't be too many as jobs are cleared when they're done.
-    for job in Delayed::Job.all
-      if Build.find(YAML.load(job.handler.split("\n")[1..-1].join("\n"))["build_id"]).commit == commit
-        destroy
-        return false
-      end
-    end
     # in_progress_builds = project.builds.in_progress_excluding(self)
     # if in_progress_builds.empty?
       Delayed::Job.enqueue(BuildJob.new(id, payload))
