@@ -11,6 +11,6 @@ namespace :jobs do
   task :work => [:merb_env, :environment] do
     Delayed::Worker.new(:min_priority => ENV['MIN_PRIORITY'], 
                         :max_priority => ENV['MAX_PRIORITY'], 
-                        :job_count_max => ENV['JOB_MAX_COUNT']).start
+                        :job_count_max => ENV['JOB_MAX_COUNT'] || 1).start
   end
 end
