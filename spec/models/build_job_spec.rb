@@ -50,7 +50,7 @@ describe BuildJob do
     context "timing out" do
       before do
         setup_build(payload("construct-success"))
-        @build_job.timeout = 2.seconds
+        @build_job.stubs(:timeout).returns(2.seconds)
       end
     
       it "sets the build status to 'stalled' if the job takes more than the timeout" do

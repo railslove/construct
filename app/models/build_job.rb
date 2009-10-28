@@ -39,8 +39,6 @@ class BuildJob < Struct.new(:build_id, :payload)
     begin
       setup
       
-      self.timeout = 2.seconds
-      
       SystemTimer.timeout_after(timeout) do
         Dir.chdir(build_directory) do
           build.update_status("running the build")
