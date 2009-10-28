@@ -34,34 +34,36 @@ class BuildJob < Struct.new(:build_id, :payload)
   end
   
   def perform
-    setup
-    SystemTimer.timeout_after(project.timeout) do
-      Dir.chdir(build_directory) do
-        @build.update_status("running the build")
-        POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
-          until stdout.eof? && stderr.eof?
-            puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
-            puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
-            @build.save!
+    begin
+      setup
+      SystemTimer.timeout_after(project.timeout) do
+        Dir.chdir(build_directory) do
+          @build.update_status("running the build")
+          POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
+            until stdout.eof? && stderr.eof?
+              puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+              puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
+              @build.save!
+            end
           end
+          build.update_status($?.success? ? "success" : "failed")
         end
-        
-        build.update_status($?.success? ? "success" : "failed")
       end
-    end
     
-    # To ensure we're not running builds for the one project at the same time
-    # We will start running a build after one has finished.
-    # There is code also in build.rb (Build#start) that stops this.
-    if build = project.builds.after(@build).last
-      build.start
-    end
+      # To ensure we're not running builds for the one project at the same time
+      # We will start running a build after one has finished.
+      # There is code also in build.rb (Build#start) that stops this.
+      if build = project.builds.after(@build).last
+        build.start
+      end
+    
+      build
     rescue SignalException
       build.update_status("stalled")
       build.save!
+    ensure
+      build
     end
-    
-    build
   end
   
   # Helper method for running steps that will follow the same ol' pending, succeed/failed chain of events.
