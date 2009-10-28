@@ -5,5 +5,10 @@
     <%= f.label :instructions %>
     <%= f.text_area :instructions, :cols => 120 %>
   </p>
+  
+  <p>
+    <%= f.label :timeout, 'Build Timeout in Seconds' %>
+    <%= f.text_field :timeout %>
+  </p>
   <%= f.submit %>
 <% end %>

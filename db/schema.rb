@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090930045235) do
+ActiveRecord::Schema.define(:version => 20091028043558) do
 
   create_table "branches", :force => true do |t|
     t.datetime "created_at"
@@ -68,11 +68,12 @@ ActiveRecord::Schema.define(:version => 20090930045235) do
   end
 
   create_table "projects", :force => true do |t|
-    t.string "name"
-    t.text   "instructions"
-    t.string "build_directory"
-    t.string "site"
-    t.string "permalink"
+    t.string  "name"
+    t.text    "instructions"
+    t.string  "build_directory"
+    t.string  "site"
+    t.string  "permalink"
+    t.integer "timeout",         :default => 600
   end
 
   add_index "projects", ["permalink"], :name => "index_projects_on_permalink"

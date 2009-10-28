@@ -50,6 +50,10 @@ class Project < ActiveRecord::Base
     end
   end
   
+  def timeout
+    self[:timeout] ||= 10.minutes
+  end
+  
   private
   
   def defaults

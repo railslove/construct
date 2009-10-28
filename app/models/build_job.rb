@@ -1,7 +1,7 @@
 class BuildJob < Struct.new(:build_id, :payload)
   attr_accessor :build, :project, :clone_url, :build_directory
+
   def setup
-    self.build = Build.find(build_id)
     self.build.run_output ||= ""
     self.build.run_errors ||= ""
     build.update_status("setting up repository")
@@ -35,26 +35,33 @@ class BuildJob < Struct.new(:build_id, :payload)
   
   def perform
     setup
-    Dir.chdir(build_directory) do
-      @build.update_status("running the build")
-      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
-        until stdout.eof? && stderr.eof?
-          puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
-          puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
-          @build.save!
+    SystemTimer.timeout_after(project.timeout) do
+      Dir.chdir(build_directory) do
+        @build.update_status("running the build")
+        POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
+          until stdout.eof? && stderr.eof?
+            puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+            puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
+            @build.save!
+          end
         end
-      end
-      @build.update_status($?.success? ? "success" : "failed")
-      # Just to ensure that everything is updated.
-      @build.save!
-      # To ensure we're not running builds for the one project at the same time
-      # We will start running a build after one has finished.
-      # There is code also in build.rb (Build#start) that stops this.
-      if build = project.builds.after(@build).last
-        build.start
+        
+        build.update_status($?.success? ? "success" : "failed")
       end
     end
-    @build
+    
+    # To ensure we're not running builds for the one project at the same time
+    # We will start running a build after one has finished.
+    # There is code also in build.rb (Build#start) that stops this.
+    if build = project.builds.after(@build).last
+      build.start
+    end
+    rescue SignalException
+      build.update_status("stalled")
+      build.save!
+    end
+    
+    build
   end
   
   # Helper method for running steps that will follow the same ol' pending, succeed/failed chain of events.
@@ -72,6 +79,10 @@ class BuildJob < Struct.new(:build_id, :payload)
       @build.update_status(failure)
     end
     $?.success?
+  end
+  
+  def build
+    @build ||= Build.find(build_id)
   end
   
   def checkout_commit
@@ -108,6 +119,6 @@ class BuildJob < Struct.new(:build_id, :payload)
   end
   
   def clone_repo
-     run_step("git clone #{clone_url} #{build_directory.inspect}", "setting up repository", "set up repository", "repository setup failed")
-   end
+    run_step("git clone #{clone_url} #{build_directory.inspect}", "setting up repository", "set up repository", "repository setup failed")
+  end
 end

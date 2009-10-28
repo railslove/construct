@@ -1,6 +1,6 @@
 class Build < ActiveRecord::Base
   LOGGER = Logger.new("#{RAILS_ROOT}/log/builds.log")
-  default_scope :order => "created_at DESC"
+  default_scope :order => "builds.created_at DESC"
   serialize :payload, Hash
   belongs_to :commit
   
@@ -13,8 +13,8 @@ class Build < ActiveRecord::Base
   
   named_scope :in_progress_excluding, lambda { |build| { :conditions => ["status != 'success' AND status != 'failed' AND builds.id != ?", build.id] } }
   
-  named_scope :before, lambda { |build| { :conditions => ["created_at < ?", build.created_at]}}
-  named_scope :after,  lambda { |build| { :conditions => ["created_at > ?", build.created_at]}}
+  named_scope :before, lambda { |build| { :conditions => ["builds.created_at < ?", build.created_at]}}
+  named_scope :after,  lambda { |build| { :conditions => ["builds.created_at > ?", build.created_at]}}
   
   # For storing notifications such as if a build for this project is already in progress.
   attr_accessor :notifications
@@ -110,7 +110,7 @@ class Build < ActiveRecord::Base
   def report
     if successful?
       "successful"
-    elsif ["setting up repository", "running the build", "queued", "waiting"].include?(status)
+    elsif ["setting up repository", "running the build", "queued", "waiting", "stalled"].include?(status)
       status
     else
       "failed"
@@ -119,7 +119,7 @@ class Build < ActiveRecord::Base
   
   def simple_status
     case status
-    when /fail/, "branch already exists"
+    when /fail/, "branch already exists", "stalled"
       "failed"
     when /success$/
       "success"

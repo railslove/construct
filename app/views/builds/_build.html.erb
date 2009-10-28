@@ -36,7 +36,7 @@
   <h3>Final status: <%= build.status %></h3>
 
   </pre>
-  <%= render :partial => "list", :locals => { :type => "future", :builds => @future_builds } %>
+  <%= render :partial => "list", :locals => { :type => :before, :builds => @before_builds } %>
   <br>
-  <%= render :partial => "list", :locals => { :type => "previous", :builds => @previous_builds } %>
+  <%= render :partial => "list", :locals => { :type => :after, :builds => @after_builds } %>
 </div>
