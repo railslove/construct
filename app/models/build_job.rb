@@ -39,6 +39,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       @build.update_status("running the build")
       steps = project.instructions.split("&&")
       for step in steps
+        puts "Running: #{step}"
         POpen4::popen4(step) do |stdout, stderr, stdin, pid|
           until stdout.eof? && stderr.eof?
             puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
