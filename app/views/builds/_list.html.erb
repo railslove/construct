@@ -1,5 +1,5 @@
 <% if !builds.empty? %>
-  <h3><%= type.humanize %> builds</h3>
+  <h3><%= "Builds #{type} this one".titleize %></h3>
 
   <% for build in builds %>
     <ul id='<%= type %>_builds' class='builds'>
@@ -13,5 +13,5 @@
     </ul>
   <% end %>
 <% else %>
-  There are no builds <%= type == "future" ? "after" : "before" %> this one.
+  There are no builds <%= type %> this one.
 <% end %>
