@@ -1,9 +1,7 @@
 class BuildJob < Struct.new(:build_id, :payload)
-  attr_accessor :build, :project, :clone_url, :build_directory, :timeout
+  attr_accessor :build, :project, :clone_url, :build_directory
 
   def setup
-    self.timeout = 10.minutes
-    
     self.build.run_output ||= ""
     self.build.run_errors ||= ""
     build.update_status("setting up repository")
@@ -39,7 +37,7 @@ class BuildJob < Struct.new(:build_id, :payload)
     begin
       setup
       
-      SystemTimer.timeout_after(timeout) do
+      SystemTimer.timeout_after(project.timeout) do
         Dir.chdir(build_directory) do
           build.update_status("running the build")
           
