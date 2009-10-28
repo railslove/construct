@@ -1,7 +1,7 @@
 .builds li.item, 
 #last_build div#build_header,
 #branches.builds .branch,
-ul#previous_builds.builds li {
+ul.builds li {
   background-color: #efa163;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -11,7 +11,7 @@ ul#previous_builds.builds li {
 
 }
 
-ul#previous_builds.builds li {
+ul.builds li {
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
 }
@@ -19,7 +19,7 @@ ul#previous_builds.builds li {
 .builds li.item a,
 #last_build.failed div#build_header a,
 #branches.builds .branch a,
-ul#previous_builds.builds li a {
+ul.builds li a {
    color: #fe4818;
 }
 
@@ -27,7 +27,7 @@ ul#previous_builds.builds li a {
 .builds li.item.failed,
 #last_build.failed div#build_header,
 #branches.builds .branch.failed,
-ul#previous_builds.builds li.failed {
+ul.builds li.failed {
   background: #B52B29;
   border-color: #870c05;
   color: #870c05;
@@ -36,7 +36,7 @@ ul#previous_builds.builds li.failed {
 .builds li.item.failed a,
 #last_build.failed div#build_header,
 #branches.builds .branch.failed a,
-ul#previous_builds.builds li.failed a {
+ul.builds li.failed a {
   color: #460500;
 }
 
@@ -44,7 +44,7 @@ ul#previous_builds.builds li.failed a {
 .builds li.item.success,
 #last_build.success div#build_header,
 #branches.builds .branch.success,
-ul#previous_builds.builds li.success {
+ul.builds li.success {
   background: #6fb341;
   border-color: #004801;
   color: #256713;
@@ -53,7 +53,7 @@ ul#previous_builds.builds li.success {
 .builds li.item.success a,
 #last_build.success div#build_header a,
 #branches.builds .branch.success a,
-ul#previous_builds.builds li.success a {
+ul.builds li.success a {
   color: #004801;
 }
 
@@ -61,7 +61,7 @@ ul#previous_builds.builds li.success a {
 .builds li.item.building,
 #last_build.building div#build_header,
 #branches.builds .branch.building,
-ul#previous_builds.builds li.building {
+ul.builds li.building {
   border-color: #6b5610;
   background: #fef260;
   color: black;
@@ -70,6 +70,6 @@ ul#previous_builds.builds li.building {
 .builds li.item.building a,
 #last_build.building div#build_header,
 #branches.builds .branch.building a,
-ul#previous_builds.builds li.building a {
+ul.builds li.building a {
   color: #6b5610;
 }
