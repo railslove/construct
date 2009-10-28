@@ -37,11 +37,14 @@ class BuildJob < Struct.new(:build_id, :payload)
     setup
     Dir.chdir(build_directory) do
       @build.update_status("running the build")
-      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
-        until stdout.eof? && stderr.eof?
-          puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
-          puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
-          @build.save!
+      steps = project.instructions.split("&&")
+      for step in steps
+        POpen4::popen4(step) do |stdout, stderr, stdin, pid|
+          until stdout.eof? && stderr.eof?
+            puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+            puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
+            @build.save!
+          end
         end
       end
       @build.update_status($?.success? ? "success" : "failed")
