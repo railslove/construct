@@ -47,8 +47,9 @@ class BuildJob < Struct.new(:build_id, :payload)
             @build.save!
           end
         end
+        @build.update_status($?.success? ? "success" : "failed")
+        break unless $?.success?
       end
-      @build.update_status($?.success? ? "success" : "failed")
       # Just to ensure that everything is updated.
       @build.save!
       # To ensure we're not running builds for the one project at the same time
