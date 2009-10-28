@@ -110,7 +110,7 @@ class Build < ActiveRecord::Base
   def report
     if successful?
       "successful"
-    elsif ["setting up repository", "running the build", "queued", "waiting"].include?(status)
+    elsif ["setting up repository", "running the build", "queued", "waiting", "stalled"].include?(status)
       status
     else
       "failed"
@@ -119,7 +119,7 @@ class Build < ActiveRecord::Base
   
   def simple_status
     case status
-    when /fail/, "branch already exists"
+    when /fail/, "branch already exists", "stalled"
       "failed"
     when /success$/
       "success"
