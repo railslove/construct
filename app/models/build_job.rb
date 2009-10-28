@@ -37,19 +37,14 @@ class BuildJob < Struct.new(:build_id, :payload)
     setup
     Dir.chdir(build_directory) do
       @build.update_status("running the build")
-      steps = project.instructions.split("&&")
-      for step in steps
-        puts "Running: #{step}"
-        POpen4::popen4(step) do |stdout, stderr, stdin, pid|
-          until stdout.eof? && stderr.eof?
-            puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
-            puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
-            @build.save!
-          end
+      POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
+        until stdout.eof? && stderr.eof?
+          puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+          puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
+          @build.save!
         end
-        @build.update_status($?.success? ? "success" : "failed")
-        break unless $?.success?
       end
+      @build.update_status($?.success? ? "success" : "failed")
       # Just to ensure that everything is updated.
       @build.save!
       # To ensure we're not running builds for the one project at the same time
