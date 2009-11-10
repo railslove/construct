@@ -41,8 +41,8 @@ class BuildJob < Struct.new(:build_id, :payload)
           @build.update_status("running the build")
           POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
             until stdout.eof? && stderr.eof?
-              puts @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
-              puts @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
+              @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+              @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
               @build.save!
             end
           end
@@ -62,7 +62,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       build.update_status("stalled")
       build.save!
     ensure
-      build
+      return build
     end
   end
   
@@ -70,8 +70,8 @@ class BuildJob < Struct.new(:build_id, :payload)
   def run_step(command, pending="pending", success="success", failure="failed")
     POpen4::popen4(command) do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
-        puts @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        puts @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
+        @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
+        @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
         @build.save!
       end
     end
@@ -93,8 +93,8 @@ class BuildJob < Struct.new(:build_id, :payload)
     
     POpen4::popen4("git checkout origin/#{branch} -b #{branch}") do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
-        puts @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        puts @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
+        @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
+        @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
         @build.save!
       end
     end
@@ -102,8 +102,8 @@ class BuildJob < Struct.new(:build_id, :payload)
     command = build.commit ? "git checkout -f #{build.commit.sha}" : "git checkout -f -b #{build.branch} origin/#{build.branch}"
     POpen4::popen4(command) do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
-        puts @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        puts @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
+        @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
+        @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
         @build.save!
       end
     end
