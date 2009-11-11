@@ -18,6 +18,12 @@ Given /^there is a codebase project$/ do
   ensure_authed
 end
 
+Then /^the returned feed should contain the following projects$/ do |table|
+  project_names = Nokogiri::XML(response.body).xpath("//Project/@name").to_a.map(&:text)
+  table.diff!(project_names.map(&:to_a))
+end
+
+
 
 Then /^there should be (\d+) projects?$/ do |num|
   Project.count.should be(num.to_i)

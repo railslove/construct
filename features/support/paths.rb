@@ -12,6 +12,8 @@ module NavigationHelpers
       '/'
     when /the new projects page/
       new_projects_path
+    when /the projects xml/
+      projects_path(:xml)
 
     
     # Add more mappings here.

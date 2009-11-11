@@ -43,14 +43,16 @@ class ProjectsController < ApplicationController
     projects_xml = Nokogiri::XML::Builder.new do |xml|
       xml.Projects {
         for project in @projects
-          latest_build = project.builds.last
-          xml.Project(:name            => project.name,
-                      :category        => latest_build.branch.name,
-                      :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
-                      :lastBuildLabel  => latest_build.commit.short_sha,
-                      :lastBuildTime   => latest_build.created_at.xmlschema,
-                      :activity        => latest_build.finished? ? "Sleeping" : "Building",
-                      :webUrl          => project_url(project))
+          for branch in project.branches
+            latest_build = branch.builds.last
+            xml.Project(:name            => project.name + " (#{branch.name})",
+                        :category        => latest_build.branch.name,
+                        :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
+                        :lastBuildLabel  => latest_build.commit.short_sha,
+                        :lastBuildTime   => latest_build.created_at.xmlschema,
+                        :activity        => latest_build.finished? ? "Sleeping" : "Building",
+                        :webUrl          => project_branch_url(project, branch))
+          end
         end
       }
     end.to_xml

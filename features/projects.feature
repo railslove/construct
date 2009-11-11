@@ -2,6 +2,7 @@ Feature: Projects
 
   Background:
     Given I am logged in
+    And time is frozen
     And there is a github project
     And there is a codebase project
     And there are no queued jobs
@@ -21,5 +22,10 @@ Feature: Projects
     When I follow "Doc Jockey: Web App"
     Then I should see "7906cfa68" as the latest
     Then I should see the latest is successful
-
-  
+    
+  Scenario: Getting the feed back
+    Given I am on the projects xml
+    Then the returned feed should contain the following projects
+      | Doc Jockey: Web App (master) |
+      | construct-success (master)   |
+      | construct-success (win)      |
