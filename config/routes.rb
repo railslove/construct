@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  
-  
-  
+
   map.resources :projects, :requirements => {:id => /[a-zA-Z0-9\.-]+/ } do |project|
     project.resources :branches, :requirements => {:id => /[a-zA-Z0-9\.-]+/ } do |branch|
       branch.resources :builds, :member => { :rebuild => :put }
