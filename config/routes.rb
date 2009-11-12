@@ -1,11 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-
-  map.resources :projects, :requirements => {:id => /[a-zA-Z0-9\.-]+/ } do |project|
-    project.resources :branches, :requirements => {:id => /[a-zA-Z0-9\.-]+/ } do |branch|
-      branch.resources :builds, :member => { :rebuild => :put }, :requirements => { :branch_id => /[a-zA-Z0-9\.-]+/ } 
+  allowed_route = /[a-zA-Z0-9\.-_]+/
+  map.resources :projects, :requirements => {:id => allowed_route } do |project|
+    project.resources :branches, :requirements => {:id => allowed_route } do |branch|
+      branch.resources :builds, :member => { :rebuild => :put }, :requirements => { :branch_id => allowed_route } 
     end
     
-    project.resources :builds, :member => { :rebuild => :put }, :requirements => { :project_id => /[a-zA-Z0-9\.-]+/ } 
+    project.resources :builds, :member => { :rebuild => :put }, :requirements => { :project_id => allowed_route } 
   end
   
   map.connect "github", :controller => "projects", :action => "github", :conditions => { :method => :post }
