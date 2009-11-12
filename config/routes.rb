@@ -1,8 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   allowed_route = /[a-zA-Z0-9\.-_]+/
   map.resources :projects, :requirements => {:id => allowed_route } do |project|
-    project.resources :branches, :requirements => {:id => allowed_route } do |branch|
-      branch.resources :builds, :member => { :rebuild => :put }, :requirements => { :branch_id => allowed_route } 
+    project.resources :branches, :requirements => {:id => allowed_route, :project_id => allowed_route } do |branch|
+      branch.resources :builds, :member => { :rebuild => :put }, :requirements => { :branch_id => allowed_route, :project_id => allowed_route } 
     end
     
     project.resources :builds, :member => { :rebuild => :put }, :requirements => { :project_id => allowed_route } 
