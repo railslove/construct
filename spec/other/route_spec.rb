@@ -17,10 +17,11 @@ describe ProjectsController, "Custom routes" do
     generated_path = lambda { app.project_branch_path("construct", "1.2.3") }
     generated_path.should_not raise_error
     generated_path.call.should eql("/projects/construct/branches/1.2.3")
-  end
+    
   
-  it "should generate correct params" do
-    { :get => "/projects/construct/branches/1.2.3/builds" }.should route_to("somewhere")
+    generated_path = lambda { app.project_branch_builds_path("construct", "1.2.3") }
+    generated_path.should_not raise_error
+    generated_path.call.should eql("/projects/construct/branches/1.2.3/builds")
   end
   
 end
