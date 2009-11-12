@@ -51,7 +51,7 @@ class ProjectsController < ApplicationController
                         :lastBuildLabel  => latest_build.commit.short_sha,
                         :lastBuildTime   => latest_build.created_at.xmlschema,
                         :activity        => latest_build.finished? ? "Sleeping" : "Building",
-                        :webUrl          => project_branch_url(project.permalink, branch.name))
+                        :webUrl          => project_branch_builds_url(project.permalink, branch.name))
           end
         end
       }
