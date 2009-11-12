@@ -2,8 +2,8 @@ ActionController::Routing::Routes.draw do |map|
   
   
   
-  map.resources :projects, :requirements => {:id => /.+/} do |project|
-    project.resources :branches, :requirements => {:id => /.*/} do |branch|
+  map.resources :projects, :requirements => {:id => /[a-zA-Z0-9\.]+/ } do |project|
+    project.resources :branches, :requirements => {:id => /[a-zA-Z0-9\.]+/ } do |branch|
       branch.resources :builds, :member => { :rebuild => :put }
     end
     

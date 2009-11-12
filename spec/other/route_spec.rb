@@ -16,4 +16,5 @@ describe "Custom routes" do
     generated_path.should_not raise_error
     generated_path.call.should eql("/projects/construct/branches/1.2.3")
   end
+  
 end
