@@ -44,7 +44,7 @@ class ProjectsController < ApplicationController
       xml.Projects {
         for project in @projects
           for branch in project.branches
-            latest_build = branch.builds.last
+            latest_build = branch.builds.first
             xml.Project(:name            => project.name + " (#{branch.name})",
                         :category        => latest_build.branch.name,
                         :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
