@@ -11,6 +11,10 @@ Given /^there is a github project$/ do
   # "win" branch
   post 'github', :payload => payload("construct-success-branch")
   ensure_authed
+  
+  # "1.2.3" branch
+  post 'github', :payload => payload("construct-success-branch-2")
+  ensure_authed
 end
 
 Given /^there is a codebase project$/ do
