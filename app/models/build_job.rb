@@ -91,7 +91,7 @@ class BuildJob < Struct.new(:build_id, :payload)
     branch = build.branch.name
     output = ""
     
-    POpen4::popen4("git checkout origin/#{branch} -b #{branch}") do |stdout, stderr, stdin, pid|
+    POpen4::popen4("git checkout . && git checkout origin/#{branch} -b #{branch}") do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
         @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
         @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
