@@ -25,14 +25,22 @@ describe ApplicationHelper do
   
   
   it "should correctly colour the text" do
-    path = "#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout.html"
-    File.open(path, "w+") do |f|
-      f.write "<link rel='stylesheet' href='style.css'>"
-      f.write "This test in #{__FILE__}:#{__LINE__} is passing if the text below is coloured and looks good :P"
-      f.write "<pre>"
-      f.write color_format(File.read("#{RAILS_ROOT}/spec/fixtures/colour/sample_stdout"))
-      f.write "</pre>"
-    end
-    `open #{path}`
+    actual = color_format %(
+      Scenario: Create new document template\e[90m                                 # features/document_templates_create_document_template.feature:13\e[0m
+        \e[32mGiven I am logged in as a user\e[90m                                       # features/step_definitions/app_steps.rb:1\e[0m\e[0m
+        \e[32mWhen I go to \e[32m\e[1mthe homepage\e[0m\e[0m\e[32m\e[90m                                            # features/step_definitions/webrat_steps.rb:10\e[0m\e[0m
+        \e[32mAnd I follow "\e[32m\e[1mDocument Templates\e[0m\e[0m\e[32m"\e[90m                                    # features/step_definitions/webrat_steps.rb:18\e[0m\e[0m
+        \e[32mAnd I follow "\e[32m\e[1mNew Document Template\e[0m\e[0m\e[32m"\e[90m                                 # features/step_definitions/webrat_steps.rb:18\e[0m\e[0m
+    )
+    
+    expected = %(
+      Scenario: Create new document template<span class="color90">                                 # features/document_templates_create_document_template.feature:13</span>
+        <span class="color32">Given I am logged in as a user<span class="color90">                                       # features/step_definitions/app_steps.rb:1</span></span>
+        <span class="color32">When I go to <span class="color1">the homepage</span></span><span class="color32"><span class="color90">                                            # features/step_definitions/webrat_steps.rb:10</span></span>
+        <span class="color32">And I follow "<span class="color1">Document Templates</span></span><span class="color32">"<span class="color90">                                    # features/step_definitions/webrat_steps.rb:18</span></span>
+        <span class="color32">And I follow "<span class="color1">New Document Template</span></span><span class="color32">"<span class="color90">                                 # features/step_definitions/webrat_steps.rb:18</span></span>
+    )
+    
+    expected.should == actual
   end
 end
