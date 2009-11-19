@@ -29,23 +29,26 @@ class Build < ActiveRecord::Base
   
   class << self
     
-    # Prepare a build to be built.
+    # Prepare multiple builds to be built.
     def setup(payload)
       if self == Build
         raise "Setup must be called on a subclass of Build (GithubBuild or CodebaseBuild)"
       end
-      project, commit = Project.from_payload(self, payload)
-      build = Build.create!(:payload => payload,
-                            :commit => commit, 
-                             :status => "queued", 
-                             :instructions => project.instructions, 
-                             :site =>  site)
+      project, commits = Project.from_payload(self, payload)
+      builds = commits.inject([]) do |builds, commit|
+        builds << Build.create!(:payload => payload,
+                                :commit => commit, 
+                                :status => "queued", 
+                                :instructions => project.instructions, 
+                                :site => site)
+      end
+      builds
     end
     
     # Helper method:
     # Rather than calling setup(payload).start we can just call start(payload)
     def start(payload)
-      setup(payload).start
+      setup(payload).each(&:start)
     end
   end
   
@@ -56,15 +59,7 @@ class Build < ActiveRecord::Base
   
   def start
     return self if status == 'failed' || status == 'success'
-    # in_progress_builds = project.builds.in_progress_excluding(self)
-    # if in_progress_builds.empty?
-      Delayed::Job.enqueue(BuildJob.new(id, payload))
-    # else
-    #   builds = project.builds.all(:select => "builds.id")
-    #   queue_number = builds.index(in_progress_builds.first) - builds.index(self)
-    #   self.notifications << "Another build for this project is currently in progress. This build is ##{queue_number} in the build queue for this project."
-    #   update_status("waiting")
-    # end
+   Delayed::Job.enqueue(BuildJob.new(id, payload))
     self
   end
   

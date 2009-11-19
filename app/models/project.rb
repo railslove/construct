@@ -25,16 +25,21 @@ class Project < ActiveRecord::Base
     end
     
     def from_payload(build_type, payload)
-      first_commit = payload["commits"].last
-      first_commit["sha"] = first_commit["id"]
-      site = build_type == GithubBuild ? "github.com" : "codebasehq.com"
-      project       = Project.find_or_create_by_payload_and_site(payload, site)
-      commit        = project.commits.find_by_sha(first_commit["sha"])
-      commit      ||= project.commits.create!(first_commit)
-      commit.branch = project.branches.find_or_create_by_name(payload["ref"].split("/").last)
-      commit.save!
-      project       = commit.project
-      [project, commit]
+      commits = []
+      for commit in payload["commits"]
+        commit["sha"] = commit["id"]
+        site = build_type == GithubBuild ? "github.com" : "codebasehq.com"
+        project           = Project.find_or_create_by_payload_and_site(payload, site)
+        new_commit        = project.commits.find_by_sha(commit["sha"])
+        new_commit      ||= project.commits.create!(commit)
+        new_commit.branch = project.branches.find_or_create_by_name(payload["ref"].split("/").last)
+        new_commit.save!
+        project       = new_commit.project
+
+        commits << new_commit
+      end
+      
+      [project, commits]
     end
   end
   

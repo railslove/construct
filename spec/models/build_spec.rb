@@ -3,13 +3,14 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe Build do
   describe GithubBuild do
     before do
-      @successful_payload = payload("construct-success")
-      @other_successful_payload = payload("construct-success-2")
-      @build = GithubBuild.setup(@successful_payload).start
-      @other_build = GithubBuild.setup(@other_successful_payload).start
-      @project = Project.find_by_name(@successful_payload["repository"]["name"])
+      @payload = {}
+      @payload["successful"] = payload("construct-success")
+      @payload["other_successful"] = payload("construct-success-2")
+      @build = GithubBuild.start(@payload["successful"])
+      @other_build = GithubBuild.start(@payload["other_successful"])
+      @project = Project.find_by_name(@payload["successful"]["repository"]["name"])
     end
-    subject { BuildJob.new(@build, @successful_payload).perform }
+    subject { BuildJob.new(@build, @payload["successful"]).perform }
 
     it "should succeed" do
       should be_successful
@@ -18,7 +19,7 @@ describe Build do
     it "should fail" do
       @project.instructions = @build.instructions = "do_the_impossible"
       [@project, @build].each(&:save!)
-      BuildJob.new(@build, @successful_payload).perform
+      BuildJob.new(@build, @payload["successful"]).perform
       @build.should_not be_successful
     end
   
@@ -31,6 +32,20 @@ describe Build do
     
     it "should be waiting, not building if there is a build already for this project" do
       @other_build.status.should eql("queued")
+    end
+    
+    it "should be able to bisect the build" do
+      @payload["lots_of_commits"] = payload("construct-test-bisect")
+      project = Project.create!(:name => "construct-test", :instructions => "rake spec")
+      branch = project.branches.create(:name => "master")
+      commit = branch.commits.create!(:sha => "89c95601f3cbc34a8c9b005174aba100e35c38dd")
+      commit.builds.create!(:commit => commit, :status => "success", :created_at => Time.now - 5.minutes)
+      project.status.should eql("success")
+      @build = GithubBuild.setup(@payload["lots_of_commits"])
+      BuildJob.new(@build.id, @payload["lots_of_commits"]).perform
+      project = Project.find_by_name(project.name)
+      project.status.should eql("building")
+      
     end
   end
   
@@ -74,23 +89,5 @@ describe Build do
       lambda { Build.setup(@payload) }.should raise_error("Setup must be called on a subclass of Build (GithubBuild or CodebaseBuild)")
     end
     
-  end
-end
-
-describe "Pharmmd" do
-  before do
-    @payload = payload("private-otherproject")
-    @build = GithubBuild.setup(@payload).start
-    @project = Project.find_by_name(@payload["repository"]["name"])
-    @project.instructions = @build.instructions = "rake gems:install RAILS_ENV=test && rake db:migrate spec RAILS_ENV=test && rake gems:install RAILS_ENV=cucumber && rake db:migrate cucumber:ok RAILS_ENV=cucumber CUCUMBER_FORMAT=\"progress --no-color\""
-    @project.save!
-    @build.save!
-    
-  end
-
-  subject { BuildJob.new(@build, @payload).perform }
-  it "should build" do
-    p subject
-    should be_successful
   end
 end
