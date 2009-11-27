@@ -14,5 +14,5 @@ Rails::Initializer.run do |config|
   config.gem 'SystemTimer', :lib => "system_timer" # see http://ph7spot.com/articles/system_timer
   config.time_zone = 'UTC'
 end
-
+SubdomainFu.tld_size = 1 
 CONSTRUCTA = YAML::load_file("#{RAILS_ROOT}/config/constructa.yml")[RAILS_ENV]

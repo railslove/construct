@@ -1,0 +1,7 @@
+<ul id='<%= type %>_builds' class='builds'>
+  <% for channel in @channels%>
+    <li class='success'>
+        <strong class="build"><%= link_to channel.name, channel.name %></strong>
+    </li>
+  <% end %>
+</ul>

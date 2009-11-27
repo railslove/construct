@@ -1,0 +1,6 @@
+.name {
+  float: left;
+  width: 175px;
+  border-right: 1px dotted #6b5610;
+  margin-right: 10px;
+}

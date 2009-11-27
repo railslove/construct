@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091028043558) do
+ActiveRecord::Schema.define(:version => 20091127111412) do
 
   create_table "branches", :force => true do |t|
     t.datetime "created_at"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(:version => 20091028043558) do
     t.text     "instructions"
     t.string   "site"
     t.text     "run_errors",   :limit => 16777215
+  end
+
+  create_table "channels", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "commits", :force => true do |t|
@@ -62,9 +68,19 @@ ActiveRecord::Schema.define(:version => 20091028043558) do
     t.datetime "updated_at"
   end
 
+  create_table "messages", :force => true do |t|
+    t.string   "text"
+    t.integer  "channel_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
-    t.string "name"
-    t.string "email"
+    t.string  "name"
+    t.string  "email"
+    t.boolean "authorized", :default => false
+    t.string  "nick"
   end
 
   create_table "projects", :force => true do |t|
@@ -77,5 +93,12 @@ ActiveRecord::Schema.define(:version => 20091028043558) do
   end
 
   add_index "projects", ["permalink"], :name => "index_projects_on_permalink"
+
+  create_table "tips", :force => true do |t|
+    t.string  "command"
+    t.string  "description"
+    t.text    "text"
+    t.integer "user_id"
+  end
 
 end

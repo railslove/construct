@@ -23,6 +23,10 @@ module ApplicationHelper
       ["github / #{link_to "setup", root_path}", "setup | github"]
     elsif path =~ /^\/setup\/codebase$/
       ["codebase / #{link_to "setup", root_path}", "setup | codebase"]
+    elsif path =~ /^\/channels$/
+      ["channels", "Channel Logs"]
+    elsif path =~ /^\/channels\/(.*?)$/
+      ["channels / #{@channel.name}", "Channel Logs"]
     else ["", ""]
     end
     
