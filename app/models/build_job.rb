@@ -26,7 +26,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       clone_repo
     else
       Dir.chdir(build_directory) do
-        `git pull origin master`
+        `git pull origin #{branch}`
         checkout_commit
       end
     end
