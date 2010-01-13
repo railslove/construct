@@ -13,3 +13,9 @@ Scenario: Rebuilding Builds
   And I follow "master"
   And I press "Rebuild this commit"
   Then I should see "Build 69ca694a2 rebuilding for construct-success"
+  
+Scenario: Building the latest
+  When I follow "construct-success"
+  And I follow "master"
+  And I press "Fetch & Build Latest"
+  Then I should see "Building latest for master"
