@@ -1,0 +1,21 @@
+global: &global
+  adapter: postgresql
+  username: ci
+  password: mocraci
+  host: localhost
+
+development:
+  database: cohesion_development
+  <<: *global
+
+test: &test
+  database: cohesion_test
+  min_messages: warning
+  <<: *global
+
+spec:
+  <<: *test
+
+cucumber:
+  <<: *test
+~

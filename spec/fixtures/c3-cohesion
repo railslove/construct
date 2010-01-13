@@ -1,0 +1,33 @@
+{
+  "after": null, 
+  "before": null, 
+  "commits": [
+    {
+      "added": [], 
+      "author": {
+        "email": "dev+bjeanes+radar@mocra.com", 
+        "name": "Bodaniel Jeanes and Ryan Bigg"
+      }, 
+      "id": "1ebca4aa5a627068c63d63f8e99d4e73ecdaa3a8", 
+      "message": "Remove outdated DEVELOPERS file", 
+      "modified": [], 
+      "removed": [
+        "DEVELOPERS"
+      ], 
+      "timestamp": "Wed, 09 Dec 2009 00:01:46 +0000", 
+      "url": "http:\/\/mocra.codebasehq.com\/c3\/cohesion\/commit\/1ebca4aa5a627068c63d63f8e99d4e73ecdaa3a8"
+    }
+  ], 
+  "ref": null, 
+  "repository": {
+    "clone_url": "git@codebasehq.com:mocra\/c3\/cohesion.git", 
+    "homepage": "http:\/\/mocra.codebasehq.com\/c3\/cohesion", 
+    "name": "C3 Cohesion: Cohesion", 
+    "owner": {
+      "email": "accounts@mocra.com", 
+      "name": "Mocra"
+    }, 
+    "private": 1, 
+    "project": "C3 Cohesion"
+  }
+}
