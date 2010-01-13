@@ -17,5 +17,5 @@ Scenario: Rebuilding Builds
 Scenario: Building the latest
   When I follow "construct-success"
   And I follow "master"
-  And I press "Fetch & Build Latest"
+  And I press "Fetch and Build Latest"
   Then I should see "Building latest for master"
