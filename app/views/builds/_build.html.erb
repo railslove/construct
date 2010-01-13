@@ -1,7 +1,11 @@
 <div id='last_build' class='build <%= build.simple_status %>'>
   <div id='build_header'>
     <h2>Build #<%= build.number %> - <%= build.commit.short_sha %> - <%= build.report %></h2>
-    <%= button_to "Fetch & Build Latest", build_latest_project_branch_path(@project, build.branch) %>
+    <% form_for build.branch, :url => build_latest_project_branch_path(@project, build.branch) do |f| %>
+      <p class="submit">
+        <button type="submit" title="Fetch and Build Latest">Fetch and Build Latest</button>
+      </p>
+    <% end %>
     <% form_for build, :url => rebuild_project_build_path(@project, build) do |f| %>
       <p class="submit">
         <button type="submit" title="Rebuild this commit">Rebuild this commit</button>
