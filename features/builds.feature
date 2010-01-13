@@ -13,10 +13,3 @@ Scenario: Rebuilding Builds
   And I follow "master"
   And I press "Rebuild this commit"
   Then I should see "Build 69ca694a2 rebuilding for construct-success"
-  
-
-Scenario: Rebuilding the same build in quick succession should fail
-  When I follow "construct-success"
-  And I follow "master"
-  And I press "Rebuild this commit"
-  Then I should see "Build 89c95601f rebuilding for construct-success"

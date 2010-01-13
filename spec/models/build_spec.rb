@@ -76,21 +76,3 @@ describe Build do
     
   end
 end
-
-describe "Pharmmd" do
-  before do
-    @payload = payload("private-otherproject")
-    @build = GithubBuild.setup(@payload).start
-    @project = Project.find_by_name(@payload["repository"]["name"])
-    @project.instructions = @build.instructions = "rake gems:install RAILS_ENV=test && rake db:migrate spec RAILS_ENV=test && rake gems:install RAILS_ENV=cucumber && rake db:migrate cucumber:ok RAILS_ENV=cucumber CUCUMBER_FORMAT=\"progress --no-color\""
-    @project.save!
-    @build.save!
-    
-  end
-
-  subject { BuildJob.new(@build, @payload).perform }
-  it "should build" do
-    p subject
-    should be_successful
-  end
-end

@@ -29,3 +29,4 @@ Feature: Projects
       | Doc Jockey: Web App (master) |
       | construct-success (master)   |
       | construct-success (win)      |
+      | construct-success (1.2.3)    |

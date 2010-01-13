@@ -2,6 +2,7 @@ class BuildJob < Struct.new(:build_id, :payload)
   attr_accessor :build, :project, :clone_url, :build_directory
 
   def setup
+    self.payload = JSON.parse(payload) if payload.is_a?(String)
     self.build.run_output ||= ""
     self.build.run_errors ||= ""
     build.update_status("setting up repository")
@@ -59,10 +60,10 @@ class BuildJob < Struct.new(:build_id, :payload)
     
       build
     rescue SignalException
-      build.update_status("stalled")
-      build.save!
+      self.build.update_status("stalled")
+      self.build.save!
     ensure
-      return build
+      return @build
     end
   end
   
