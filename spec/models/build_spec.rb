@@ -69,6 +69,5 @@ describe Build do
     it "should raise an error if setup is attempted" do
       lambda { Build.setup(@payload) }.should raise_error("Setup must be called on a subclass of Build (GithubBuild or CodebaseBuild)")
     end
-    
   end
 end

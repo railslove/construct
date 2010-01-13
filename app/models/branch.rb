@@ -10,4 +10,15 @@ class Branch < ActiveRecord::Base
   def to_s
     name
   end
+  
+  def build_latest!
+    path = File.join(project.build_directory, name)
+    Dir.chdir(path) do
+      `git checkout .`
+      `git checkout #{name}`
+      `git pull origin #{name}`
+      klass = project.site == "github.com" ? GithubBuild : CodebaseBuild
+      klass.setup(Payload.for(project.name, Grit::Repo.new(path), `git rev-parse HEAD`.strip)).start
+    end
+  end  
 end
