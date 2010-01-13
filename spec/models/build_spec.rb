@@ -63,10 +63,6 @@ describe Build do
         @build.rebuild
       end
     end
-    
-    it "should not be able to run two builds for the same project at the same time" do
-      
-    end
   end
   
   describe Build do
