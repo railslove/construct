@@ -3,9 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe BuildJob do
   def setup_build(payload)
     @payload   = payload
-    @build     = GithubBuild.setup(payload)
-    @project   = Project.find_by_name(payload["repository"]["name"])
-    @build_job = BuildJob.new(@build.id, payload)
+    @build     = GithubBuild.setup(@payload)
+    @project   = Project.find_by_name(@payload["repository"]["name"])
+    @build_job = BuildJob.new(@build.id, @payload)
     @build_job.setup
     @build.reload
   end

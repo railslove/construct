@@ -34,6 +34,7 @@ class Build < ActiveRecord::Base
       if self == Build
         raise "Setup must be called on a subclass of Build (GithubBuild or CodebaseBuild)"
       end
+      payload = JSON.parse(payload) if payload.is_a?(String)
       project, commit = Project.from_payload(self, payload)
       build = Build.create!(:payload => payload,
                             :commit => commit, 

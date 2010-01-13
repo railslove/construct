@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ProjectsController do
   before do
-    @github = payload(:"construct-success")
+    @github = payload(:"construct-success").to_json
     Project.make(:by_star)
   end
   

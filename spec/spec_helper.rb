@@ -23,7 +23,7 @@ FileUtils.mkdir_p("#{RAILS_ROOT}/tmp/builds")
 require File.dirname(__FILE__) + "/blueprints"
 
 def payload(key)
-  File.read("#{RAILS_ROOT}/spec/fixtures/#{key}")
+  JSON.parse(File.read("#{RAILS_ROOT}/spec/fixtures/#{key}"))
 end
 
 # Print the location of puts/p calls so you can find them later
