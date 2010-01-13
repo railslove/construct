@@ -3,7 +3,6 @@ class Payload
   # Only used by branch's build_latest for now.
   def self.for(name, repo, id)
     commit = repo.commits.detect { |c| c.id == id }
-    p commit
     index = repo.commits.map(&:id).index(id)
     
     before = repo.commits[index+1]
