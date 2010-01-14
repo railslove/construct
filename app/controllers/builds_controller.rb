@@ -21,7 +21,7 @@ class BuildsController < ApplicationController
       flash[:error] = "There is already a build in progress for #{@build.commit.short_sha}"
       @new_build = @build
     end
-    redirect_to [@project, @new_build]
+    redirect_to [@project, @branch, @new_build].flatten
   end
   
   private
