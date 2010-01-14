@@ -6,7 +6,7 @@ class BranchesController < ApplicationController
   end
   
   def build_latest
-    @branch = Branch.find_by_name(params[:id])
+    @branch = @project.branches.find_by_name(params[:id])
     @branch.build_latest!
     flash[:notice] = "Building latest for #{@branch.name}"
   rescue ActiveRecord::RecordNotFound
