@@ -1,5 +1,5 @@
 class BuildJob < Struct.new(:build_id, :payload)
-  attr_accessor :build, :project, :clone_url, :build_directory
+  attr_accessor :build, :project, :build_directory
 
   def setup
     self.payload = JSON.parse(payload) if payload.is_a?(String)
@@ -8,15 +8,17 @@ class BuildJob < Struct.new(:build_id, :payload)
     build.update_status("setting up repository")
     repository = payload["repository"]
     self.project = Project.find_by_name(repository["name"])
+    self.project.clone_url ||= repository["clone_url"] # For codebase repositories
+    self.project.clone_url ||= "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git" if repository["private"] # private repositories on github
+    self.project.clone_url ||= "git://#{build.site}/#{repository["owner"]["name"]}/#{repository["name"]}.git" # All the rest
+    self.project.save!
     
     branch = build.branch
     self.build_directory = File.join(project.build_directory, branch.name)
     FileUtils.mkdir_p(build_directory)
     # Even though with chdir inside the methods, it's better to be safe than sorry.
     
-    self.clone_url = repository["clone_url"] # For codebase repositories
-    self.clone_url ||= "git@#{build.site}:#{repository["owner"]["name"]}/#{repository["name"]}.git" if repository["private"] # private repositories on github
-    self.clone_url ||= "git://#{build.site}/#{repository["owner"]["name"]}/#{repository["name"]}.git" # All the rest
+  
     # Will have to have different directories for the different branches at one point.
     
     if !File.exist?(build_directory) 
@@ -122,6 +124,6 @@ class BuildJob < Struct.new(:build_id, :payload)
   end
   
   def clone_repo
-    run_step("git clone #{clone_url} #{build_directory.inspect}", "setting up repository", "set up repository", "repository setup failed")
+    run_step("git clone #{project.clone_url} #{build_directory.inspect}", "setting up repository", "set up repository", "repository setup failed")
   end
 end

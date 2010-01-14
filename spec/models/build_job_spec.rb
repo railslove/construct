@@ -20,6 +20,13 @@ describe BuildJob do
       @build_job.setup
       File.exist?(@build_job.build_directory).should be_true
     end
+    
+    it "sets up the project's clone url" do
+      @project.clone_url.should be_blank
+      @build_job.setup
+      @project.reload
+      @project.clone_url.should_not be_blank
+    end
   end
 
   describe "checking out branches" do  
