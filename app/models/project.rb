@@ -15,7 +15,7 @@ class Project < ActiveRecord::Base
     def find_or_create_by_payload_and_site(payload, site)
       project = find_or_create_by_name(payload["repository"]["name"])
       project.build_directory = ERB.new(CONSTRUCTA["build_directory"]).result(binding) + "/" + if site == "github.com"
-      project.site = site
+      project.site ||= site
         payload["repository"]["name"]
       elsif site == "codebasehq.com"
         payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
