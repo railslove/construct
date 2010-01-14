@@ -15,12 +15,14 @@ class Project < ActiveRecord::Base
     def find_or_create_by_payload_and_site(payload, site)
       project = find_or_create_by_name(payload["repository"]["name"])
       project.site ||= site
-      name = if site == "github.com"
-        payload["repository"]["name"]
-      elsif site == "codebasehq.com"
-        payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
+      if project.build_directory.blank?
+        if site == "github.com"
+          payload["repository"]["name"]
+        elsif site == "codebasehq.com"
+          payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
+        end
+        project.build_directory = ERB.new(CONSTRUCTA["build_directory"]).result(binding) + "/" + name
       end
-      project.build_directory = ERB.new(CONSTRUCTA["build_directory"]).result(binding) + "/" + name
       project.save!
       project
     end
