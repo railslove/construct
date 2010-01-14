@@ -39,7 +39,7 @@ class BuildsController < ApplicationController
   end
   
   def other_builds
-    @before_builds = @project.builds.before(@build)
-    @after_builds  = @project.builds.after(@build)
+    @before_builds = (@branch || @project).builds.before(@build)
+    @after_builds  = (@branch || @project).builds.after(@build)
   end
 end
