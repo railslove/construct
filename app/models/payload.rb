@@ -1,17 +1,18 @@
 class Payload
-  # Takes a Grit::Repo object and a commit sha and builds a payload for the commit.
+  # Takes a Grit::Repo object and a commit sha and builds a stripped down payload for the commit.
   # Only used by branch's build_latest for now.
-  def self.for(name, repo, id)
-    commit = repo.commits.detect { |c| c.id == id }
-    index = repo.commits.map(&:id).index(id)
+  def self.for(name, repo, branch, id)
+    commits = repo.commits_since(branch)
+    commit = commits.detect { |c| c.id == id }
+    index = commits.map(&:id).index(id)
     
-    before = repo.commits[index+1]
-    after = repo.commits[index-1] unless index == 0
+    before = commits[index+1]
+    after = commits[index-1] unless index == 0
     
     HashWithIndifferentAccess.new({
       :after => after ? after.sha : nil,
       :before => before.sha,
-      :ref => "refs/heads/" + repo.refs.detect { |ref| ref.commit.id == commit.id }.name,
+      :ref => "refs/heads/" + branch,
       :commits => [{
         :id => commit.id,
         :added => [],
@@ -22,7 +23,7 @@ class Payload
         :message => commit.message,
         :modified => [],
         :removed => [],
-        :timestamp => commit.authored_date,
+        :timestamp => nil, #TODO: May want to include this at a later date.
         :url => nil
       }],
       :repository => {

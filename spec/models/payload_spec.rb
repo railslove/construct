@@ -2,10 +2,10 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Payload do
   it "builds a new payload" do
-    Payload.for("construct", Grit::Repo.new(RAILS_ROOT), "82f3b808242f12907714d41161f95942842fcfb6").should eql(JSON.parse(<<-PAYLOAD
+    Payload.for("construct", Grit::Repo.new(RAILS_ROOT), "master", "82f3b808242f12907714d41161f95942842fcfb6").should eql(JSON.parse(<<-PAYLOAD
 {
-  "after": "25106659560d4eadad9622f4b3be77870e51b6fc", 
-  "before": "111e836556bf4247cdf929b5f069041dc5348399", 
+  "after": "111e836556bf4247cdf929b5f069041dc5348399", 
+  "before": "241e393f5e38a8fe7891a6db46680b466f58c9ed", 
   "commits": [
     {
       "added": [], 
@@ -17,29 +17,22 @@ describe Payload do
       "message": "Fixed colour specs", 
       "modified": [], 
       "removed": [], 
-      "timestamp": "2009-11-17T11:42:54+10:00", 
-      "url": "http:\/\/github.com\/radar\/construct\/commit\/82f3b808242f12907714d41161f95942842fcfb6"
+      "timestamp": null, 
+      "url": null
     }
   ], 
   "ref": "refs\/heads\/master", 
   "repository": {
-    "description": "", 
-    "fork": false, 
-    "forks": 0, 
-    "homepage": "http:\/\/gitpilot.com", 
-    "name": "construct-success", 
-    "open_issues": 0, 
-    "owner": {
-      "email": "radarlistener@gmail.com", 
-      "name": "radar"
-    }, 
-    "private": false, 
-    "url": "http:\/\/github.com\/radar\/construct", 
-    "watchers": 1
+    "name": "construct"
   }
 }
     PAYLOAD
     ))
+  end
+  
+  # Regression testing.
+  it "builds a new payload for the latest commit" do
+    lambda { Payload.for("construct", Grit::Repo.new(RAILS_ROOT), "master", `git rev-parse HEAD`.strip) }.should_not raise_error
   end
   
 end
