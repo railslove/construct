@@ -49,6 +49,10 @@ describe Build do
     it "should succeed" do
       should be_successful
     end
+    
+    it "should set the site on the project" do
+      @project.site.should eql("codebasehq.com")
+    end
 
     it "should fail" do
       @project.instructions = @build.instructions = "do_the_impossible"
