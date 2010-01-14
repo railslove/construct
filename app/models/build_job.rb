@@ -71,8 +71,8 @@ class BuildJob < Struct.new(:build_id, :payload)
   def run_step(command, pending="pending", success="success", failure="failed")
     POpen4::popen4(command) do |stdout, stderr, stdin, pid|
       until stdout.eof? && stderr.eof?
-        @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
+        p @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
+        p @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
         @build.save!
       end
     end
