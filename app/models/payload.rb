@@ -23,7 +23,7 @@ class Payload
         :message => commit.message,
         :modified => [],
         :removed => [],
-        :timestamp => nil, #TODO: May want to include this at a later date.
+        :timestamp => commit.committed_date,
         :url => nil
       }],
       :repository => {

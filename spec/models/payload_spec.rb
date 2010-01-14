@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Payload do
   it "builds a new payload" do
-    Payload.for("construct", Grit::Repo.new(RAILS_ROOT), "master", "82f3b808242f12907714d41161f95942842fcfb6").should eql(JSON.parse(<<-PAYLOAD
+    hash = JSON.parse(<<-PAYLOAD
 {
   "after": "111e836556bf4247cdf929b5f069041dc5348399", 
   "before": "241e393f5e38a8fe7891a6db46680b466f58c9ed", 
@@ -17,7 +17,7 @@ describe Payload do
       "message": "Fixed colour specs", 
       "modified": [], 
       "removed": [], 
-      "timestamp": null, 
+      "timestamp": "2009-11-17T11:44:43+10:00", 
       "url": null
     }
   ], 
@@ -27,7 +27,12 @@ describe Payload do
   }
 }
     PAYLOAD
-    ))
+    )
+    
+    # JSON.parse doesn't convert the timestamp back into a Time.
+    # Le Sigh.
+    hash["commits"].first["timestamp"] = Time.parse(hash["commits"].first["timestamp"])
+    Payload.for("construct", Grit::Repo.new(RAILS_ROOT), "master", "82f3b808242f12907714d41161f95942842fcfb6").should eql(hash)
   end
   
   # Regression testing.

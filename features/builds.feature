@@ -11,11 +11,11 @@ Feature: Builds
 Scenario: Rebuilding Builds
   When I follow "construct-success"
   And I follow "master"
-  And I press "Rebuild this commit"
+  And I press "Rebuild"
   Then I should see "Build 69ca694a2 rebuilding for construct-success"
 
 Scenario: Building the latest
   When I follow "construct-success"
   And I follow "master"
-  And I press "Fetch and Build Latest"
+  And I press "Build Latest"
   Then I should see "Building latest for master"
