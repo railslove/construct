@@ -1,5 +1,4 @@
 class Notifier < ActionMailer::Base
-  default_url_options[:host] = "example.com"
   def build(build)
     notify = CONSTRUCT["email_notifications"]
     return "No email_notifications key in Construct config." if !notify

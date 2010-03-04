@@ -24,7 +24,7 @@ To enable Basic auth open _config/construct.yml_ and uncomment the `user` and `p
 
 ## Build Email Notifications
 
-If you wish to receive email notifications of if a build has completedm uncomment the `email_notifications` key in _config/construct.yml_ and set the to address. Additionally, you will need to uncomment the `ActionMailer::Base` code at the bottom of _config/environment.rb_ and configure that correctly.
+If you wish to receive email notifications of if a build has completedm uncomment the `email_notifications` key in _config/construct.yml_ and set the to address. Additionally, you will need to uncomment the `ActionMailer::Base` code inside _config/initializers/email.rb_ and configure that correctly. Additionally set the `:host` key.
 
 ## Contributions
 
