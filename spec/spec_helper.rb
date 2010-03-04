@@ -27,12 +27,12 @@ def payload(key)
 end
 
 # Print the location of puts/p calls so you can find them later
-def puts str
-  super caller.first
-  super str
-end
-
-def p obj
-  puts caller.first
-  super obj
-end
+# def puts str
+#   super caller.first
+#   super str
+# end
+# 
+# def p obj
+#   puts caller.first
+#   super obj
+# end
