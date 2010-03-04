@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
         elsif site == "codebasehq.com"
           payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
         end
-        project.build_directory = ERB.new(CONSTRUCTA["build_directory"]).result(binding) + "/" + name
+        project.build_directory = ERB.new( CONSTRUCT["build_directory"]).result(binding) + "/" + project.name
       end
       project.save!
       project
