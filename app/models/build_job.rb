@@ -39,7 +39,7 @@ class BuildJob < Struct.new(:build_id, :payload)
           @build.update_status("running the build")
           POpen4::popen4(project.instructions) do |stdout, stderr, stdin, pid|
             until stdout.eof? && stderr.eof?
-              @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?       
+              @build.run_output += stdout.read_nonblock(1024) unless stdout.eof?
               @build.run_errors += stderr.read_nonblock(1024) unless stderr.eof?
               @build.save!
             end
