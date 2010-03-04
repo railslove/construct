@@ -8,6 +8,7 @@ class Notifier < ActionMailer::Base
     from       notify["from"]
     subject    "[construct] #{build.email_subject}! #{build.project.name} - #{build.commit.short_sha}"
     body       :build => build
+    content_type "text/html"
   end
   
 end
