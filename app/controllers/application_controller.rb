@@ -11,9 +11,9 @@ class ApplicationController < ActionController::Base
   
   private
     def authenticate
-      if CONSTRUCTA["user"] && CONSTRUCTA["password"]
+      if CONSTRUCT["user"] &&  CONSTRUCT["password"]
         authenticate_or_request_with_http_basic do |user, password|
-          CONSTRUCTA["user"] == user && CONSTRUCTA["password"] == password
+          CONSTRUCT["user"] == user &&  CONSTRUCT["password"] == password
         end
       end
     end

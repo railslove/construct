@@ -15,4 +15,4 @@ Rails::Initializer.run do |config|
   config.time_zone = 'UTC'
 end
 
-CONSTRUCTA = YAML::load_file("#{RAILS_ROOT}/config/constructa.yml")[RAILS_ENV]
+CONSTRUCT = YAML::load_file("#{RAILS_ROOT}/config/construct.yml")[RAILS_ENV]

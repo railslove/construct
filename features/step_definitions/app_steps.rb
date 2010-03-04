@@ -4,7 +4,7 @@ end
 
 # Called anyway, even if the keys are commented out.
 Given /^I am logged in$/ do
-  basic_auth(CONSTRUCTA["user"], CONSTRUCTA["password"])
+  basic_auth(CONSTRUCT["user"], CONSTRUCT["password"])
 end
 
 Given /^time is frozen$/ do

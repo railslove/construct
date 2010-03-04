@@ -3,9 +3,14 @@ development: &STANDARD
   # You can uncomment these to enable HTTP Basic Auth.
   # user: user
   # password: password
+  email_notifications:
+    to:
   
 test: &TEST
   build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
+  email_notifications:
+    to: "test@example.com"
+    from: "ci@example.com"
   
 cucumber:
   <<: *TEST
