@@ -16,3 +16,12 @@ Rails::Initializer.run do |config|
 end
 
 CONSTRUCT = YAML::load_file("#{RAILS_ROOT}/config/construct.yml")[RAILS_ENV]
+
+# ActionMailer::Base.smtp_settings = {
+#   :address => "smtp.yourserver.com",
+#   :port => '25',
+#   :domain => "yourserver.com",
+#   :authentication => :plain,
+#   :user_name => "test@example.com",
+#   :password => "password"
+# }
