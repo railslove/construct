@@ -55,16 +55,16 @@ class BuildJob < Struct.new(:build_id, :payload)
     
       # To ensure we're not running builds for the one project at the same time
       # We will start running a build after one has finished.
-      # There is code also in build.rb (Build#start) that stops this.
       if build = project.builds.after(@build).last
         build.start
       end
     
       build
     rescue SignalException
-      self.build.update_status("stalled")
-      self.build.save!
+      @build.update_status("stalled")
+      @build.save!
     ensure
+      Notifier.deliver_build(@build)
       return @build
     end
   end

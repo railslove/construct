@@ -14,6 +14,10 @@ Spec::Runner.configure do |config|
   config.use_instantiated_fixtures  = false
   config.fixture_path               = RAILS_ROOT + '/spec/fixtures/'
   config.mock_with :mocha
+  
+  config.include(EmailSpec::Helpers)
+  config.include(EmailSpec::Matchers)
+  
 end
 
 FileUtils.rm_r("#{RAILS_ROOT}/tmp/builds/") rescue nil

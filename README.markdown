@@ -20,11 +20,15 @@ Finally, you can push to your repositories and with any luck they'll build succe
 
 ### HTTP Basic Auth
 
-To enable Basic auth open _config/constructa.yml_ and uncomment the `user` and `password` keys.
+To enable Basic auth open _config/construct.yml_ and uncomment the `user` and `password` keys.
+
+## Build Email Notifications
+
+If you wish to receive email notifications of if a build has completedm uncomment the `email_notifications` key in _config/construct.yml_ and set the to address. Additionally, you will need to uncomment the `ActionMailer::Base` code at the bottom of _config/environment.rb_ and configure that correctly.
 
 ## Contributions
 
-Integrity (and by extension, foca) - Inspiring this whole project.
+Integrity (and by extension, foca and company) - Inspiring this whole project.
 
 Bodaniel Jeanes - Giving me a place to hack this out on Spring Tuesday Night.
 

@@ -14,7 +14,11 @@ end
 
 When /^the latest build for (.*?)\/(.*?) is ran$/ do |project, branch|
   first_build = Project.find_by_name!(project).branches.find_by_name!(branch).builds.first
-  BuildJob.new(first_build.id, first_build.payload).perform
+  silence_stream(STDOUT) do
+    silence_stream(STDERR) do
+      BuildJob.new(first_build.id, first_build.payload).perform
+    end
+  end
 end
 
 When /^I dump the page$/ do

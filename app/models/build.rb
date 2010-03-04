@@ -121,6 +121,15 @@ class Build < ActiveRecord::Base
     end
   end
   
+  def email_subject
+    case simple_status
+    when "success"
+      "SUCCESS"
+    when "failed"
+      "FAILURE"
+    end
+  end
+  
   private
   
   def increment_number
