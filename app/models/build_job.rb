@@ -16,11 +16,6 @@ class BuildJob < Struct.new(:build_id, :payload)
     branch = build.branch
     self.build_directory = File.join(project.build_directory, branch.name)
     FileUtils.mkdir_p(build_directory)
-    # Even though with chdir inside the methods, it's better to be safe than sorry.
-    
-  
-    # Will have to have different directories for the different branches at one point.
-    
     if !File.exist?(build_directory) 
       clone_repo
     elsif !File.exist?(File.join(build_directory, ".git"))
