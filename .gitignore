@@ -5,3 +5,4 @@ db/*.sqlite3
 spec/fixtures/private*
 webrat*
 spec/fixtures/colour/sample_stdout.html
+config/database.yml
