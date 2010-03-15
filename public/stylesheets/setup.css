@@ -1,24 +1,31 @@
-#setup {
+.setup {
   margin-top: 20px;
   margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 24pt;
 }
 
-#setup ul li {
+.setup p, .setup ul li {
+  font-weight: bold;
+  font-size: 22pt;
+}
+
+.setup ul {
+  margin-left: 50px;
+}
+
+.setup ul li {
   margin-left: 50px;
   list-style-type: decimal;
-  
+  margin: 8px 0;
 }
 
-#setup table {
-  float: left;
-  width: 100%;
-  margin: 10px;
+.setup .sites {
+  margin-top: 20px;
 }
 
-#setup table td {
-  font-size: 72pt;
-  display: inline;
-  margin-left: 50px;
+.setup .sites a {
+  font-size: 50pt;
+}
+
+.setup .sites .separator {
+  padding: 0 10px;
 }

@@ -1,7 +1,7 @@
 <div id='projects' class='builds'>
   <%= render :partial => "setup_complete" if Build.queued.count == Build.count %>
-  <ul>
   <% unless @projects.empty? %>
+    <ul>
     <% for project in @projects %>
       <li class='<%= project.status %> item'>
         <h2><%= link_to project.name, project_path(project) %></h2>
@@ -15,8 +15,8 @@
           <br class='clear'>
       </li>
     <% end %>
+    </ul>
   <% else %>
     <%= render :partial => "first_time" %>
   <% end %>
-  </ul>
 </div>

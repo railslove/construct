@@ -1,11 +1,9 @@
-<div id='setup'>
+<div class='setup'>
   <h2>Hi there!</h2>
   <p>I see you have no projects and this is unfortunate. Where's your first project live?</p>
-  <table>
-    <tr>
-      <td><%= link_to "Github", "/setup/github" %></td>
-      <td>or</td>
-      <td><%= link_to "Codebase", "/setup/codebase" %></td>
-    </tr>
-  </table>
+  <p class="sites">
+    <%= link_to "Github", "/setup/github" %> 
+    <span class="separator">or</span> 
+    <%= link_to "Codebase", "/setup/codebase" %>
+  </p>
 </div>
