@@ -1,5 +1,5 @@
 class BuildJob < Struct.new(:build_id, :payload)
-  attr_accessor :build, :project, :build_directory
+  attr_accessor :build, :project, :branch, :build_directory
 
   def setup
     self.payload = JSON.parse(payload) if payload.is_a?(String)
@@ -13,22 +13,14 @@ class BuildJob < Struct.new(:build_id, :payload)
     self.project.clone_url ||= "git://#{build.site}/#{repository["owner"]["name"]}/#{repository["name"]}.git" # All the rest
     self.project.save!
     
-    branch = build.branch
+    self.branch = build.branch
     self.build_directory = File.join(project.build_directory, branch.name)
-    FileUtils.mkdir_p(build_directory)
-    if !File.exist?(build_directory) 
-      clone_repo
-    elsif !File.exist?(File.join(build_directory, ".git"))
-      # If the clone initially failed it will create a blank directory, remove that directory.
+    
+    unless File.exist?(File.join(build_directory, ".git"))
       FileUtils.rm_rf(build_directory)
       clone_repo
-    else
-      Dir.chdir(build_directory) do
-        `git pull origin #{branch}`
-        checkout_commit
-      end
     end
-  
+    checkout_commit
   end
   
   def perform
@@ -59,7 +51,7 @@ class BuildJob < Struct.new(:build_id, :payload)
       @build.update_status("stalled")
       @build.save!
     ensure
-      Notifier.deliver_build(@build)
+      # Notifier.deliver_build(@build)
       return @build
     end
   end
@@ -85,37 +77,11 @@ class BuildJob < Struct.new(:build_id, :payload)
     @build ||= Build.find(build_id)
   end
   
-  def checkout_commit
-    branch = build.branch.name
-    output = ""
-    
-    POpen4::popen4("git checkout . -f && git checkout origin/#{branch} -b #{branch}") do |stdout, stderr, stdin, pid|
-      until stdout.eof? && stderr.eof?
-        p @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        p @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
-        @build.save!
-      end
+  def checkout_commit    
+    Dir.chdir(build_directory) do
+      `git fetch origin`
+      `git checkout -f #{build.commit.sha}`
     end
-    
-    command = build.commit ? "git checkout -f #{build.commit.sha}" : "git checkout -f -b #{build.branch} origin/#{build.branch}"
-    POpen4::popen4(command) do |stdout, stderr, stdin, pid|
-      until stdout.eof? && stderr.eof?
-        p @build.run_output << stdout.read_nonblock(1024) unless stdout.eof?
-        p @build.run_errors << stderr.read_nonblock(1024) unless stderr.eof?
-        @build.save!
-      end
-    end
-    
-    if $?.success?
-      @build.update_status("checked out successfully")
-    else
-      if output =~ /already exists$/
-        @build.update_status("branch already exists")
-      else
-        @build.update_status("branch checkout failed")
-      end
-    end
-    $?.success?
   end
   
   def clone_repo
