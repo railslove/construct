@@ -12,3 +12,9 @@
   </p>
   <%= f.submit %>
 <% end %>
+
+<p>
+  <%= link_to 'Delete this project', project_path(@project),
+        :confirm => "This will delete everything related to the project. Are you really sure you want to do this?",
+        :method  => :delete %>
+</p>

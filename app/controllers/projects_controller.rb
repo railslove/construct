@@ -1,6 +1,8 @@
 class ProjectsController < ApplicationController
+  
   before_filter :project, :only => [:show, :edit, :update, :destroy]
   skip_before_filter :authenticate, :only => [:github, :codebase]
+  
   def index
     @projects = Project.all(:include => [{ :builds => :commit }, :commits])
     respond_to do |format|
@@ -21,6 +23,13 @@ class ProjectsController < ApplicationController
       flash[:error] = "Project could not be updated."
       render :action => "edit"
     end
+  end
+  
+  def destroy
+    project_name = @project.name
+    @project.destroy
+    flash[:notice] = "OMG! you just nuked the entire #{project_name} project."
+    redirect_to root_url
   end
   
   def github
@@ -58,4 +67,5 @@ class ProjectsController < ApplicationController
     end.to_xml
     render :xml => projects_xml
   end
+  
 end

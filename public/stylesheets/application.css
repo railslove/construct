@@ -114,3 +114,7 @@ br.clear {
   margin-bottom: 5px;
   font-weight: bold;
 }
+
+#project_submit {
+  margin-top: 40px;
+}

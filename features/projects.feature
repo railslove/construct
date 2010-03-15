@@ -29,3 +29,12 @@ Feature: Projects
       | construct-success (master)   |
       | construct-success (win)      |
       | construct-success (1.2.3)    |
+  
+  Scenario: Delete a project
+    Given I follow "Doc Jockey: Web App"
+    And I follow "Edit Project"
+    When I follow "Delete this project"
+    Then I should see "OMG! you just nuked the entire Doc Jockey: Web App project."
+    And there should be 1 project
+    And I should see "construct-success" within "#projects"
+    And I should not see "Doc Jockey: Web App" within "#projects"

@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  
   belongs_to :author
   has_many :branches, :dependent => :destroy
   has_many :commits, :dependent => :destroy
@@ -8,6 +9,7 @@ class Project < ActiveRecord::Base
   
   before_create :defaults
   before_save :set_permalink
+  before_destroy :delete_project_files
   
   default_scope :order => "name"
   
