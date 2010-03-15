@@ -9,6 +9,7 @@ Feature: Notifications
     And there are no queued jobs
     And my email address is "test@example.com"
 
+  @wip
   Scenario: Receiving an email notification of the build
     When the latest build for construct-success/master is ran
     When "test@example.com" opens the email
