@@ -60,7 +60,7 @@ class Project < ActiveRecord::Base
   private
   
   def defaults
-    self.instructions = "rake" if instructions.blank?
+    self.instructions = "rake ci:build" if instructions.blank?
   end
   
   def set_permalink
