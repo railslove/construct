@@ -1,13 +1,16 @@
 development: &STANDARD
   build_directory: /data/builds
+  default_build_instructions: "rake ci:build"
   # You can uncomment these to enable HTTP Basic Auth.
   # user: user
   # password: password
   # email_notifications:
   #   to: test@example.com
   
+  
 test: &TEST
   build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
+  default_build_instructions: "rake "
   email_notifications:
     to: "test@example.com"
     from: "ci@example.com"

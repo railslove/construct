@@ -60,11 +60,15 @@ class Project < ActiveRecord::Base
   private
   
   def defaults
-    self.instructions = "rake ci:build" if instructions.blank?
+    self.instructions = CONSTRUCT["default_build_instructions"] if instructions.blank?
   end
   
   def set_permalink
     self.permalink = name.parameterize
+  end
+  
+  def delete_project_files
+    FileUtils.rm_rf(build_directory)
   end
   
 end
