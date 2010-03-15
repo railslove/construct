@@ -10,7 +10,6 @@ Rails::Initializer.run do |config|
   config.gem 'json'
   config.gem 'popen4'
   config.gem 'nokogiri', :version => ">= 1.3.2"
-  config.gem 'god'
   config.gem 'SystemTimer', :lib => "system_timer" # see http://ph7spot.com/articles/system_timer
   config.gem 'grit'
   config.time_zone = 'UTC'
