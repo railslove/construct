@@ -2,6 +2,7 @@ tmp/builds/*
 tmp/spec/
 log/*
 db/*.sqlite3
+db/schema.rb
 spec/fixtures/private*
 webrat*
 spec/fixtures/colour/sample_stdout.html
