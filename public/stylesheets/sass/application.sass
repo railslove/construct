@@ -1,0 +1,105 @@
+html
+  :background #191919
+  :font 12pt Helvetica, Arial, sans-serif
+
+body
+  :color #fff
+  :padding 10px 20px
+
+em
+  :font-style italic
+
+h1, h2, h3
+  :font-weight bold
+  :padding 0px
+  :margin 0px
+
+h1
+  :font-size 28pt
+  :font-weight bold
+  :margin-bottom 20px
+
+h2
+  :font-size 28pt
+  :font-weight bold
+  :margin 14px 0 14px 0
+
+h3
+  :font-size 16pt
+  :margin-top 20px
+  :margin-bottom 14px
+
+a
+  :color #FF9900
+  :text-decoration none
+
+pre
+  :background #292929
+  :border 1px solid #343434
+  :padding 5px
+  :max-height 25em
+  :overflow auto
+  :font 10pt Menlo, Monaco, monospace
+
+button
+  :border 2px solid #9a9a9a
+  :-moz-border-radius 7px
+  :padding 5px
+  :margin 2px
+  :font-size 16px
+
+// TODO add a clear fix instead of this
+br.clear
+  :clear both
+
+#header, .right
+  :float right
+  :text-align right
+
+#content
+  :clear both
+  :width 80%
+  
+  p.project_settings
+    :margin 0 0 10px 0
+
+.project, .branch
+  :width 100%
+  :margin-bottom 10px
+  
+.project .meta, .branch .meta
+  :clear both
+  :padding-left 40px
+
+.build
+  h2
+    :float left
+  button
+    :float right
+  blockquote
+    :clear both
+
+.builds
+  li
+    :margin-bottom 5px
+    :font-weight bold
+
+.edit_project
+  p
+    :margin-bottom 20px
+  #project_instructions
+    :width 60%
+    :height 100px
+    :padding 5px
+    :margin 10px 0 0 0
+  #project_timeout
+    :width 50px
+    :padding 4px
+    :margin 0 5px 0 10px
+  #project_submit
+    :margin 10px 0 40px 0
+
+#footer
+  :position fixed
+  :bottom 10px
+  :right 20px

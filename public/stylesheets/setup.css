@@ -1,31 +1,20 @@
 .setup {
   margin-top: 20px;
-  margin-bottom: 20px;
-}
-
-.setup p, .setup ul li {
-  font-weight: bold;
-  font-size: 22pt;
-}
-
-.setup ul {
-  margin-left: 50px;
-}
-
-.setup ul li {
-  margin-left: 50px;
-  list-style-type: decimal;
-  margin: 8px 0;
-}
-
-.setup .sites {
-  margin-top: 20px;
-}
-
-.setup .sites a {
-  font-size: 50pt;
-}
-
-.setup .sites .separator {
-  padding: 0 10px;
-}
+  margin-bottom: 20px; }
+  .setup p {
+    font-weight: bold;
+    font-size: 22pt; }
+  .setup ul {
+    margin-left: 50px; }
+    .setup ul li {
+      font-weight: bold;
+      font-size: 22pt;
+      margin-left: 50px;
+      list-style-type: decimal;
+      margin: 8px 0; }
+  .setup .sites {
+    margin-top: 20px; }
+    .setup .sites a {
+      font-size: 50pt; }
+    .setup .sites .separator {
+      padding: 0 10px; }
