@@ -1,4 +1,8 @@
 %p.project_settings
   = link_to "Project Settings", edit_project_path(@project)
+  - if @branch
+    %span.separator
+      | 
+    = link_to "Branch Settings", edit_project_branch_path(@project, @branch)
   
 = render :partial => @build

@@ -1,7 +1,10 @@
 class Branch < ActiveRecord::Base
+  
   belongs_to :project
-  has_many :commits
+  has_many :commits, :dependent => :destroy
   has_many :builds, :through => :commits
+  
+  before_destroy :delete_branch_files
   
   def to_param
     name
@@ -20,5 +23,10 @@ class Branch < ActiveRecord::Base
       klass = project.site == "github.com" ? GithubBuild : CodebaseBuild
       klass.setup(Payload.for(project.name, Grit::Repo.new(path), name, `git rev-parse HEAD`.strip)).start
     end
-  end  
+  end
+  
+  def delete_branch_files
+    FileUtils.rm_rf( File.join(project.build_directory, name) )
+  end
+  
 end

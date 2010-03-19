@@ -9,6 +9,8 @@ module ApplicationHelper
       
     elsif path =~ /^\/projects\/(.*?)\/branches\/(.*?)\/builds$/
       ["#{link_to("projects", projects_path)} / #{link_to(@project.name, project_path(@project))} / #{link_to("branches", project_path(@project))} / #{@branch.name} / builds", "builds | #{@branch.name} | #{@project.name}"]
+    elsif path =~ /^\/projects\/(.*?)\/branches\/(.*?)\/edit$/
+      ["#{link_to("projects", projects_path)} / #{link_to(@project.name, project_path(@project))} / #{link_to("branches", project_path(@project))} / #{@branch.name}", "settings | #{@branch.name} | #{@project.name}"]  
     elsif path =~ /^\/projects\/(.*?)\/builds$/
       ["#{link_to("projects", projects_path)} / #{@project.name} / builds", "builds | #{@project.name}"]
     elsif path =~ /^\/projects\/(.*?)\/branches$/

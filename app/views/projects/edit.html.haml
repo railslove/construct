@@ -1,16 +1,19 @@
-%h1 Project Settings
+.project_settings
+
+  %h2 Project Settings
   
-- form_for @project do |f|
-  %p
-    = f.label :instructions, "Build Instructions:"
-    %br
-    = f.text_area :instructions, :cols => 120, :rows => 10
-  %p
-    = f.label :timeout, "Build Timeout:"
-    = f.text_field :timeout
-    seconds
+  - form_for @project do |f|
+    %p
+      = f.label :instructions, "Build Instructions:"
+      %br
+      = f.text_area :instructions, :cols => 120, :rows => 10
+    %p
+      = f.label :timeout, "Build Timeout:"
+      = f.text_field :timeout
+      seconds
 
-  %p= f.submit
+    %p= f.submit
+  
 
-%p  
-  = link_to 'Delete this project', project_path(@project), :confirm => "This will delete everything related to the project. Are you really sure you want to do this?", :method  => :delete
+  %p.delete_project  
+    = link_to 'Delete this project', project_path(@project), :confirm => "This will delete everything related to the project. Are you really sure you want to do this?", :method  => :delete

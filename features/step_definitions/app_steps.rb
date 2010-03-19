@@ -24,3 +24,7 @@ end
 When /^I dump the page$/ do
   save_and_open_page
 end
+
+Then /^there should be ([0-9]+) (.+)$/ do |amount, item|
+  item.gsub(" ","_").classify.constantize.count.should == amount.to_i
+end

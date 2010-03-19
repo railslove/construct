@@ -4,7 +4,6 @@ ActionController::Routing::Routes.draw do |map|
     project.resources :branches, :member => { :build_latest => :any }, :requirements => {:id => allowed_route, :project_id => allowed_route } do |branch|
       branch.resources :builds, :member => { :rebuild => :put }, :requirements => { :branch_id => allowed_route, :project_id => allowed_route } 
     end
-    
     project.resources :builds, :member => { :rebuild => :put }, :requirements => { :project_id => allowed_route } 
   end
   

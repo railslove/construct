@@ -1,0 +1,8 @@
+.branch_settings
+
+  %h2 Branch Settings
+  
+
+
+  %p.delete_branch
+    = link_to 'Delete this branch', project_branch_path(@project, @branch), :confirm => "Are you really sure you want to delete this branch?", :method  => :delete

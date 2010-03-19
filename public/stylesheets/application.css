@@ -15,12 +15,12 @@ h1, h2, h3 {
   margin: 0px; }
 
 h1 {
-  font-size: 28pt;
+  font-size: 36px;
   font-weight: bold;
   margin-bottom: 20px; }
 
 h2 {
-  font-size: 28pt;
+  font-size: 36px;
   font-weight: bold;
   margin: 14px 0 14px 0; }
 
@@ -80,19 +80,31 @@ br.clear {
   margin-bottom: 5px;
   font-weight: bold; }
 
-.edit_project p {
+span.separator {
+  margin: 0 5px; }
+
+.project_settings h2, .branch_settings h2 {
+  margin-bottom: 25px; }
+.project_settings h3, .branch_settings h3 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0 0 20px 0; }
+.project_settings p, .branch_settings p {
   margin-bottom: 20px; }
-.edit_project #project_instructions {
+  .project_settings p.delete_project, .project_settings p.delete_branch, .branch_settings p.delete_project, .branch_settings p.delete_branch {
+    padding-top: 50px; }
+
+.project_settings #project_instructions {
   width: 60%;
   height: 100px;
   padding: 5px;
   margin: 10px 0 0 0; }
-.edit_project #project_timeout {
+.project_settings #project_timeout {
   width: 50px;
   padding: 4px;
   margin: 0 5px 0 10px; }
-.edit_project #project_submit {
-  margin: 10px 0 40px 0; }
+.project_settings #project_submit {
+  margin: 10px 0 30px 0; }
 
 #footer {
   position: fixed;

@@ -27,10 +27,6 @@ Then /^the returned feed should contain the following projects$/ do |table|
   table.diff!(project_names.map(&:to_a))
 end
 
-Then /^there should be (\d+) projects?$/ do |num|
-  Project.count.should be(num.to_i)
-end
-
 # Test for success as we may receive 401.
 def ensure_authed
   fail("The recieve URL /codebase is not skipping the authenticate before filter.") if response.code.to_i == 401
