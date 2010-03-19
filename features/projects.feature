@@ -32,7 +32,7 @@ Feature: Projects
   
   Scenario: Delete a project
     Given I follow "Doc Jockey: Web App"
-    And I follow "Edit Project"
+    And I follow "Project Settings"
     When I follow "Delete this project"
     Then I should see "OMG! you just nuked the entire Doc Jockey: Web App project."
     And there should be 1 project
