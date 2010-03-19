@@ -8,3 +8,4 @@ spec/fixtures/colour/sample_stdout.html
 config/database.yml
 rerun.txt
 config/deploy.rb
+lib/tasks/ci.rake
