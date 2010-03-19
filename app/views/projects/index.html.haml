@@ -1,0 +1,19 @@
+#projects.builds
+  = render :partial => "setup_complete" if Build.queued.count == Build.count
+  - unless @projects.empty?
+    %ul
+      - for project in @projects
+        %li{ :class => "#{project.status} item" }
+          %h2
+            = link_to project.name, project_path(project)
+          %ul.meta
+            - for branch in project.branches
+              - latest_build = branch.builds.first(:order => "created_at DESC")
+              %li
+                = link_to(latest_build.branch, project_branch_builds_path(project, branch))
+                \- Build
+                = latest_build
+                = latest_build.report
+          %br.clear
+  - else
+    = render :partial => "first_time"

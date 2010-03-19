@@ -1,0 +1,10 @@
+#branches.builds
+  - for branch in @branches
+    - latest_build = branch.builds.first(:order => "created_at DESC")
+    - div_for branch, :class => latest_build.simple_status do
+      %h2
+        = link_to branch.name, project_branch_builds_path(@project, branch)
+      %small
+        Build
+        = latest_build
+        = latest_build.report

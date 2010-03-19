@@ -1,0 +1,21 @@
+.setup
+  %h2
+    Github, eh?
+  %ul
+    %li
+      Go to your project page
+    %li
+      Click "Edit"
+    %li
+      Click "Service Hooks"
+    %li
+      = "Add http://#{request.env['HTTP_HOST']}/github"
+    %li
+      Press "Update"
+    %li
+      Press "Test Hook" or push to your repository
+    %li
+      Wait around 30 seconds
+    %li
+      Go back to
+      = link_to "the home page", root_path

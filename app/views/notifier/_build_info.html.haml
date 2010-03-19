@@ -1,0 +1,6 @@
+%p
+  = "This changeset (#{@build.commit.short_sha}) was committed by #{@build.commit.author}."
+
+%p
+  For more information see
+  = link_to "the build page", project_branch_build_url(@build.project, @build.branch, @build)

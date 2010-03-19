@@ -1,0 +1,23 @@
+.setup
+  %h2
+    Codebase, eh?
+  %ul
+    %li
+      Go to your company's page
+    %li
+      Click "Notifications"
+    %li
+      Select "HTTP Postback" from the "Create Notification" select box on the right
+    %li
+      Click "Create notification"
+    %li
+      = "Enter http://#{request.env['HTTP_HOST']}/codebase into the URL field"
+    %li
+      Click "Create notification"
+    %li
+      Push to your repository
+    %li
+      Wait around 30 seconds
+    %li
+      Go back to
+      = link_to "the home page", root_path

@@ -1,0 +1,43 @@
+#last_build{ :class => "build #{build.simple_status}" }
+  #build_header
+    %h2
+      = "Build # #{build.number} - #{build.commit.short_sha} - #{build.report}"
+      
+    - form_for build.branch, :url => build_latest_project_branch_path(@project, build.branch), :html => { :method => :post } do |f|
+      %p.submit
+        %button{ :title => "Fetch and Build Latest", :type => "submit" } Build Latest
+
+    - form_for build, :url => rebuild_project_build_path(@project, build) do |f|
+      %p.submit
+        %button{ :title => "Rebuild this commit", :type => "submit" } Rebuild
+        
+    %blockquote
+      %p= simple_format(build.commit.message)
+      %br
+        %small
+          = "by #{build.commit.author} on #{build.commit.timestamp.strftime("%B")} #{build.commit.timestamp.strftime("%d").to_i.ordinalize}"
+  %h3
+    Build instructions
+  %pre#build_instructions.output
+    = build.instructions
+  %h3
+    Build output
+  %pre#build_output.output
+    = color_format(build.run_output)
+  %script
+    var objDiv = document.getElementById("build_output");
+    objDiv.scrollTop = objDiv.scrollHeight;
+  - if build.run_errors
+    %h3
+      Build errors
+    %pre#build_errors.output
+      = color_format(build.run_errors)
+    :javascript
+      var objDiv = document.getElementById("build_errors");
+      objDiv.scrollTop = objDiv.scrollHeight;
+  %h3
+    Final status:
+    = build.status
+  = render :partial => "list", :locals => { :type => :before, :builds => @before_builds }
+  %br
+  = render :partial => "list", :locals => { :type => :after, :builds => @after_builds }
