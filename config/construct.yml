@@ -1,5 +1,6 @@
 development: &STANDARD
   build_directory: /data/builds
+  default_build_timeout: 5 # minutes
   default_build_instructions: "rake ci:build"
   # You can uncomment these to enable HTTP Basic Auth.
   # user: user
@@ -10,6 +11,7 @@ development: &STANDARD
   
 test: &TEST
   build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
+  default_build_timeout: 5 # minutes
   default_build_instructions: "rake "
   email_notifications:
     to: "test@example.com"

@@ -23,7 +23,7 @@ class Project < ActiveRecord::Base
         elsif site == "codebasehq.com"
           payload["repository"]["clone_url"].split("/")[-2..-1].map { |part| part.gsub('.git', '') }.join("-")
         end
-        project.build_directory = ERB.new( CONSTRUCT["build_directory"]).result(binding) + "/" + project.name
+        project.build_directory = ERB.new(CONSTRUCT["build_directory"]).result(binding) + "/" + project.name
       end
       project.save!
       project
@@ -55,14 +55,11 @@ class Project < ActiveRecord::Base
     end
   end
   
-  def timeout
-    self[:timeout] ||= 5.minutes
-  end
-  
   private
   
   def defaults
-    self.instructions = CONSTRUCT["default_build_instructions"] if instructions.blank?
+    self.timeout = CONSTRUCT["default_build_timeout"].to_i.minutes
+    self.instructions = CONSTRUCT["default_build_instructions"]
   end
   
   def set_permalink
