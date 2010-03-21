@@ -56,7 +56,7 @@ class Project < ActiveRecord::Base
   end
   
   def timeout
-    self[:timeout] ||= 10.minutes
+    self[:timeout] ||= 5.minutes
   end
   
   private
