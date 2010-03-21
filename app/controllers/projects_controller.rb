@@ -4,9 +4,10 @@ class ProjectsController < ApplicationController
   skip_before_filter :authenticate, :only => [:github, :codebase]
   
   def index
-    @projects = Project.all(:include => [{ :builds => :commit }, :commits])
     respond_to do |format|
-      format.html
+      format.html do
+        @projects = Project.all(:include => [{ :builds => :commit }, :commits])
+      end
       format.xml { render_xml }
     end
   end
@@ -49,21 +50,20 @@ class ProjectsController < ApplicationController
   end
   
   def render_xml
+    branches = Branch.all(:order => "project_id ASC, name ASC")
     projects_xml = Nokogiri::XML::Builder.new do |xml|
-      xml.Projects {
-        for project in @projects
-          for branch in project.branches
-            latest_build = branch.builds.first
-            xml.Project(:name            => project.name + " (#{branch.name})",
-                        :category        => latest_build.branch.name,
-                        :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
-                        :lastBuildLabel  => latest_build.commit.short_sha,
-                        :lastBuildTime   => latest_build.created_at.xmlschema,
-                        :activity        => latest_build.finished? ? "Sleeping" : "Building",
-                        :webUrl          => project_branch_builds_url(project.permalink, branch.name))
-          end
+      xml.Projects do
+        branches.each do |branch|
+          latest_build = branch.builds.first
+          xml.Project(:name            => branch.project.name + " (#{branch.name})",
+                      :category        => latest_build.branch.name,
+                      :lastBuildStatus => latest_build.failed? ? "Failure" : "Success",
+                      :lastBuildLabel  => latest_build.commit.short_sha,
+                      :lastBuildTime   => latest_build.created_at.xmlschema,
+                      :activity        => latest_build.finished? ? "Sleeping" : "Building",
+                      :webUrl          => project_branch_builds_url(branch.project.permalink, branch.name))
         end
-      }
+      end
     end.to_xml
     render :xml => projects_xml
   end

@@ -25,10 +25,11 @@ Feature: Projects
   Scenario: Getting the feed back
     Given I am on the projects xml
     Then the returned feed should contain the following projects
-      | Doc Jockey: Web App (master) |
+      | construct-success (1.2.3)    |
       | construct-success (master)   |
       | construct-success (win)      |
-      | construct-success (1.2.3)    |
+      | Doc Jockey: Web App (master) |
+
   
   Scenario: Delete a project
     Given I follow "Doc Jockey: Web App"
