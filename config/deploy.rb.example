@@ -214,26 +214,8 @@ task :start_build_worker, :roles => :web do
 end
   
 def construct_config
-  %Q{
-    development: &STANDARD
-      build_directory: /data/builds
-      # You can uncomment these to enable HTTP Basic Auth.
-      user: construct
-      password: i5b62w2u
-      # email_notifications:
-      #   to: test@example.com
-
-    test: &TEST
-      build_directory: <%= RAILS_ROOT %>/tmp/spec/builds
-      email_notifications:
-        to: "test@example.com"
-        from: "ci@example.com"
-
-    cucumber:
-      <<: *TEST
-
-    production:
-      <<: *STANDARD
-  }
-  
+  config = YAML.load(File.open("config/construct.yml"))
+  config["production"]["user"]     = "username"
+  config["production"]["password"] = "password"
+  return YAML.dump(config)
 end
