@@ -2,7 +2,7 @@
   #build_header
     %h2
       = "Build # #{build.number} - #{build.commit.short_sha} - #{build.report}"
-      
+
     - form_for build.branch, :url => build_latest_project_branch_path(@project, build.branch), :html => { :method => :post } do |f|
       %p.submit
         %button{ :title => "Fetch and Build Latest", :type => "submit" } Build Latest
@@ -10,7 +10,7 @@
     - form_for build, :url => rebuild_project_build_path(@project, build) do |f|
       %p.submit
         %button{ :title => "Rebuild this commit", :type => "submit" } Rebuild
-        
+
     %blockquote
       %p= simple_format(build.commit.message)
       %br
@@ -23,7 +23,7 @@
   %h3
     Build output
   %pre#build_output.output
-    = color_format(build.run_output)
+    = color_format(h(build.run_output))
   %script
     var objDiv = document.getElementById("build_output");
     objDiv.scrollTop = objDiv.scrollHeight;
@@ -31,7 +31,7 @@
     %h3
       Build errors
     %pre#build_errors.output
-      = color_format(build.run_errors)
+      = color_format(h(build.run_errors))
     :javascript
       var objDiv = document.getElementById("build_errors");
       objDiv.scrollTop = objDiv.scrollHeight;

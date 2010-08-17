@@ -30,4 +30,6 @@ config.action_mailer.delivery_method = :test
 config.gem 'machinist'
 config.gem 'faker'
 config.gem 'nokogiri'
-config.gem 'email_spec'
+config.gem "rspec", :lib => "spec", :version => "1.3.0"
+config.gem "rspec-rails", :lib => false, :version => "1.3.2"
+config.gem 'email_spec', :version => "0.6.3"
